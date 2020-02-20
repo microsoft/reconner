@@ -13,7 +13,7 @@
         <meta name="description" content="Debug annotated Named Entity Recognition (NER) data for inconsitencies and get insights on improving the quality of your data.">
       
       
-        <link rel="canonical" href="https://kabirkhan.github.io/reconner/contributing/">
+        <link rel="canonical" href="https://kabirkhan.github.io/reconner/tutorial/loading_data/">
       
       
       
@@ -35,18 +35,18 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../img/favicon.png">
+      <link rel="shortcut icon" href="../../img/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
     
     
       
-        <title>Development - Contributing - ReconNER</title>
+        <title>Loading your data - ReconNER</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
       
       
         
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -64,12 +64,12 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../css/termynal.css">
+      <link rel="stylesheet" href="../../css/termynal.css">
     
-      <link rel="stylesheet" href="../css/custom.css">
+      <link rel="stylesheet" href="../../css/custom.css">
     
     
       
@@ -93,7 +93,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#contributing" tabindex="0" class="md-skip">
+      <a href="#loading-your-data" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -104,7 +104,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="https://kabirkhan.github.io/reconner/" title="ReconNER" aria-label="ReconNER" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../img/icon-white.svg" width="24" height="24">
+            <img alt="logo" src="../../img/icon-white.svg" width="24" height="24">
           
         </a>
       </div>
@@ -119,7 +119,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Development - Contributing
+                Loading your data
               
             </span>
           
@@ -196,7 +196,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="https://kabirkhan.github.io/reconner/" title="ReconNER" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../img/icon-white.svg" width="48" height="48">
+        <img alt="logo" src="../../img/icon-white.svg" width="48" height="48">
       
     </a>
     ReconNER
@@ -230,7 +230,7 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Introduction" class="md-nav__link">
+    <a href="../.." title="Introduction" class="md-nav__link">
       Introduction
     </a>
   </li>
@@ -240,10 +240,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Tutorial
@@ -259,11 +261,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../tutorial/loading_data/" title="Loading your data" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Loading your data" class="md-nav__link md-nav__link--active">
       Loading your data
     </a>
+    
   </li>
 
         
@@ -273,7 +284,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tutorial/validation/" title="Validation" class="md-nav__link">
+    <a href="../validation/" title="Validation" class="md-nav__link">
       Validation
     </a>
   </li>
@@ -285,7 +296,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tutorial/validation/" title="Custom EntityRecognizer" class="md-nav__link">
+    <a href="../validation/" title="Custom EntityRecognizer" class="md-nav__link">
       Custom EntityRecognizer
     </a>
   </li>
@@ -321,7 +332,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/dataset/" title="Dataset" class="md-nav__link">
+    <a href="../../api/dataset/" title="Dataset" class="md-nav__link">
       Dataset
     </a>
   </li>
@@ -333,7 +344,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/insights/" title="Insights" class="md-nav__link">
+    <a href="../../api/insights/" title="Insights" class="md-nav__link">
       Insights
     </a>
   </li>
@@ -345,7 +356,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/stats/" title="Stats" class="md-nav__link">
+    <a href="../../api/stats/" title="Stats" class="md-nav__link">
       Stats
     </a>
   </li>
@@ -357,7 +368,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/validation/" title="Validation" class="md-nav__link">
+    <a href="../../api/validation/" title="Validation" class="md-nav__link">
       Validation
     </a>
   </li>
@@ -372,20 +383,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="Development - Contributing" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../contributing/" title="Development - Contributing" class="md-nav__link">
       Development - Contributing
     </a>
-    
   </li>
 
     
@@ -395,7 +397,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../release-notes/" title="Release Notes" class="md-nav__link">
+    <a href="../../release-notes/" title="Release Notes" class="md-nav__link">
       Release Notes
     </a>
   </li>
@@ -428,19 +430,10 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/kabirkhan/reconner/contributing.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/kabirkhan/reconner/tutorial/loading_data.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h1>
-<p>This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.</p>
-<p>When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.</p>
-<p>This project has adopted the <a href="https://opensource.microsoft.com/codeofconduct/">Microsoft Open Source Code of Conduct</a>.
-For more information see the <a href="https://opensource.microsoft.com/codeofconduct/faq/">Code of Conduct FAQ</a> or
-contact <a href="mailto:opencode@microsoft.com">opencode@microsoft.com</a> with any additional questions or comments.</p>
+                <h1 id="loading-your-data">Loading your data<a class="headerlink" href="#loading-your-data" title="Permanent link">&para;</a></h1>
                 
                   
                 
@@ -462,7 +455,7 @@ contact <a href="mailto:opencode@microsoft.com">opencode@microsoft.com</a> with 
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../api/validation/" title="Validation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../.." title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -471,19 +464,19 @@ contact <a href="mailto:opencode@microsoft.com">opencode@microsoft.com</a> with 
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Validation
+                Introduction
               </span>
             </div>
           </a>
         
         
-          <a href="../release-notes/" title="Release Notes" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../validation/" title="Validation" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Release Notes
+                Validation
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -506,7 +499,7 @@ contact <a href="mailto:opencode@microsoft.com">opencode@microsoft.com</a> with 
       </div>
       
   <div class="md-footer-social">
-    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
     
       <a href="https://github.com/kabirkhan/reconner" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
     
@@ -520,13 +513,13 @@ contact <a href="mailto:opencode@microsoft.com">opencode@microsoft.com</a> with 
       
     </div>
     
-      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../js/termynal.js"></script>
+        <script src="../../js/termynal.js"></script>
       
-        <script src="../js/custom.js"></script>
+        <script src="../../js/custom.js"></script>
       
     
   </body>
