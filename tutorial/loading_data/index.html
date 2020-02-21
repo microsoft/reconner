@@ -13,7 +13,7 @@
         <meta name="description" content="Debug annotated Named Entity Recognition (NER) data for inconsitencies and get insights on improving the quality of your data.">
       
       
-        <link rel="canonical" href="https://kabirkhan.github.io/reconner/tutorial/loading_data/">
+        <link rel="canonical" href="https://microsoft.github.io/reconner/tutorial/loading_data/">
       
       
       
@@ -35,7 +35,7 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../../img/favicon.png">
+      <link rel="shortcut icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
     
     
@@ -102,7 +102,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://kabirkhan.github.io/reconner/" title="ReconNER" aria-label="ReconNER" class="md-header-nav__button md-logo">
+        <a href="https://microsoft.github.io/reconner/" title="ReconNER" aria-label="ReconNER" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../../img/icon-white.svg" width="24" height="24">
           
@@ -161,7 +161,7 @@
 
   
 
-<a href="https://github.com/kabirkhan/reconner/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/microsoft/reconner/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -170,7 +170,7 @@
     </div>
   
   <div class="md-source__repository">
-    kabirkhan/reconner
+    microsoft/reconner
   </div>
 </a>
           </div>
@@ -194,7 +194,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://kabirkhan.github.io/reconner/" title="ReconNER" class="md-nav__button md-logo">
+    <a href="https://microsoft.github.io/reconner/" title="ReconNER" class="md-nav__button md-logo">
       
         <img alt="logo" src="../../img/icon-white.svg" width="48" height="48">
       
@@ -208,7 +208,7 @@
 
   
 
-<a href="https://github.com/kabirkhan/reconner/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/microsoft/reconner/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -217,7 +217,7 @@
     </div>
   
   <div class="md-source__repository">
-    kabirkhan/reconner
+    microsoft/reconner
   </div>
 </a>
     </div>
@@ -271,9 +271,86 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Loading your data
+      </label>
+    
     <a href="./" title="Loading your data" class="md-nav__link md-nav__link--active">
       Loading your data
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#load-dataset-from_disk" class="md-nav__link">
+    Load Dataset from_disk
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-process-of-loading-data" class="md-nav__link">
+    The Process of Loading Data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-read-data-from-disk" class="md-nav__link">
+    1. Read data from disk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fix-annotation-format" class="md-nav__link">
+    2. Fix Annotation Format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-filter-overlapping-entities" class="md-nav__link">
+    3. Filter Overlapping Entities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-load-into-reconner-type-system" class="md-nav__link">
+    4. Load into ReconNER type system
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -284,8 +361,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../validation/" title="Validation" class="md-nav__link">
-      Validation
+    <a href="../ner_stats/" title="NER Stats" class="md-nav__link">
+      NER Stats
     </a>
   </li>
 
@@ -296,7 +373,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../validation/" title="Custom EntityRecognizer" class="md-nav__link">
+    <a href="../custom_entity_recognizer/" title="Custom EntityRecognizer" class="md-nav__link">
       Custom EntityRecognizer
     </a>
   </li>
@@ -420,6 +497,70 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#load-dataset-from_disk" class="md-nav__link">
+    Load Dataset from_disk
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-process-of-loading-data" class="md-nav__link">
+    The Process of Loading Data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-read-data-from-disk" class="md-nav__link">
+    1. Read data from disk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fix-annotation-format" class="md-nav__link">
+    2. Fix Annotation Format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-filter-overlapping-entities" class="md-nav__link">
+    3. Filter Overlapping Entities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-load-into-reconner-type-system" class="md-nav__link">
+    4. Load into ReconNER type system
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -430,10 +571,53 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/kabirkhan/reconner/tutorial/loading_data.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/microsoft/reconner/tutorial/loading_data.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="loading-your-data">Loading your data<a class="headerlink" href="#loading-your-data" title="Permanent link">&para;</a></h1>
+<p>ReconNER expects your data to be in the <a href="https://prodi.gy/docs/api-interfaces#ner">Prodigy Annotation Format</a>.</p>
+<p>A single example in this format looks like:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Apple updates its analytics service with new metrics&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;spans&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;ORG&quot;</span> <span class="p">}]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>ReconNER expects your data to be in a collection in the <code>.jsonl</code> File Format.</p>
+<h2 id="load-dataset-from_disk">Load Dataset from_disk<a class="headerlink" href="#load-dataset-from_disk" title="Permanent link">&para;</a></h2>
+<p>There are several utilities available for loading your data.</p>
+<p>The easiest way to load your data is to initialize a <a href="../../api/dataset/">Dataset</a> from disk.
+If you have a train/dev/test split or just train/dev files in the same directory, it's as easy as calling the <code>from_disk</code> <code>classmethod</code> for the <code>Dataset</code> object.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="o">.</span><span class="n">from_disk</span><span class="p">(</span><span class="s1">&#39;path/to/data_dir&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><code>Dataset.from_disk</code> will look in the <code>data_dir</code> you provide for a file structure that looks like:</p>
+<div class="codehilite"><pre><span></span><code>data_dir
+│   train.jsonl
+│   dev.jsonl
+│   test.jsonl
+</code></pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The test.jsonl file is <strong>optional</strong> but generally you should split your annotated data into train/dev/test files.</p>
+</div>
+<h2 id="the-process-of-loading-data">The Process of Loading Data<a class="headerlink" href="#the-process-of-loading-data" title="Permanent link">&para;</a></h2>
+<p>While it's recommended to load data using the <code>Dataset.from_disk</code> method, you can also load data directly from disk using the <code>loaders.read_jsonl</code> and <code>loaders.read_json</code> functions.</p>
+<p>These functions expect the same example format (in fact, the <code>Dataset.from_disk</code> runs <code>loaders.read_jsonl</code> function) and run a few steps.</p>
+<h3 id="1-read-data-from-disk">1. Read data from disk<a class="headerlink" href="#1-read-data-from-disk" title="Permanent link">&para;</a></h3>
+<p>Loads your data with <a href="https://github.com/explosion/srsly" class="external-link" target="_blank">srsly</a> using <code>srsly.read_jsonl</code> or <code>srsly.read_json</code></p>
+<h3 id="2-fix-annotation-format">2. Fix Annotation Format<a class="headerlink" href="#2-fix-annotation-format" title="Permanent link">&para;</a></h3>
+<p>Fixes some common issues in Annotation formatting that can arise using the <a href="../../api/validation/#fix_annotations_format"><code>validation.fix_annotations_format</code></a></p>
+<h3 id="3-filter-overlapping-entities">3. Filter Overlapping Entities<a class="headerlink" href="#3-filter-overlapping-entities" title="Permanent link">&para;</a></h3>
+<p>Often, you'll find your data has overlapping entities. For instance, imagine you have 2 annotators and one decided "Tesla" is a <code>PRODUCT</code> and the other noticed that the sentence is actually about "Tesla Motors" which they label as an <code>ORG</code>. This function does it's best to resolve these overlaps and in the case above would select "Tesla Motors" <code>ORG</code> as the correct entity, deleting "Tesla" <code>PRODUCT</code> from the data <a href="../../api/validation/#filter_overlaps"><code>validation.filter_overlaps</code></a></p>
+<h3 id="4-load-into-reconner-type-system">4. Load into ReconNER type system<a class="headerlink" href="#4-load-into-reconner-type-system" title="Permanent link">&para;</a></h3>
+<p>Finally these loaders will take a list of JSON examples in the Prodigy Annotation Format outlined above and convert it into a list of <code>Example</code> models using <a href="https://pydantic-docs.helpmanual.io/" class="external-link" target="_blank">Pydantic</a></p>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p>Once you have your data loaded, you can run other ReconNER functions on top of it to gain insights into the quality and completeness of your NER data</p>
                 
                   
                 
@@ -470,13 +654,13 @@
           </a>
         
         
-          <a href="../validation/" title="Validation" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ner_stats/" title="NER Stats" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Validation
+                NER Stats
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -501,7 +685,7 @@
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/kabirkhan/reconner" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/microsoft/reconner" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
     
       <a href="https://twitter.com/kabir_khan14" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
     

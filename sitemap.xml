@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>https://kabirkhan.github.io/reconner/</loc>
+     <loc>https://microsoft.github.io/reconner/</loc>
      <lastmod>2020-02-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://kabirkhan.github.io/reconner/tutorial/loading_data/</loc>
+     <loc>https://microsoft.github.io/reconner/tutorial/loading_data/</loc>
      <lastmod>2020-02-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://kabirkhan.github.io/reconner/tutorial/validation/</loc>
+     <loc>https://microsoft.github.io/reconner/tutorial/ner_stats/</loc>
      <lastmod>2020-02-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://kabirkhan.github.io/reconner/tutorial/validation/</loc>
+     <loc>https://microsoft.github.io/reconner/tutorial/custom_entity_recognizer/</loc>
      <lastmod>2020-02-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://kabirkhan.github.io/reconner/api/dataset/</loc>
+     <loc>https://microsoft.github.io/reconner/api/dataset/</loc>
      <lastmod>2020-02-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://kabirkhan.github.io/reconner/api/insights/</loc>
+     <loc>https://microsoft.github.io/reconner/api/insights/</loc>
      <lastmod>2020-02-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://kabirkhan.github.io/reconner/api/stats/</loc>
+     <loc>https://microsoft.github.io/reconner/api/stats/</loc>
      <lastmod>2020-02-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://kabirkhan.github.io/reconner/api/validation/</loc>
+     <loc>https://microsoft.github.io/reconner/api/validation/</loc>
      <lastmod>2020-02-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://kabirkhan.github.io/reconner/contributing/</loc>
+     <loc>https://microsoft.github.io/reconner/contributing/</loc>
      <lastmod>2020-02-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://kabirkhan.github.io/reconner/release-notes/</loc>
+     <loc>https://microsoft.github.io/reconner/release-notes/</loc>
      <lastmod>2020-02-20</lastmod>
      <changefreq>daily</changefreq>
     </url>

@@ -13,7 +13,7 @@
         <meta name="description" content="Debug annotated Named Entity Recognition (NER) data for inconsitencies and get insights on improving the quality of your data.">
       
       
-        <link rel="canonical" href="https://kabirkhan.github.io/reconner/tutorial/validation/">
+        <link rel="canonical" href="https://microsoft.github.io/reconner/tutorial/ner_stats/">
       
       
       
@@ -35,12 +35,12 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../../img/favicon.png">
+      <link rel="shortcut icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
     
     
       
-        <title>Custom EntityRecognizer - ReconNER</title>
+        <title>NER Stats - ReconNER</title>
       
     
     
@@ -93,7 +93,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#validation" tabindex="0" class="md-skip">
+      <a href="#tutorial-ner-statistics" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -102,7 +102,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://kabirkhan.github.io/reconner/" title="ReconNER" aria-label="ReconNER" class="md-header-nav__button md-logo">
+        <a href="https://microsoft.github.io/reconner/" title="ReconNER" aria-label="ReconNER" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../../img/icon-white.svg" width="24" height="24">
           
@@ -119,7 +119,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Custom EntityRecognizer
+                NER Stats
               
             </span>
           
@@ -161,7 +161,7 @@
 
   
 
-<a href="https://github.com/kabirkhan/reconner/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/microsoft/reconner/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -170,7 +170,7 @@
     </div>
   
   <div class="md-source__repository">
-    kabirkhan/reconner
+    microsoft/reconner
   </div>
 </a>
           </div>
@@ -194,7 +194,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://kabirkhan.github.io/reconner/" title="ReconNER" class="md-nav__button md-logo">
+    <a href="https://microsoft.github.io/reconner/" title="ReconNER" class="md-nav__button md-logo">
       
         <img alt="logo" src="../../img/icon-white.svg" width="48" height="48">
       
@@ -208,7 +208,7 @@
 
   
 
-<a href="https://github.com/kabirkhan/reconner/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/microsoft/reconner/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -217,7 +217,7 @@
     </div>
   
   <div class="md-source__repository">
-    kabirkhan/reconner
+    microsoft/reconner
   </div>
 </a>
     </div>
@@ -273,18 +273,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="./" title="Validation" class="md-nav__link">
-      Validation
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -295,10 +283,22 @@
       
     
     
-    <a href="./" title="Custom EntityRecognizer" class="md-nav__link md-nav__link--active">
-      Custom EntityRecognizer
+    <a href="./" title="NER Stats" class="md-nav__link md-nav__link--active">
+      NER Stats
     </a>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../custom_entity_recognizer/" title="Custom EntityRecognizer" class="md-nav__link">
+      Custom EntityRecognizer
+    </a>
   </li>
 
         
@@ -430,10 +430,12 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/kabirkhan/reconner/tutorial/validation.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/microsoft/reconner/tutorial/ner_stats.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h1>
+                <h1 id="tutorial-ner-statistics">Tutorial - NER Statistics<a class="headerlink" href="#tutorial-ner-statistics" title="Permanent link">&para;</a></h1>
+<p>Getting statistics about your NER data is extremely helpful throughout the annotation process. It helps you ensure that you're spendind time on the right annotations and that you have enough examples for each type as well as enough examples with <strong>NO ENTITIES</strong> at all (this is often overlooked but <strong>VERY</strong> important to build a model that generalizes well).</p>
+<p>Once you have your data loaded either by itself as a list of <code>Example</code>s or as a <code>Dataset</code> you can easily get statistics using the <a href="../../api/stats#ner_stats"><code>stats.ner_stats</code></a> funtion</p>
                 
                   
                 
@@ -455,7 +457,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="./" title="Validation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../loading_data/" title="Loading your data" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -464,19 +466,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Validation
+                Loading your data
               </span>
             </div>
           </a>
         
         
-          <a href="../../api/dataset/" title="Dataset" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../custom_entity_recognizer/" title="Custom EntityRecognizer" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Dataset
+                Custom EntityRecognizer
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -501,7 +503,7 @@
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/kabirkhan/reconner" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/microsoft/reconner" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
     
       <a href="https://twitter.com/kabir_khan14" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
     

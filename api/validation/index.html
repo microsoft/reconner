@@ -13,7 +13,7 @@
         <meta name="description" content="Debug annotated Named Entity Recognition (NER) data for inconsitencies and get insights on improving the quality of your data.">
       
       
-        <link rel="canonical" href="https://kabirkhan.github.io/reconner/api/validation/">
+        <link rel="canonical" href="https://microsoft.github.io/reconner/api/validation/">
       
       
       
@@ -35,7 +35,7 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../../img/favicon.png">
+      <link rel="shortcut icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
     
     
@@ -102,7 +102,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://kabirkhan.github.io/reconner/" title="ReconNER" aria-label="ReconNER" class="md-header-nav__button md-logo">
+        <a href="https://microsoft.github.io/reconner/" title="ReconNER" aria-label="ReconNER" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../../img/icon-white.svg" width="24" height="24">
           
@@ -161,7 +161,7 @@
 
   
 
-<a href="https://github.com/kabirkhan/reconner/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/microsoft/reconner/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -170,7 +170,7 @@
     </div>
   
   <div class="md-source__repository">
-    kabirkhan/reconner
+    microsoft/reconner
   </div>
 </a>
           </div>
@@ -194,7 +194,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://kabirkhan.github.io/reconner/" title="ReconNER" class="md-nav__button md-logo">
+    <a href="https://microsoft.github.io/reconner/" title="ReconNER" class="md-nav__button md-logo">
       
         <img alt="logo" src="../../img/icon-white.svg" width="48" height="48">
       
@@ -208,7 +208,7 @@
 
   
 
-<a href="https://github.com/kabirkhan/reconner/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/microsoft/reconner/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -217,7 +217,7 @@
     </div>
   
   <div class="md-source__repository">
-    kabirkhan/reconner
+    microsoft/reconner
   </div>
 </a>
     </div>
@@ -273,8 +273,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/validation/" title="Validation" class="md-nav__link">
-      Validation
+    <a href="../../tutorial/ner_stats/" title="NER Stats" class="md-nav__link">
+      NER Stats
     </a>
   </li>
 
@@ -285,7 +285,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/validation/" title="Custom EntityRecognizer" class="md-nav__link">
+    <a href="../../tutorial/custom_entity_recognizer/" title="Custom EntityRecognizer" class="md-nav__link">
       Custom EntityRecognizer
     </a>
   </li>
@@ -390,6 +390,33 @@
     API
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json_to_examples" class="md-nav__link">
+    json_to_examples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix_annotations_format" class="md-nav__link">
+    fix_annotations_format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter_overlaps" class="md-nav__link">
+    filter_overlaps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -457,6 +484,33 @@
     API
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json_to_examples" class="md-nav__link">
+    json_to_examples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix_annotations_format" class="md-nav__link">
+    fix_annotations_format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter_overlaps" class="md-nav__link">
+    filter_overlaps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -475,7 +529,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/kabirkhan/reconner/api/validation.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/microsoft/reconner/api/validation.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="reconnervalidation"><code>reconner.validation</code><a class="headerlink" href="#reconnervalidation" title="Permanent link">&para;</a></h1>
@@ -483,6 +537,7 @@
 These functions are useful to run before any of the functionality in <code>reconner.insights</code> or <code>reconner.stats</code>.</p>
 <hr />
 <h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<h3 id="json_to_examples"><strong><code>json_to_examples</code></strong><a class="headerlink" href="#json_to_examples" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
 <div class="autodoc-signature"><code>reconner.validation.<strong>json_to_examples</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">data</em><span class="autodoc-punctuation">)</span></div>
 <div class="autodoc-docstring"><p>Convert List of Dicts to List of typed Examples</p>
@@ -499,6 +554,7 @@ These functions are useful to run before any of the functionality in <code>recon
 <div class="codehilite"><pre><span></span><code><span class="err">List of typed Examples</span>
 </code></pre></div></div>
 </div>
+<h3 id="fix_annotations_format"><strong><code>fix_annotations_format</code></strong><a class="headerlink" href="#fix_annotations_format" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
 <div class="autodoc-signature"><code>reconner.validation.<strong>fix_annotations_format</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">data</em><span class="autodoc-punctuation">)</span></div>
 <div class="autodoc-docstring"><p>Fix annotations format for a consistent dataset</p>
@@ -515,6 +571,7 @@ These functions are useful to run before any of the functionality in <code>recon
 <div class="codehilite"><pre><span></span><code><span class="err">List of Examples with corrected formatting</span>
 </code></pre></div></div>
 </div>
+<h3 id="filter_overlaps"><strong><code>filter_overlaps</code></strong><a class="headerlink" href="#filter_overlaps" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
 <div class="autodoc-signature"><code>reconner.validation.<strong>filter_overlaps</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">data</em><span class="autodoc-punctuation">)</span></div>
 <div class="autodoc-docstring"><p>Filter overlapping entity spans by picking the longest one.</p>
@@ -598,7 +655,7 @@ These functions are useful to run before any of the functionality in <code>recon
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/kabirkhan/reconner" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/microsoft/reconner" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
     
       <a href="https://twitter.com/kabir_khan14" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
     
