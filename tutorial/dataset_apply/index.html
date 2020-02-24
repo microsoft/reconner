@@ -13,7 +13,7 @@
         <meta name="description" content="Debug annotated Named Entity Recognition (NER) data for inconsitencies and get insights on improving the quality of your data.">
       
       
-        <link rel="canonical" href="https://microsoft.github.io/reconner/tutorial/custom_entity_recognizer/">
+        <link rel="canonical" href="https://microsoft.github.io/reconner/tutorial/dataset_apply/">
       
       
       
@@ -40,7 +40,7 @@
     
     
       
-        <title>Custom EntityRecognizer - ReconNER</title>
+        <title>Dataset Apply - ReconNER</title>
       
     
     
@@ -93,7 +93,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#custom-entityrecognizer" tabindex="0" class="md-skip">
+      <a href="#tutorial-using-datasetapply" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -119,7 +119,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Custom EntityRecognizer
+                Dataset Apply
               
             </span>
           
@@ -285,11 +285,97 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../dataset_apply/" title="Dataset Apply" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Dataset Apply
+      </label>
+    
+    <a href="./" title="Dataset Apply" class="md-nav__link md-nav__link--active">
       Dataset Apply
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#update-script-to-use-datasetapply" class="md-nav__link">
+    Update script to use Dataset.apply
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-application" class="md-nav__link">
+    Run the application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analyzing-the-results" class="md-nav__link">
+    Analyzing the results
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-not-enough-job_role-annotations" class="md-nav__link">
+    1. Not enough JOB_ROLE annotations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-barely-enough-product-annotations" class="md-nav__link">
+    2. Barely enough PRODUCT annotations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-do-from-here" class="md-nav__link">
+    What to do from here
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -309,20 +395,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="Custom EntityRecognizer" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../custom_entity_recognizer/" title="Custom EntityRecognizer" class="md-nav__link">
       Custom EntityRecognizer
     </a>
-    
   </li>
 
         
@@ -444,6 +521,70 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#update-script-to-use-datasetapply" class="md-nav__link">
+    Update script to use Dataset.apply
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-application" class="md-nav__link">
+    Run the application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analyzing-the-results" class="md-nav__link">
+    Analyzing the results
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-not-enough-job_role-annotations" class="md-nav__link">
+    1. Not enough JOB_ROLE annotations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-barely-enough-product-annotations" class="md-nav__link">
+    2. Barely enough PRODUCT annotations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-do-from-here" class="md-nav__link">
+    What to do from here
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -454,10 +595,112 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/microsoft/reconner/tree/master/docs/tutorial/custom_entity_recognizer.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/microsoft/reconner/tree/master/docs/tutorial/dataset_apply.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="custom-entityrecognizer">Custom EntityRecognizer<a class="headerlink" href="#custom-entityrecognizer" title="Permanent link">&para;</a></h1>
+                <h1 id="tutorial-using-datasetapply">Tutorial - Using <code>Dataset.apply</code><a class="headerlink" href="#tutorial-using-datasetapply" title="Permanent link">&para;</a></h1>
+<p>In the previous step, we used the <code>stats.ner_stats</code> function to some stats on our train_data. Now, we want to be able to get these same stats across our train/dev/test split. </p>
+<p>SO, ReconNER's <code>Dataset</code> class provides a useful method called <a href="../../api/dataset"><code>apply</code></a>
+that takes a <code>Callable</code> as a parameter that can run on a list of <code>Example</code>s (e.g. <code>stats.ner_stats</code>)
+and run that <code>Callable</code> over all the datasets as well as a concatenation of all the datasets so you get the full picture. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can pass arbitary <code>*args</code> and <code>**kwargs</code> to <code>Dataset.apply</code> and they will be passed along to the callable you provide as the required argument.</p>
+</div>
+<h2 id="update-script-to-use-datasetapply">Update script to use <code>Dataset.apply</code><a class="headerlink" href="#update-script-to-use-datasetapply" title="Permanent link">&para;</a></h2>
+<p>Let's edit that <code>main.py</code> file you created in the previous step to utilize the <code>Dataset.apply</code> method.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">srsly</span>
+<span class="kn">import</span> <span class="nn">typer</span>
+<span class="kn">from</span> <span class="nn">reconner.dataset</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">reconner.stats</span> <span class="kn">import</span> <span class="n">ner_stats</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">data_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="o">.</span><span class="n">from_disk</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+<span class="hll">    <span class="n">ds_stats</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">ner_stats</span><span class="p">,</span> <span class="n">serialize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">no_print</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span>    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">stats</span> <span class="ow">in</span> <span class="n">ds_stats</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">typer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h2 id="run-the-application">Run the application<a class="headerlink" href="#run-the-application" title="Permanent link">&para;</a></h2>
+<p>Now, if you run your script you should get the following output:</p>
+<div class="termy">
+
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> python main.py ./examples/data
+<span class="go">train</span>
+<span class="go">==================================================</span>
+<span class="go">{</span>
+<span class="go">    &quot;n_examples&quot;:102,</span>
+<span class="go">    &quot;n_examples_no_entities&quot;:29,</span>
+<span class="go">    &quot;ents_per_type&quot;:{</span>
+<span class="go">        &quot;SKILL&quot;:191,</span>
+<span class="go">        &quot;PRODUCT&quot;:34,</span>
+<span class="go">        &quot;JOB_ROLE&quot;:5</span>
+<span class="go">    }</span>
+<span class="go">}</span>
+<span class="go">dev</span>
+<span class="go">==================================================</span>
+<span class="go">{</span>
+<span class="go">    &quot;n_examples&quot;:110,</span>
+<span class="go">    &quot;n_examples_no_entities&quot;:49,</span>
+<span class="go">    &quot;ents_per_type&quot;:{</span>
+<span class="go">        &quot;SKILL&quot;:159,</span>
+<span class="go">        &quot;PRODUCT&quot;:20,</span>
+<span class="go">        &quot;JOB_ROLE&quot;:1</span>
+<span class="go">    }</span>
+<span class="go">}</span>
+<span class="go">test</span>
+<span class="go">==================================================</span>
+<span class="go">{</span>
+<span class="go">    &quot;n_examples&quot;:96,</span>
+<span class="go">    &quot;n_examples_no_entities&quot;:38,</span>
+<span class="go">    &quot;ents_per_type&quot;:{</span>
+<span class="go">        &quot;PRODUCT&quot;:35,</span>
+<span class="go">        &quot;SKILL&quot;:107,</span>
+<span class="go">        &quot;JOB_ROLE&quot;:2</span>
+<span class="go">    }</span>
+<span class="go">}</span>
+<span class="go">all</span>
+<span class="go">==================================================</span>
+<span class="go">{</span>
+<span class="go">    &quot;n_examples&quot;:308,</span>
+<span class="go">    &quot;n_examples_no_entities&quot;:116,</span>
+<span class="go">    &quot;ents_per_type&quot;:{</span>
+<span class="go">        &quot;SKILL&quot;:457,</span>
+<span class="go">        &quot;PRODUCT&quot;:89,</span>
+<span class="go">        &quot;JOB_ROLE&quot;:8</span>
+<span class="go">    }</span>
+<span class="go">}</span>
+</code></pre></div>
+
+
+
+</div>
+
+<h2 id="analyzing-the-results">Analyzing the results<a class="headerlink" href="#analyzing-the-results" title="Permanent link">&para;</a></h2>
+<p>Now that we have a good understanding of the distribution of labels in across our train/dev/test split as well as the summation of all those numbers to the "all" data, we can start to see some issues. </p>
+<h3 id="1-not-enough-job_role-annotations">1. Not enough <code>JOB_ROLE</code> annotations<a class="headerlink" href="#1-not-enough-job_role-annotations" title="Permanent link">&para;</a></h3>
+<p>We clearly don't have enough annotations of the <code>JOB_ROLE</code> in our data. There's no way an NER model could learn to capture <code>JOB_ROLE</code> in a generic way with only 8 total annotations.</p>
+<h3 id="2-barely-enough-product-annotations">2. Barely enough <code>PRODUCT</code> annotations<a class="headerlink" href="#2-barely-enough-product-annotations" title="Permanent link">&para;</a></h3>
+<p>We're also a little low (though not nearly as much) on our <code>PRODUCT</code> label. </p>
+<h3 id="what-to-do-from-here">What to do from here<a class="headerlink" href="#what-to-do-from-here" title="Permanent link">&para;</a></h3>
+<p>We want our final model to be equally good at extracting these 3 labels of <code>SKILL</code>, <code>PRODUCT</code> and <code>JOB_ROLE</code> so we now know exactly where to invest more time in our annotations effort: getting more examples of <code>JOB_ROLE</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a VERY small dataset sampled from a much larger NER dataset that's powering part of our work on the new <a href="https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/">v3 Text Analytics Cognitive Service</a>. So here's your glimpse into how we work with data at Microsoft. Until we fix the lack of annotations for the <code>JOB_ROLE</code> label we won't be launching it in production.</p>
+</div>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p>We've only scratched the surface of ReconNER. It's great to have these global stats about our dataset so we can track trends and make sure we're trending in the right direction as we annotate more data. But this data doesn't debug the data we already have. 34 of our 191 <code>SKILL</code> annotations in our <code>train</code> set might actually be instances where <code>JOB_ROLE</code> or <code>PRODUCT</code> is more appropriate.</p>
+<p>We might have subsets of our data annotated by different people that had a slightly different understanding of the annotation requirements.</p>
+<p>In the next step of this tutorial we'll dive into the <code>insights</code> module of ReconNER to examine the quality of our existing annotations.</p>
                 
                   
                 
@@ -479,7 +722,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../getting_insights/" title="Getting Insights" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ner_stats/" title="NER Stats" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -488,19 +731,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Getting Insights
+                NER Stats
               </span>
             </div>
           </a>
         
         
-          <a href="../../api/dataset/" title="Dataset" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../getting_insights/" title="Getting Insights" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Dataset
+                Getting Insights
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

@@ -283,10 +283,70 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        NER Stats
+      </label>
+    
     <a href="./" title="NER Stats" class="md-nav__link md-nav__link--active">
       NER Stats
     </a>
     
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dataset_apply/" title="Dataset Apply" class="md-nav__link">
+      Dataset Apply
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../getting_insights/" title="Getting Insights" class="md-nav__link">
+      Getting Insights
+    </a>
   </li>
 
         
@@ -420,6 +480,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -430,12 +513,65 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/microsoft/reconner/tutorial/ner_stats.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/microsoft/reconner/tree/master/docs/tutorial/ner_stats.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="tutorial-ner-statistics">Tutorial - NER Statistics<a class="headerlink" href="#tutorial-ner-statistics" title="Permanent link">&para;</a></h1>
 <p>Getting statistics about your NER data is extremely helpful throughout the annotation process. It helps you ensure that you're spendind time on the right annotations and that you have enough examples for each type as well as enough examples with <strong>NO ENTITIES</strong> at all (this is often overlooked but <strong>VERY</strong> important to build a model that generalizes well).</p>
-<p>Once you have your data loaded either by itself as a list of <code>Example</code>s or as a <code>Dataset</code> you can easily get statistics using the <a href="../../api/stats#ner_stats"><code>stats.ner_stats</code></a> funtion</p>
+<p>Once you have your data loaded either by itself as a list of <code>Example</code>s or as a <code>Dataset</code> you can easily get statistics using the <a href="../../api/stats#ner_stats"><code>stats.ner_stats</code></a> function.</p>
+<p>The <code>stats.ner_stats</code> function expects a <code>List[Example]</code> as it's input parameter and will return a serializable response with info about your data. Let's see how this works on the provided example data.</p>
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<p>Fix this, add CLI for example data download</p>
+</div>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
+<p>Create a file main.py with:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">typer</span>
+<span class="kn">from</span> <span class="nn">reconner.dataset</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">reconner.stats</span> <span class="kn">import</span> <span class="n">ner_stats</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">data_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="o">.</span><span class="n">from_disk</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+    <span class="n">train_stats</span> <span class="o">=</span> <span class="n">ner_stats</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">train</span><span class="p">)</span>
+<span class="hll">    <span class="n">ner_stats</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">train</span><span class="p">,</span> <span class="n">serialize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">typer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Run the application with the example data.</p>
+<div class="termy">
+
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> python main.py ./examples/data
+<span class="go">{</span>
+<span class="go">    &quot;n_examples&quot;:102,</span>
+<span class="go">    &quot;n_examples_no_entities&quot;:29,</span>
+<span class="go">    &quot;ents_per_type&quot;:{</span>
+<span class="go">        &quot;SKILL&quot;:191,</span>
+<span class="go">        &quot;PRODUCT&quot;:34,</span>
+<span class="go">        &quot;JOB_ROLE&quot;:5</span>
+<span class="go">    }</span>
+<span class="go">}</span>
+</code></pre></div>
+
+
+
+</div>
+
+<p>But it isn't super helpful to have stats on <strong>just</strong> your training data.
+And it'd be really annoying to have to call the same function on each dataset:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">ner_stats</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">train</span><span class="p">,</span> <span class="n">serialize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ner_stats</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">dev</span><span class="p">,</span> <span class="n">serialize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ner_stats</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">test</span><span class="p">,</span> <span class="n">serialize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p>In the next step step of this tutorial you'll learn about how to remove the above boilerplate and run functions across your train/dev/test Dataset split.</p>
                 
                   
                 
@@ -472,13 +608,13 @@
           </a>
         
         
-          <a href="../custom_entity_recognizer/" title="Custom EntityRecognizer" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../dataset_apply/" title="Dataset Apply" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Custom EntityRecognizer
+                Dataset Apply
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

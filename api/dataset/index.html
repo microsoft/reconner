@@ -285,6 +285,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../../tutorial/dataset_apply/" title="Dataset Apply" class="md-nav__link">
+      Dataset Apply
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorial/getting_insights/" title="Getting Insights" class="md-nav__link">
+      Getting Insights
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../tutorial/custom_entity_recognizer/" title="Custom EntityRecognizer" class="md-nav__link">
       Custom EntityRecognizer
     </a>
@@ -475,7 +499,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/microsoft/reconner/api/dataset.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/microsoft/reconner/tree/master/docs/api/dataset.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="reconnerdatasetdataset"><code>reconner.dataset.Dataset</code><a class="headerlink" href="#reconnerdatasetdataset" title="Permanent link">&para;</a></h1>
@@ -504,6 +528,8 @@ Used to apply core functions to all datasets at once.</p>
 <div class="codehilite"><pre><span></span><code><span class="err">List of Examples for <strong>test</strong> set</span>
 </code></pre></div></div>
 <div class="autodoc-members">
+<div class="autodoc-signature"><code><strong>all</strong></code></div>
+<div class="autodoc-docstring"></div>
 <div class="autodoc-signature"><code><strong>apply</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">self</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">func</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">*args</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">**kwargs</em><span class="autodoc-punctuation">)</span></div>
 <div class="autodoc-docstring"><p>Apply an existing function to all datasets</p>
 <h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
@@ -515,10 +541,12 @@ Used to apply core functions to all datasets at once.</p>
 
 <h3 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h3>
 <hr />
-<p>(Dict[str, List[Example]]):</p>
-<div class="codehilite"><pre><span></span><code><span class="k">Dictionary</span><span class="w"> </span><span class="n">mapping</span><span class="w"> </span><span class="n">dataset</span><span class="w"> </span><span class="k">names</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">List</span><span class="o">[</span><span class="n">Example</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">internal</span><span class="w"> </span><span class="n">datasets</span><span class="w"> </span><span class="n">property</span><span class="w"></span>
+<p>(Dict[str, Any):</p>
+<div class="codehilite"><pre><span></span><code><span class="err">Dictionary mapping dataset names to return type of func Callable</span>
 </code></pre></div></div>
-<div class="autodoc-signature"><code><strong>from_disk</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">path</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">loader_func=<function read_jsonl at 0x7f6d284d41e0></em><span class="autodoc-punctuation">)</span></div>
+<div class="autodoc-signature"><code><strong>dev</strong></code></div>
+<div class="autodoc-docstring"></div>
+<div class="autodoc-signature"><code><strong>from_disk</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">path</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">loader_func=<function read_jsonl at 0x7fe2fbd32378></em><span class="autodoc-punctuation">)</span></div>
 <div class="autodoc-docstring"><p>Load Dataset from disk given a directory with files
 named explicitly train.jsonl, dev.jsonl, and test.jsonl</p>
 <h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
@@ -531,6 +559,10 @@ named explicitly train.jsonl, dev.jsonl, and test.jsonl</p>
 <p><strong>loader_func</strong>: (Callable, optional), Defaults to read_jsonl.</p>
 <div class="codehilite"><pre><span></span><code><span class="err">Loader function (TODO: Make this a bit more generic)</span>
 </code></pre></div></div>
+<div class="autodoc-signature"><code><strong>test</strong></code></div>
+<div class="autodoc-docstring"></div>
+<div class="autodoc-signature"><code><strong>train</strong></code></div>
+<div class="autodoc-docstring"></div>
 </div>
 </div>
                 
