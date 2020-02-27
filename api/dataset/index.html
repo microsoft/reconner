@@ -93,7 +93,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#reconnerdatasetdataset" tabindex="0" class="md-skip">
+      <a href="#recondatasetdataset" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -502,14 +502,14 @@
                   <a href="https://github.com/microsoft/reconner/tree/master/docs/api/dataset.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="reconnerdatasetdataset"><code>reconner.dataset.Dataset</code><a class="headerlink" href="#reconnerdatasetdataset" title="Permanent link">&para;</a></h1>
-<p><code>reconner.dataset.Dataset</code> is a container to run other <code>reconner</code> operations across your train/dev/test split
-The <code>reconner.dataset.Dataset.apply</code> function takes any of the other reconner functions and runs them
+                <h1 id="recondatasetdataset"><code>recon.dataset.Dataset</code><a class="headerlink" href="#recondatasetdataset" title="Permanent link">&para;</a></h1>
+<p><code>recon.dataset.Dataset</code> is a container to run other <code>recon</code> operations across your train/dev/test split
+The <code>recon.dataset.Dataset.apply</code> function takes any of the other recon functions and runs them
 on all the datasets in sequence.</p>
 <hr />
 <h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<div class="autodoc-signature"><em>class </em><code>reconner.<strong>Dataset</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">train</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">dev</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">test=None</em><span class="autodoc-punctuation">)</span></div>
+<div class="autodoc-signature"><em>class </em><code>recon.<strong>Dataset</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">train</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">dev</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">test=None</em><span class="autodoc-punctuation">)</span></div>
 <div class="autodoc-docstring"><p>Container for a full dataset with train/dev/test splits.
 Used to apply core functions to all datasets at once.</p>
 <h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
@@ -535,7 +535,7 @@ Used to apply core functions to all datasets at once.</p>
 <h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
 <hr />
 <p><strong>func</strong>: (Callable[[List[Example]], Any]), required.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Function from an existing reconner module that can operate on a List of Examples</span>
+<div class="codehilite"><pre><span></span><code><span class="err">Function from an existing recon module that can operate on a List of Examples</span>
 </code></pre></div>
 
 
@@ -544,9 +544,16 @@ Used to apply core functions to all datasets at once.</p>
 <p>(Dict[str, Any):</p>
 <div class="codehilite"><pre><span></span><code><span class="err">Dictionary mapping dataset names to return type of func Callable</span>
 </code></pre></div></div>
+<div class="autodoc-signature"><code><strong>apply_</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">self</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">func</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">*args</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">**kwargs</em><span class="autodoc-punctuation">)</span></div>
+<div class="autodoc-docstring"><p>Apply an existing function to all data inplace</p>
+<h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
+<hr />
+<p><strong>func</strong>: (Callable[[List[Example]], List[Example]]), required.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">Function from an existing recon module that can operate on a List of Examples</span>
+</code></pre></div></div>
 <div class="autodoc-signature"><code><strong>dev</strong></code></div>
 <div class="autodoc-docstring"></div>
-<div class="autodoc-signature"><code><strong>from_disk</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">path</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">loader_func=<function read_jsonl at 0x7fe2fbd32378></em><span class="autodoc-punctuation">)</span></div>
+<div class="autodoc-signature"><code><strong>from_disk</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">path</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">loader_func=<function read_jsonl at 0x7f05a6151268></em><span class="autodoc-punctuation">)</span></div>
 <div class="autodoc-docstring"><p>Load Dataset from disk given a directory with files
 named explicitly train.jsonl, dev.jsonl, and test.jsonl</p>
 <h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>

@@ -527,16 +527,17 @@
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <p>Create a file main.py with:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
 <span class="kn">import</span> <span class="nn">typer</span>
-<span class="kn">from</span> <span class="nn">reconner.dataset</span> <span class="kn">import</span> <span class="n">Dataset</span>
-<span class="kn">from</span> <span class="nn">reconner.stats</span> <span class="kn">import</span> <span class="n">ner_stats</span>
+<span class="kn">from</span> <span class="nn">recon.dataset</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">recon.stats</span> <span class="kn">import</span> <span class="n">ner_stats</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">data_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="o">.</span><span class="n">from_disk</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
-    <span class="n">train_stats</span> <span class="o">=</span> <span class="n">ner_stats</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">train</span><span class="p">)</span>
-<span class="hll">    <span class="n">ner_stats</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">train</span><span class="p">,</span> <span class="n">serialize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span>
+<span class="hll">    <span class="n">train_stats</span> <span class="o">=</span> <span class="n">ner_stats</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">train</span><span class="p">)</span>
+</span>    <span class="n">ner_stats</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">train</span><span class="p">,</span> <span class="n">serialize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">typer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>

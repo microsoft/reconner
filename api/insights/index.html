@@ -93,7 +93,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#reconnerinsights" tabindex="0" class="md-skip">
+      <a href="#reconinsights" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -502,16 +502,16 @@
                   <a href="https://github.com/microsoft/reconner/tree/master/docs/api/insights.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="reconnerinsights"><code>reconner.insights</code><a class="headerlink" href="#reconnerinsights" title="Permanent link">&para;</a></h1>
-<p>The <code>reconner.insights</code> module provides more complex functionality for understanding your dataset.
+                <h1 id="reconinsights"><code>recon.insights</code><a class="headerlink" href="#reconinsights" title="Permanent link">&para;</a></h1>
+<p>The <code>recon.insights</code> module provides more complex functionality for understanding your dataset.
 It provides functions for identifying disparities in your annotations and identifying the kinds of examples and labels
 that are hardest for your model to identify.</p>
-<p>Some of the functionality in <code>reconner.insights</code> require a <code>reconner.recognizer.EntityRecognizer</code> object.
+<p>Some of the functionality in <code>recon.insights</code> require a <code>recon.recognizer.EntityRecognizer</code> object.
 You can read more about the <code>EntityRecognizer</code> class here: <a href="../../tutorial/custom_entity_recognizer/">Tutorial - Custom EntityRecognizer</a></p>
 <hr />
 <h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<div class="autodoc-signature"><code>reconner.insights.<strong>ents_by_label</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">data</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">use_lower=True</em><span class="autodoc-punctuation">)</span></div>
+<div class="autodoc-signature"><code>recon.insights.<strong>ents_by_label</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">data</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">use_lower=True</em><span class="autodoc-punctuation">)</span></div>
 <div class="autodoc-docstring"><p>Get a dictionary of unique text spans by label for your data</p>
 <h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
 <hr />
@@ -534,7 +534,7 @@ You can read more about the <code>EntityRecognizer</code> class here: <a href=".
 </code></pre></div></div>
 </div>
 <div class="autodoc">
-<div class="autodoc-signature"><code>reconner.insights.<strong>get_label_disparities</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">data</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">label1</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">label2</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">use_lower=True</em><span class="autodoc-punctuation">)</span></div>
+<div class="autodoc-signature"><code>recon.insights.<strong>get_label_disparities</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">data</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">label1</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">label2</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">use_lower=True</em><span class="autodoc-punctuation">)</span></div>
 <div class="autodoc-docstring"><p>Identify annotated spans that have different labels in different examples</p>
 <h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
 <hr />
@@ -553,6 +553,11 @@ You can read more about the <code>EntityRecognizer</code> class here: <a href=".
 </code></pre></div>
 
 
+<p><strong>use_lower</strong>: (bool, optional), Defaults to True.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">Use the lowercase form of the span text in ents_to_label</span>
+</code></pre></div>
+
+
 <h3 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h3>
 <hr />
 <p>(Set[str]):</p>
@@ -560,7 +565,7 @@ You can read more about the <code>EntityRecognizer</code> class here: <a href=".
 </code></pre></div></div>
 </div>
 <div class="autodoc">
-<div class="autodoc-signature"><code>reconner.insights.<strong>top_prediction_errors</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">ner</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">data</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">labels=None</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">k=None</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">exclude_fp=False</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">exclude_fn=False</em><span class="autodoc-punctuation">)</span></div>
+<div class="autodoc-signature"><code>recon.insights.<strong>top_prediction_errors</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">ner</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">data</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">labels=None</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">n=None</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">k=None</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">exclude_fp=False</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">exclude_fn=False</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">verbose=False</em><span class="autodoc-punctuation">)</span></div>
 <div class="autodoc-docstring"><p>Get a sorted list of examples your model is worst at predicting.</p>
 <h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
 <hr />
@@ -579,6 +584,11 @@ You can read more about the <code>EntityRecognizer</code> class here: <a href=".
 </code></pre></div>
 
 
+<p><strong>n</strong>: (int, optional), Defaults to None.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">If set, only use the top n examples from data</span>
+</code></pre></div>
+
+
 <p><strong>k</strong>: (int, optional), Defaults to None.</p>
 <div class="codehilite"><pre><span></span><code><span class="err">If set, return the top k prediction errors, otherwise the whole list.</span>
 </code></pre></div>
@@ -591,6 +601,11 @@ You can read more about the <code>EntityRecognizer</code> class here: <a href=".
 
 <p><strong>exclude_fn</strong>: (bool, optional), Defaults to False.</p>
 <div class="codehilite"><pre><span></span><code><span class="err">Flag to exclude False Negative errors.</span>
+</code></pre></div>
+
+
+<p><strong>verbose</strong>: (bool, optional), Defaults to False.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">Show progress_bar or not</span>
 </code></pre></div>
 
 

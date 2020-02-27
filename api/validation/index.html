@@ -93,7 +93,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#reconnervalidation" tabindex="0" class="md-skip">
+      <a href="#reconvalidation" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -556,14 +556,14 @@
                   <a href="https://github.com/microsoft/reconner/tree/master/docs/api/validation.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="reconnervalidation"><code>reconner.validation</code><a class="headerlink" href="#reconnervalidation" title="Permanent link">&para;</a></h1>
-<p><code>reconner.validation</code> provides a set of utility functions to fix and validate annotations to ensure consistency and no overlapping entities are set.
-These functions are useful to run before any of the functionality in <code>reconner.insights</code> or <code>reconner.stats</code>.</p>
+                <h1 id="reconvalidation"><code>recon.validation</code><a class="headerlink" href="#reconvalidation" title="Permanent link">&para;</a></h1>
+<p><code>recon.validation</code> provides a set of utility functions to fix and validate annotations to ensure consistency and no overlapping entities are set.
+These functions are useful to run before any of the functionality in <code>recon.insights</code> or <code>recon.stats</code>.</p>
 <hr />
 <h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
 <h3 id="json_to_examples"><strong><code>json_to_examples</code></strong><a class="headerlink" href="#json_to_examples" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<div class="autodoc-signature"><code>reconner.validation.<strong>json_to_examples</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">data</em><span class="autodoc-punctuation">)</span></div>
+<div class="autodoc-signature"><code>recon.validation.<strong>json_to_examples</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">data</em><span class="autodoc-punctuation">)</span></div>
 <div class="autodoc-docstring"><p>Convert List of Dicts to List of typed Examples</p>
 <h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
 <hr />
@@ -580,7 +580,7 @@ These functions are useful to run before any of the functionality in <code>recon
 </div>
 <h3 id="fix_annotations_format"><strong><code>fix_annotations_format</code></strong><a class="headerlink" href="#fix_annotations_format" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<div class="autodoc-signature"><code>reconner.validation.<strong>fix_annotations_format</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">data</em><span class="autodoc-punctuation">)</span></div>
+<div class="autodoc-signature"><code>recon.validation.<strong>fix_annotations_format</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">data</em><span class="autodoc-punctuation">)</span></div>
 <div class="autodoc-docstring"><p>Fix annotations format for a consistent dataset</p>
 <h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
 <hr />
@@ -597,7 +597,7 @@ These functions are useful to run before any of the functionality in <code>recon
 </div>
 <h3 id="filter_overlaps"><strong><code>filter_overlaps</code></strong><a class="headerlink" href="#filter_overlaps" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<div class="autodoc-signature"><code>reconner.validation.<strong>filter_overlaps</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">data</em><span class="autodoc-punctuation">)</span></div>
+<div class="autodoc-signature"><code>recon.validation.<strong>filter_overlaps</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">data</em><span class="autodoc-punctuation">)</span></div>
 <div class="autodoc-docstring"><p>Filter overlapping entity spans by picking the longest one.</p>
 <h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
 <hr />
