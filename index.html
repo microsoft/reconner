@@ -563,18 +563,13 @@
 <li><a href="https://typer.tiangolo.com" class="external-link" target="_blank">Typer (CLI)</a>.</li>
 </ul>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<p>freqs = Counter()
-for words, tags in train_sents:
-    for tag in tags:
-        tagmap.setdefault(tag, len(tagmap))
-    for word in words:
-        freqs[word] += 1
-vocab = {w: i for i, (w, freq) in enumerate(freqs.most_common()) if (freq &gt;= 5)}
-<div class="termy"></p>
+<div class="termy">
+
 <div class="codehilite"><pre><span></span><code><span class="gp">$</span> pip install reconner
 <span class="go">---&gt; 100%</span>
 <span class="go">Successfully installed reconner</span>
 </code></pre></div>
+
 
 
 </div>
