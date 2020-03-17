@@ -36,11 +36,11 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
     
     
       
-        <title>Insights - ReconNER</title>
+        <title>Insights - Recon</title>
       
     
     
@@ -93,7 +93,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#reconinsights" tabindex="0" class="md-skip">
+      <a href="#recon.insights.ents_by_label" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -102,9 +102,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://microsoft.github.io/reconner/" title="ReconNER" aria-label="ReconNER" class="md-header-nav__button md-logo">
+        <a href="https://microsoft.github.io/reconner/" title="Recon" aria-label="Recon" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../../img/icon-white.svg" width="24" height="24">
+            <img alt="logo" src="../../img/drone-white.svg" width="24" height="24">
           
         </a>
       </div>
@@ -115,7 +115,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              ReconNER
+              Recon
             </span>
             <span class="md-header-nav__topic">
               
@@ -126,31 +126,6 @@
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
-            Type to start searching
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
         
       </div>
       
@@ -194,12 +169,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://microsoft.github.io/reconner/" title="ReconNER" class="md-nav__button md-logo">
+    <a href="https://microsoft.github.io/reconner/" title="Recon" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../../img/icon-white.svg" width="48" height="48">
+        <img alt="logo" src="../../img/drone-white.svg" width="48" height="48">
       
     </a>
-    ReconNER
+    Recon
   </label>
   
     <div class="md-nav__source">
@@ -230,8 +205,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Introduction" class="md-nav__link">
-      Introduction
+    <a href="../.." title="Recon" class="md-nav__link">
+      Recon
     </a>
   </li>
 
@@ -285,8 +260,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/dataset_apply/" title="Dataset Apply" class="md-nav__link">
-      Dataset Apply
+    <a href="../../tutorial/corpus_apply/" title="Using a Corpus" class="md-nav__link">
+      Using a Corpus
     </a>
   </li>
 
@@ -332,11 +307,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
-      API
+      API Reference
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
-        API
+        API Reference
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -347,8 +322,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../dataset/" title="Dataset" class="md-nav__link">
-      Dataset
+    <a href="../corpus/" title="Corpus" class="md-nav__link">
+      Corpus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../corrections/" title="Corrections" class="md-nav__link">
+      Corrections
     </a>
   </li>
 
@@ -364,8 +351,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Insights
@@ -379,15 +364,41 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API
+  <a href="#recon.insights.ents_by_label" class="md-nav__link">
+    ents_by_label()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recon.insights.get_hardest_examples" class="md-nav__link">
+    get_hardest_examples()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recon.insights.get_label_disparities" class="md-nav__link">
+    get_label_disparities()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recon.insights.top_label_disparities" class="md-nav__link">
+    top_label_disparities()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recon.insights.top_prediction_errors" class="md-nav__link">
+    top_prediction_errors()
   </a>
   
 </li>
@@ -400,6 +411,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../loaders/" title="Loaders" class="md-nav__link">
+      Loaders
+    </a>
   </li>
 
         
@@ -423,6 +446,66 @@
   <li class="md-nav__item">
     <a href="../validation/" title="Validation" class="md-nav__link">
       Validation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
+    
+    <label class="md-nav__link" for="nav-3-7">
+      Recognizers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-7">
+        Recognizers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../recognizers/base/" title="EntityRecognizer" class="md-nav__link">
+      EntityRecognizer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../recognizers/spacy/" title="SpacyEntityRecognizer" class="md-nav__link">
+      SpacyEntityRecognizer
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../types/example/" title="Types" class="md-nav__link">
+      Types
     </a>
   </li>
 
@@ -470,15 +553,41 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API
+  <a href="#recon.insights.ents_by_label" class="md-nav__link">
+    ents_by_label()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recon.insights.get_hardest_examples" class="md-nav__link">
+    get_hardest_examples()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recon.insights.get_label_disparities" class="md-nav__link">
+    get_label_disparities()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recon.insights.top_label_disparities" class="md-nav__link">
+    top_label_disparities()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recon.insights.top_prediction_errors" class="md-nav__link">
+    top_prediction_errors()
   </a>
   
 </li>
@@ -502,120 +611,810 @@
                   <a href="https://github.com/microsoft/reconner/tree/master/docs/api/insights.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="reconinsights"><code>recon.insights</code><a class="headerlink" href="#reconinsights" title="Permanent link">&para;</a></h1>
-<p>The <code>recon.insights</code> module provides more complex functionality for understanding your dataset.
-It provides functions for identifying disparities in your annotations and identifying the kinds of examples and labels
-that are hardest for your model to identify.</p>
-<p>Some of the functionality in <code>recon.insights</code> require a <code>recon.recognizer.EntityRecognizer</code> object.
-You can read more about the <code>EntityRecognizer</code> class here: <a href="../../tutorial/custom_entity_recognizer/">Tutorial - Custom EntityRecognizer</a></p>
-<hr />
-<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+                  <h1>Insights</h1>
+                
+                <h2 id="recon.insights.ents_by_label"><code class="codehilite"><span class="n">ents_by_label</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">use_lower</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code><a class="headerlink" href="#recon.insights.ents_by_label" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<div class="autodoc-signature"><code>recon.insights.<strong>ents_by_label</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">data</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">use_lower=True</em><span class="autodoc-punctuation">)</span></div>
-<div class="autodoc-docstring"><p>Get a dictionary of unique text spans by label for your data</p>
-<h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
-<hr />
-<p><strong>data</strong>: (List[Example]), required.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">List of Examples</span>
+<details class="note"><summary>Show source code in <code>recon/insights.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">ents_by_label</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span> <span class="n">use_lower</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DefaultDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+    <span class="sd">&quot;&quot;&quot;Get a dictionary of unique text spans by label for your data</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data (List[Example]): List of Examples</span>
+<span class="sd">        use_lower (bool, optional): Use the lowercase form of the span text.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        DefaultDict[str, List[str]]: DefaultDict mapping label to sorted list of the unique</span>
+<span class="sd">            spans annotated for that label.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">annotations</span><span class="p">:</span> <span class="n">DefaultDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span>
+    <span class="n">sorted_annotations</span><span class="p">:</span> <span class="n">DefaultDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">e</span><span class="o">.</span><span class="n">spans</span><span class="p">:</span>
+            <span class="n">span_text</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="n">use_lower</span> <span class="k">else</span> <span class="n">s</span><span class="o">.</span><span class="n">text</span>
+            <span class="n">annotations</span><span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">span_text</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">annotations</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">sorted_annotations</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">annotations</span><span class="p">[</span><span class="n">label</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">sorted_annotations</span>
 </code></pre></div>
+</td></tr></table>
 
-
-<p><strong>use_lower</strong>: (bool, optional), Defaults to True.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Use the lowercase form of the span text</span>
-</code></pre></div>
-
-
-<h3 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h3>
-<hr />
-<p>(DefaultDict[str, List[str]]):</p>
-<div class="codehilite"><pre><span></span><code><span class="n">DefaultDict</span> <span class="n">mapping</span> <span class="n">label</span> <span class="k">to</span> <span class="n">sorted</span> <span class="n">list</span> <span class="k">of</span> <span class="n">the</span> <span class="k">unique</span>
-
-<span class="n">spans</span> <span class="n">annotated</span> <span class="k">for</span> <span class="n">that</span> <span class="n">label</span><span class="p">.</span>
-</code></pre></div></div>
+</details>
+<p>Get a dictionary of unique text spans by label for your data</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>List[recon.types.Example]</code></td>
+<td>List of Examples</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>use_lower</code></td>
+<td><code>bool</code></td>
+<td>Use the lowercase form of the span text.</td>
+<td><code>True</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DefaultDict[str, List[str]]</code></td>
+<td>DefaultDict[str, List[str]]: DefaultDict mapping label to sorted list of the unique         spans annotated for that label.</td>
+</tr>
+</tbody>
+</table>
 </div>
+<h2 id="recon.insights.get_hardest_examples"><code class="codehilite"><span class="n">get_hardest_examples</span><span class="p">(</span><span class="n">pred_errors</span><span class="p">,</span> <span class="n">return_pred_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">remove_pred_error_examples</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code><a class="headerlink" href="#recon.insights.get_hardest_examples" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<div class="autodoc-signature"><code>recon.insights.<strong>get_label_disparities</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">data</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">label1</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">label2</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">use_lower=True</em><span class="autodoc-punctuation">)</span></div>
-<div class="autodoc-docstring"><p>Identify annotated spans that have different labels in different examples</p>
-<h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
-<hr />
-<p><strong>data</strong>: (List[Example]), required.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Input List of Examples</span>
+<details class="note"><summary>Show source code in <code>recon/insights.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_hardest_examples</span><span class="p">(</span>
+    <span class="n">pred_errors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PredictionError</span><span class="p">],</span>
+    <span class="n">return_pred_errors</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">remove_pred_error_examples</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">HardestExample</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Get hardest examples from list of PredictionError types</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        pred_errors (List[PredictionError]): list of PredictionError</span>
+<span class="sd">        return_pred_errors (bool, optional): Whether to return prediction errors. Defaults to True.</span>
+<span class="sd">        remove_pred_error_examples (bool, optional): Whether to remove examples from returned PredictionError. Defaults to True.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: Each PredictionError must have a List of Examples </span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List[HardestExample]: Sorted list of the hardest examples for a model to work on.</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+
+    <span class="n">has_examples</span> <span class="o">=</span> <span class="nb">any</span><span class="p">([</span><span class="n">pe</span><span class="o">.</span><span class="n">examples</span> <span class="k">for</span> <span class="n">pe</span> <span class="ow">in</span> <span class="n">pred_errors</span><span class="p">])</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">has_examples</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Each PredictionError in Parameter pred_errors must have examples attached.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">examples_text_map</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Example</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">example_pred_errors_map</span><span class="p">:</span> <span class="n">DefaultDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">PredictionError</span><span class="p">]]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">pe</span> <span class="ow">in</span> <span class="n">pred_errors</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">pe</span><span class="o">.</span><span class="n">examples</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">pe</span><span class="o">.</span><span class="n">examples</span><span class="p">:</span>
+                <span class="n">examples_text_map</span><span class="p">[</span><span class="n">example</span><span class="o">.</span><span class="n">text</span><span class="p">]</span> <span class="o">=</span> <span class="n">example</span>
+                <span class="n">example_pred_errors_map</span><span class="p">[</span><span class="n">example</span><span class="o">.</span><span class="n">text</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pe</span><span class="p">)</span>
+
+    <span class="n">hardest_examples</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">example_text</span><span class="p">,</span> <span class="n">example_pred_errors</span> <span class="ow">in</span> <span class="n">example_pred_errors_map</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">example</span> <span class="o">=</span> <span class="n">examples_text_map</span><span class="p">[</span><span class="n">example_text</span><span class="p">]</span>
+
+        <span class="n">record</span> <span class="o">=</span> <span class="n">HardestExample</span><span class="p">(</span><span class="n">example</span><span class="o">=</span><span class="n">example</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">example_pred_errors</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">return_pred_errors</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">remove_pred_error_examples</span><span class="p">:</span>
+                <span class="n">_example_pred_errors</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">example_pred_errors</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">_pe</span> <span class="ow">in</span> <span class="n">_example_pred_errors</span><span class="p">:</span>
+                    <span class="n">_pe</span><span class="o">.</span><span class="n">examples</span> <span class="o">=</span> <span class="p">[]</span>
+
+                <span class="n">record</span><span class="o">.</span><span class="n">prediction_errors</span> <span class="o">=</span> <span class="n">_example_pred_errors</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">record</span><span class="o">.</span><span class="n">prediction_errors</span> <span class="o">=</span> <span class="n">example_pred_errors</span>
+        <span class="n">hardest_examples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+
+    <span class="n">sorted_hardest_examples</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+        <span class="n">hardest_examples</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">he</span><span class="p">:</span> <span class="n">he</span><span class="o">.</span><span class="n">count</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">sorted_hardest_examples</span>
 </code></pre></div>
+</td></tr></table>
 
-
-<p><strong>label1</strong>: (str), required.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">First label to compare</span>
-</code></pre></div>
-
-
-<p><strong>label2</strong>: (str), required.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Second label to compare</span>
-</code></pre></div>
-
-
-<p><strong>use_lower</strong>: (bool, optional), Defaults to True.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Use the lowercase form of the span text in ents_to_label</span>
-</code></pre></div>
-
-
-<h3 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h3>
-<hr />
-<p>(Set[str]):</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Set of all unique text spans that overlap between label1 and label2</span>
-</code></pre></div></div>
+</details>
+<p>Get hardest examples from list of PredictionError types</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pred_errors</code></td>
+<td><code>List[recon.types.PredictionError]</code></td>
+<td>list of PredictionError</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>return_pred_errors</code></td>
+<td><code>bool</code></td>
+<td>Whether to return prediction errors. Defaults to True.</td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>remove_pred_error_examples</code></td>
+<td><code>bool</code></td>
+<td>Whether to remove examples from returned PredictionError. Defaults to True.</td>
+<td><code>True</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exceptions</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ValueError</code></td>
+<td>Each PredictionError must have a List of Examples</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>List[recon.types.HardestExample]</code></td>
+<td>List[HardestExample]: Sorted list of the hardest examples for a model to work on.</td>
+</tr>
+</tbody>
+</table>
 </div>
+<h2 id="recon.insights.get_label_disparities"><code class="codehilite"><span class="n">get_label_disparities</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">label1</span><span class="p">,</span> <span class="n">label2</span><span class="p">,</span> <span class="n">use_lower</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code><a class="headerlink" href="#recon.insights.get_label_disparities" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<div class="autodoc-signature"><code>recon.insights.<strong>top_prediction_errors</strong></code><span class="autodoc-punctuation">(</span><em class="autodoc-param">ner</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">data</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">labels=None</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">n=None</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">k=None</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">exclude_fp=False</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">exclude_fn=False</em><span class="autodoc-punctuation">, </span><em class="autodoc-param">verbose=False</em><span class="autodoc-punctuation">)</span></div>
-<div class="autodoc-docstring"><p>Get a sorted list of examples your model is worst at predicting.</p>
-<h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
-<hr />
-<p><strong>ner</strong>: (EntityRecognizer), required.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">An instance of EntityRecognizer</span>
+<details class="note"><summary>Show source code in <code>recon/insights.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_label_disparities</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span> <span class="n">label1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label2</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">use_lower</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Identify annotated spans that have different labels in different examples</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data (List[Example]): Input List of Examples</span>
+<span class="sd">        label1 (str): First label to compare</span>
+<span class="sd">        label2 (str): Second label to compare</span>
+<span class="sd">        use_lower (bool, optional): Use the lowercase form of the span text in ents_to_label.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Set[str]: Set of all unique text spans that overlap between label1 and label2</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">annotations</span> <span class="o">=</span> <span class="n">ents_by_label</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">use_lower</span><span class="o">=</span><span class="n">use_lower</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">annotations</span><span class="p">[</span><span class="n">label1</span><span class="p">])</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">annotations</span><span class="p">[</span><span class="n">label2</span><span class="p">]))</span>
 </code></pre></div>
+</td></tr></table>
 
+</details>
+<p>Identify annotated spans that have different labels in different examples</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>List[recon.types.Example]</code></td>
+<td>Input List of Examples</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>label1</code></td>
+<td><code>str</code></td>
+<td>First label to compare</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>label2</code></td>
+<td><code>str</code></td>
+<td>Second label to compare</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>use_lower</code></td>
+<td><code>bool</code></td>
+<td>Use the lowercase form of the span text in ents_to_label.</td>
+<td><code>True</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Set[str]</code></td>
+<td>Set[str]: Set of all unique text spans that overlap between label1 and label2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="recon.insights.top_label_disparities"><code class="codehilite"><span class="n">top_label_disparities</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">use_lower</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dedupe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#recon.insights.top_label_disparities" title="Permanent link">&para;</a></h2>
+<div class="autodoc">
+<details class="note"><summary>Show source code in <code>recon/insights.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">top_label_disparities</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span> <span class="n">use_lower</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">dedupe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">LabelDisparity</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Identify annotated spans that have different labels</span>
+<span class="sd">    in different examples for all label pairs in data.</span>
 
-<p><strong>data</strong>: (List[Example]), required.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">List of annotated Examples</span>
+<span class="sd">    Args:</span>
+<span class="sd">        data (List[Example]): Input List of Examples</span>
+<span class="sd">        use_lower (bool, optional): Use the lowercase form of the span text in ents_to_label.</span>
+<span class="sd">        dedupe (bool, optional): Whether to deduplicate for table view vs confusion matrix.</span>
+<span class="sd">            False by default for easy confusion matrix display.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List[LabelDisparity]: List of LabelDisparity objects for each label pair combination</span>
+<span class="sd">            sorted by the number of disparities between them.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">annotations</span> <span class="o">=</span> <span class="n">ents_by_label</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">use_lower</span><span class="o">=</span><span class="n">use_lower</span><span class="p">)</span>
+    <span class="n">label_disparities</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">label1</span> <span class="ow">in</span> <span class="n">annotations</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">label2</span> <span class="ow">in</span> <span class="n">annotations</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">label1</span> <span class="o">!=</span> <span class="n">label2</span><span class="p">:</span>
+                <span class="n">n_disparities</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span>
+                    <span class="nb">set</span><span class="p">(</span><span class="n">annotations</span><span class="p">[</span><span class="n">label1</span><span class="p">])</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">annotations</span><span class="p">[</span><span class="n">label2</span><span class="p">]))</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="n">n_disparities</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">dedupe</span><span class="p">:</span>
+                        <span class="n">input_hash</span> <span class="o">=</span> <span class="s2">&quot;||&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">([</span><span class="n">label1</span><span class="p">,</span> <span class="n">label2</span><span class="p">]))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">input_hash</span> <span class="o">=</span> <span class="s2">&quot;||&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">label1</span><span class="p">,</span> <span class="n">label2</span><span class="p">])</span>
+
+                    <span class="n">label_disparities</span><span class="p">[</span><span class="n">input_hash</span><span class="p">]</span> <span class="o">=</span> <span class="n">LabelDisparity</span><span class="p">(</span>
+                        <span class="n">label1</span><span class="o">=</span><span class="n">label1</span><span class="p">,</span> <span class="n">label2</span><span class="o">=</span><span class="n">label2</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="n">n_disparities</span>
+                    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">label_disparities</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">ld</span><span class="p">:</span> <span class="n">ld</span><span class="o">.</span><span class="n">count</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Identify annotated spans that have different labels
+in different examples for all label pairs in data.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>List[recon.types.Example]</code></td>
+<td>Input List of Examples</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>use_lower</code></td>
+<td><code>bool</code></td>
+<td>Use the lowercase form of the span text in ents_to_label.</td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>dedupe</code></td>
+<td><code>bool</code></td>
+<td>Whether to deduplicate for table view vs confusion matrix. False by default for easy confusion matrix display.</td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>List[recon.types.LabelDisparity]</code></td>
+<td>List[LabelDisparity]: List of LabelDisparity objects for each label pair combination         sorted by the number of disparities between them.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="recon.insights.top_prediction_errors"><code class="codehilite"><span class="n">top_prediction_errors</span><span class="p">(</span><span class="n">recognizer</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_fp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">exclude_fn</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#recon.insights.top_prediction_errors" title="Permanent link">&para;</a></h2>
+<div class="autodoc">
+<details class="note"><summary>Show source code in <code>recon/insights.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">top_prediction_errors</span><span class="p">(</span>
+    <span class="n">recognizer</span><span class="p">:</span> <span class="n">EntityRecognizer</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span>
+    <span class="n">labels</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exclude_fp</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">exclude_fn</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">PredictionError</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Get a sorted list of examples your model is worst at predicting.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        recognizer (EntityRecognizer): An instance of EntityRecognizer</span>
+<span class="sd">        data (List[Example]): List of annotated Examples</span>
+<span class="sd">        labels (List[str], optional): List of labels to get errors for. </span>
+<span class="sd">            Defaults to the labels property of `recognizer`.</span>
+<span class="sd">        n (int, optional): If set, only use the top n examples from data.</span>
+<span class="sd">        k (int, optional): If set, return the top k prediction errors, otherwise the whole list.</span>
+<span class="sd">        exclude_fp (bool, optional): Flag to exclude False Positive errors.</span>
+<span class="sd">        exclude_fn (bool, optional): Flag to exclude False Negative errors.</span>
+<span class="sd">        verbose (bool, optional): Show verbose output.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List[PredictionError]: List of Prediction Errors your model is making, sorted by the</span>
+<span class="sd">            spans your model has the most trouble with.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">labels_</span> <span class="o">=</span> <span class="n">labels</span> <span class="ow">or</span> <span class="n">recognizer</span><span class="o">.</span><span class="n">labels</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span>
+
+    <span class="n">n_examples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">texts</span> <span class="o">=</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">anns</span> <span class="o">=</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">spans</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">data</span><span class="p">)</span>
+
+    <span class="n">errors</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)))</span>  <span class="c1"># type: ignore</span>
+    <span class="n">error_examples</span><span class="p">:</span> <span class="n">DefaultDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">n_errors</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">orig_example</span><span class="p">,</span> <span class="n">pred_example</span><span class="p">,</span> <span class="n">ann</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">recognizer</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">texts</span><span class="p">),</span> <span class="n">anns</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">n_errors</span> <span class="o">&gt;</span> <span class="n">k</span><span class="p">:</span>
+            <span class="k">break</span>
 
 
-<p><strong>labels</strong>: (List[str], optional), Defaults to None.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">List</span> <span class="n">of</span> <span class="n">labels</span> <span class="k">to</span> <span class="n">get</span> <span class="n">errors</span> <span class="k">for</span><span class="p">.</span> <span class="n">Defaults</span> <span class="k">to</span> <span class="n">the</span> <span class="n">labels</span> <span class="n">property</span> <span class="n">of</span> <span class="ss"><code>ner</code></span><span class="p">.</span>
+        <span class="n">pred_error_example_pair</span> <span class="o">=</span> <span class="n">PredictionErrorExamplePair</span><span class="p">(</span>
+            <span class="n">original</span><span class="o">=</span><span class="n">orig_example</span><span class="p">,</span>
+            <span class="n">predicted</span><span class="o">=</span><span class="n">pred_example</span>
+        <span class="p">)</span>
+
+        <span class="n">cand</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([(</span><span class="n">s</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">pred_example</span><span class="o">.</span><span class="n">spans</span><span class="p">])</span>
+        <span class="n">gold</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([(</span><span class="n">s</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">ann</span><span class="p">])</span>
+
+        <span class="n">fp_diff</span> <span class="o">=</span> <span class="n">cand</span> <span class="o">-</span> <span class="n">gold</span>
+        <span class="n">fn_diff</span> <span class="o">=</span> <span class="n">gold</span> <span class="o">-</span> <span class="n">cand</span>
+
+        <span class="k">if</span> <span class="n">fp_diff</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">exclude_fp</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">fp</span> <span class="ow">in</span> <span class="n">fp_diff</span><span class="p">:</span>
+                <span class="n">gold_ent</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">for</span> <span class="n">ge</span> <span class="ow">in</span> <span class="n">gold</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">fp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">ge</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">fp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">ge</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                        <span class="n">gold_ent</span> <span class="o">=</span> <span class="n">ge</span>
+                        <span class="k">break</span>
+                <span class="k">if</span> <span class="n">gold_ent</span><span class="p">:</span>
+                    <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">gold_ent</span>
+                    <span class="n">text</span> <span class="o">=</span> <span class="n">pred_example</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
+                    <span class="n">false_label</span> <span class="o">=</span> <span class="n">fp</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                    <span class="n">errors</span><span class="p">[</span><span class="n">label</span><span class="p">][</span><span class="n">text</span><span class="p">][</span><span class="n">false_label</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">false_label</span> <span class="o">=</span> <span class="n">fp</span>
+                    <span class="n">text</span> <span class="o">=</span> <span class="n">pred_example</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
+                    <span class="n">errors</span><span class="p">[</span><span class="n">NONE</span><span class="p">][</span><span class="n">text</span><span class="p">][</span><span class="n">false_label</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">error_examples</span><span class="p">[</span><span class="n">text</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pred_error_example_pair</span><span class="p">)</span>
+                <span class="n">n_errors</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">fn_diff</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">exclude_fn</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="n">fn_diff</span><span class="p">:</span>
+                <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">fn</span>
+                <span class="n">text</span> <span class="o">=</span> <span class="n">pred_example</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
+                <span class="n">errors</span><span class="p">[</span><span class="n">label</span><span class="p">][</span><span class="n">text</span><span class="p">][</span><span class="n">NONE</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">error_examples</span><span class="p">[</span><span class="n">text</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pred_error_example_pair</span><span class="p">)</span>
+                <span class="n">n_errors</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">ranked_errors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PredictionError</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">errors_per_label</span> <span class="ow">in</span> <span class="n">errors</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">error_text</span><span class="p">,</span> <span class="n">error_labels</span> <span class="ow">in</span> <span class="n">errors_per_label</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">error_label</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">error_labels</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">ranked_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">PredictionError</span><span class="p">(</span>
+                        <span class="n">text</span><span class="o">=</span><span class="n">error_text</span><span class="p">,</span>
+                        <span class="n">true_label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span>
+                        <span class="n">pred_label</span><span class="o">=</span><span class="n">error_label</span><span class="p">,</span>
+                        <span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="p">,</span>
+                        <span class="n">examples</span><span class="o">=</span><span class="n">error_examples</span><span class="p">[</span><span class="n">error_text</span><span class="p">],</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+
+    <span class="n">ranked_errors</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">ranked_errors</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">error</span><span class="p">:</span> <span class="n">error</span><span class="o">.</span><span class="n">count</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">error_texts</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">re</span> <span class="ow">in</span> <span class="n">ranked_errors</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">examples</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">examples</span><span class="p">:</span>
+                <span class="n">error_texts</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="n">error_rate</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">error_texts</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="n">error_summary</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;N Examples&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+            <span class="s2">&quot;N Errors&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">ranked_errors</span><span class="p">),</span>
+            <span class="s2">&quot;N Error Examples&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">error_texts</span><span class="p">),</span>
+            <span class="s2">&quot;Error Rate&quot;</span><span class="p">:</span> <span class="n">error_rate</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">Printer</span><span class="p">()</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">divider</span><span class="p">(</span><span class="s2">&quot;Error Analysis&quot;</span><span class="p">)</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">error_summary</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ranked_errors</span>
 </code></pre></div>
+</td></tr></table>
 
-
-<p><strong>n</strong>: (int, optional), Defaults to None.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">If set, only use the top n examples from data</span>
-</code></pre></div>
-
-
-<p><strong>k</strong>: (int, optional), Defaults to None.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">If set, return the top k prediction errors, otherwise the whole list.</span>
-</code></pre></div>
-
-
-<p><strong>exclude_fp</strong>: (bool, optional), Defaults to False.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Flag to exclude False Positive errors.</span>
-</code></pre></div>
-
-
-<p><strong>exclude_fn</strong>: (bool, optional), Defaults to False.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Flag to exclude False Negative errors.</span>
-</code></pre></div>
-
-
-<p><strong>verbose</strong>: (bool, optional), Defaults to False.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Show progress_bar or not</span>
-</code></pre></div>
-
-
-<h3 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h3>
-<hr />
-<p>(List[PredictionError]):</p>
-<div class="codehilite"><pre><span></span><code><span class="n">List</span> <span class="k">of</span> <span class="n">Prediction</span> <span class="n">Errors</span> <span class="n">your</span> <span class="n">model</span> <span class="k">is</span> <span class="n">making</span><span class="p">,</span> <span class="n">sorted</span> <span class="k">by</span> <span class="n">the</span>
-
-<span class="n">spans</span> <span class="n">your</span> <span class="n">model</span> <span class="n">has</span> <span class="n">the</span> <span class="n">most</span> <span class="n">trouble</span> <span class="k">with</span><span class="p">.</span>
-</code></pre></div></div>
+</details>
+<p>Get a sorted list of examples your model is worst at predicting.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>recognizer</code></td>
+<td><code>EntityRecognizer</code></td>
+<td>An instance of EntityRecognizer</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td><code>List[recon.types.Example]</code></td>
+<td>List of annotated Examples</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>labels</code></td>
+<td><code>List[str]</code></td>
+<td>List of labels to get errors for.  Defaults to the labels property of <code>recognizer</code>.</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td><code>int</code></td>
+<td>If set, only use the top n examples from data.</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>k</code></td>
+<td><code>int</code></td>
+<td>If set, return the top k prediction errors, otherwise the whole list.</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>exclude_fp</code></td>
+<td><code>bool</code></td>
+<td>Flag to exclude False Positive errors.</td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td><code>exclude_fn</code></td>
+<td><code>bool</code></td>
+<td>Flag to exclude False Negative errors.</td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td><code>verbose</code></td>
+<td><code>bool</code></td>
+<td>Show verbose output.</td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>List[recon.types.PredictionError]</code></td>
+<td>List[PredictionError]: List of Prediction Errors your model is making, sorted by the         spans your model has the most trouble with.</td>
+</tr>
+</tbody>
+</table>
 </div>
                 
                   
@@ -638,7 +1437,7 @@ You can read more about the <code>EntityRecognizer</code> class here: <a href=".
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../dataset/" title="Dataset" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../corrections/" title="Corrections" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -647,19 +1446,19 @@ You can read more about the <code>EntityRecognizer</code> class here: <a href=".
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Dataset
+                Corrections
               </span>
             </div>
           </a>
         
         
-          <a href="../stats/" title="Stats" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../loaders/" title="Loaders" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Stats
+                Loaders
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -698,7 +1497,7 @@ You can read more about the <code>EntityRecognizer</code> class here: <a href=".
     
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
       
         <script src="../../js/termynal.js"></script>
       

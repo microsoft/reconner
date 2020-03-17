@@ -13,7 +13,7 @@
         <meta name="description" content="Debug annotated Named Entity Recognition (NER) data for inconsitencies and get insights on improving the quality of your data.">
       
       
-        <link rel="canonical" href="https://microsoft.github.io/reconner/contributing/">
+        <link rel="canonical" href="https://microsoft.github.io/reconner/api/recognizers/spacy/">
       
       
       
@@ -35,18 +35,18 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../img/favicon.ico">
+      <link rel="shortcut icon" href="../../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
     
     
       
-        <title>Development - Contributing - Recon</title>
+        <title>SpacyEntityRecognizer - Recon</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.adb8469c.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
       
         
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+      <script src="../../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -64,12 +64,12 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../css/termynal.css">
+      <link rel="stylesheet" href="../../../css/termynal.css">
     
-      <link rel="stylesheet" href="../css/custom.css">
+      <link rel="stylesheet" href="../../../css/custom.css">
     
     
       
@@ -93,7 +93,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#contributing" tabindex="0" class="md-skip">
+      <a href="#recon.recognizer.SpacyEntityRecognizer.labels" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -104,7 +104,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="https://microsoft.github.io/reconner/" title="Recon" aria-label="Recon" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../img/drone-white.svg" width="24" height="24">
+            <img alt="logo" src="../../../img/drone-white.svg" width="24" height="24">
           
         </a>
       </div>
@@ -119,7 +119,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Development - Contributing
+                SpacyEntityRecognizer
               
             </span>
           
@@ -171,7 +171,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="https://microsoft.github.io/reconner/" title="Recon" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../img/drone-white.svg" width="48" height="48">
+        <img alt="logo" src="../../../img/drone-white.svg" width="48" height="48">
       
     </a>
     Recon
@@ -205,7 +205,7 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Recon" class="md-nav__link">
+    <a href="../../.." title="Recon" class="md-nav__link">
       Recon
     </a>
   </li>
@@ -236,7 +236,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tutorial/loading_data/" title="Loading your data" class="md-nav__link">
+    <a href="../../../tutorial/loading_data/" title="Loading your data" class="md-nav__link">
       Loading your data
     </a>
   </li>
@@ -248,7 +248,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tutorial/ner_stats/" title="NER Stats" class="md-nav__link">
+    <a href="../../../tutorial/ner_stats/" title="NER Stats" class="md-nav__link">
       NER Stats
     </a>
   </li>
@@ -260,7 +260,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tutorial/corpus_apply/" title="Using a Corpus" class="md-nav__link">
+    <a href="../../../tutorial/corpus_apply/" title="Using a Corpus" class="md-nav__link">
       Using a Corpus
     </a>
   </li>
@@ -272,7 +272,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tutorial/getting_insights/" title="Getting Insights" class="md-nav__link">
+    <a href="../../../tutorial/getting_insights/" title="Getting Insights" class="md-nav__link">
       Getting Insights
     </a>
   </li>
@@ -284,7 +284,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tutorial/custom_entity_recognizer/" title="Custom EntityRecognizer" class="md-nav__link">
+    <a href="../../../tutorial/custom_entity_recognizer/" title="Custom EntityRecognizer" class="md-nav__link">
       Custom EntityRecognizer
     </a>
   </li>
@@ -299,10 +299,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       API Reference
@@ -320,7 +322,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/corpus/" title="Corpus" class="md-nav__link">
+    <a href="../../corpus/" title="Corpus" class="md-nav__link">
       Corpus
     </a>
   </li>
@@ -332,7 +334,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/corrections/" title="Corrections" class="md-nav__link">
+    <a href="../../corrections/" title="Corrections" class="md-nav__link">
       Corrections
     </a>
   </li>
@@ -344,7 +346,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/insights/" title="Insights" class="md-nav__link">
+    <a href="../../insights/" title="Insights" class="md-nav__link">
       Insights
     </a>
   </li>
@@ -356,7 +358,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/loaders/" title="Loaders" class="md-nav__link">
+    <a href="../../loaders/" title="Loaders" class="md-nav__link">
       Loaders
     </a>
   </li>
@@ -368,7 +370,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/stats/" title="Stats" class="md-nav__link">
+    <a href="../../stats/" title="Stats" class="md-nav__link">
       Stats
     </a>
   </li>
@@ -380,7 +382,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/validation/" title="Validation" class="md-nav__link">
+    <a href="../../validation/" title="Validation" class="md-nav__link">
       Validation
     </a>
   </li>
@@ -390,10 +392,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7" checked>
     
     <label class="md-nav__link" for="nav-3-7">
       Recognizers
@@ -411,7 +415,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/recognizers/base/" title="EntityRecognizer" class="md-nav__link">
+    <a href="../base/" title="EntityRecognizer" class="md-nav__link">
       EntityRecognizer
     </a>
   </li>
@@ -421,11 +425,59 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../api/recognizers/spacy/" title="SpacyEntityRecognizer" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        SpacyEntityRecognizer
+      </label>
+    
+    <a href="./" title="SpacyEntityRecognizer" class="md-nav__link md-nav__link--active">
       SpacyEntityRecognizer
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recon.recognizer.SpacyEntityRecognizer.labels" class="md-nav__link">
+    labels
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recon.recognizer.SpacyEntityRecognizer.9595init9595" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recon.recognizer.SpacyEntityRecognizer.predict" class="md-nav__link">
+    predict()
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -440,7 +492,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/types/example/" title="Types" class="md-nav__link">
+    <a href="../../types/example/" title="Types" class="md-nav__link">
       Types
     </a>
   </li>
@@ -455,20 +507,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="Development - Contributing" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../../contributing/" title="Development - Contributing" class="md-nav__link">
       Development - Contributing
     </a>
-    
   </li>
 
     
@@ -478,7 +521,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../release-notes/" title="Release Notes" class="md-nav__link">
+    <a href="../../../release-notes/" title="Release Notes" class="md-nav__link">
       Release Notes
     </a>
   </li>
@@ -498,8 +541,36 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recon.recognizer.SpacyEntityRecognizer.labels" class="md-nav__link">
+    labels
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recon.recognizer.SpacyEntityRecognizer.9595init9595" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recon.recognizer.SpacyEntityRecognizer.predict" class="md-nav__link">
+    predict()
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -511,19 +582,143 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/microsoft/reconner/tree/master/docs/contributing.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/microsoft/reconner/tree/master/docs/api/recognizers/spacy.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h1>
-<p>This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.</p>
-<p>When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.</p>
-<p>This project has adopted the <a href="https://opensource.microsoft.com/codeofconduct/">Microsoft Open Source Code of Conduct</a>.
-For more information see the <a href="https://opensource.microsoft.com/codeofconduct/faq/">Code of Conduct FAQ</a> or
-contact <a href="mailto:opencode@microsoft.com">opencode@microsoft.com</a> with any additional questions or comments.</p>
+                  <h1>SpacyEntityRecognizer</h1>
+                
+                <p>Create an EntityRecognizer from a spaCy Langauge instance</p>
+<h2 id="recon.recognizer.SpacyEntityRecognizer.labels"><code class="codehilite"><span class="n">labels</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code> <em>(property, readonly)</em><a class="headerlink" href="#recon.recognizer.SpacyEntityRecognizer.labels" title="Permanent link">&para;</a></h2>
+<div class="autodoc">
+<p>Return List of spaCy ner labels</p>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>List[str]</code></td>
+<td>List[str]: List of labels from spaCy ner pipe</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="recon.recognizer.SpacyEntityRecognizer.__init__"><code class="codehilite"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nlp</span><span class="p">)</span></code><a class="headerlink" href="#recon.recognizer.SpacyEntityRecognizer.__init__" title="Permanent link">&para;</a></h2>
+<div class="autodoc">
+<details class="note"><summary>Show source code in <code>recon/recognizer.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>44
+45
+46
+47
+48
+49
+50
+51</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nlp</span><span class="p">:</span> <span class="n">Language</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize a SpacyEntityRecognizer</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            nlp (Language): spaCy Language instance that can sets doc.ents</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nlp</span> <span class="o">=</span> <span class="n">nlp</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Initialize a SpacyEntityRecognizer</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nlp</code></td>
+<td><code>Language</code></td>
+<td>spaCy Language instance that can sets doc.ents</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="recon.recognizer.SpacyEntityRecognizer.predict"><code class="codehilite"><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">)</span></code><a class="headerlink" href="#recon.recognizer.SpacyEntityRecognizer.predict" title="Permanent link">&para;</a></h2>
+<div class="autodoc">
+<details class="note"><summary>Show source code in <code>recon/recognizer.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Run spaCy nlp.pipe on a batch of raw texts.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            texts (Iterable[str]): Raw text examples</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            Iterator[Example]: Examples constructed from spaCy Model predictions</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">examples</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nlp</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">texts</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="n">Example</span><span class="p">(</span>
+                <span class="n">text</span><span class="o">=</span><span class="n">doc</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+                <span class="n">spans</span><span class="o">=</span><span class="p">[</span>
+                    <span class="n">Span</span><span class="p">(</span>
+                        <span class="n">text</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">start_char</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">end_char</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">label_</span>
+                    <span class="p">)</span>
+                    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">ents</span>
+                <span class="p">],</span>
+            <span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Run spaCy nlp.pipe on a batch of raw texts.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>texts</code></td>
+<td><code>Iterable[str]</code></td>
+<td>Raw text examples</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p>Yields:
+    Iterator[Example]: Examples constructed from spaCy Model predictions</p>
+</div>
                 
                   
                 
@@ -545,7 +740,7 @@ contact <a href="mailto:opencode@microsoft.com">opencode@microsoft.com</a> with 
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../api/types/example/" title="Types" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../base/" title="EntityRecognizer" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -554,19 +749,19 @@ contact <a href="mailto:opencode@microsoft.com">opencode@microsoft.com</a> with 
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Types
+                EntityRecognizer
               </span>
             </div>
           </a>
         
         
-          <a href="../release-notes/" title="Release Notes" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../types/example/" title="Types" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Release Notes
+                Types
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -589,7 +784,7 @@ contact <a href="mailto:opencode@microsoft.com">opencode@microsoft.com</a> with 
       </div>
       
   <div class="md-footer-social">
-    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
     
       <a href="https://github.com/microsoft/reconner" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
     
@@ -603,13 +798,13 @@ contact <a href="mailto:opencode@microsoft.com">opencode@microsoft.com</a> with 
       
     </div>
     
-      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
       
-        <script src="../js/termynal.js"></script>
+        <script src="../../../js/termynal.js"></script>
       
-        <script src="../js/custom.js"></script>
+        <script src="../../../js/custom.js"></script>
       
     
   </body>
