@@ -841,12 +841,7 @@
 </div>
 <h3 id="recon.corpus.Corpus.apply"><code class="codehilite"><span class="n">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code><a class="headerlink" href="#recon.corpus.Corpus.apply" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/corpus.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>112
-113
-114
-115
-116
-117
+<details class="note"><summary>Show source code in <code>recon/corpus.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>117
 118
 119
 120
@@ -860,7 +855,12 @@
 128
 129
 130
-131</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span>
+131
+132
+133
+134
+135
+136</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Any</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;Apply a function to all datasets</span>
@@ -922,12 +922,7 @@
 </div>
 <h3 id="recon.corpus.Corpus.apply_"><code class="codehilite"><span class="n">apply_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code><a class="headerlink" href="#recon.corpus.Corpus.apply_" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/corpus.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>141
-142
-143
-144
-145
-146
+<details class="note"><summary>Show source code in <code>recon/corpus.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>146
 147
 148
 149
@@ -940,7 +935,12 @@
 156
 157
 158
-159</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">apply_</span><span class="p">(</span>
+159
+160
+161
+162
+163
+164</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">apply_</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]],</span>
         <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
@@ -984,7 +984,7 @@
 </tbody>
 </table>
 </div>
-<h3 id="recon.corpus.Corpus.from_disk"><code class="codehilite"><span class="n">from_disk</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">train_file</span><span class="o">=</span><span class="s1">&#39;train.jsonl&#39;</span><span class="p">,</span> <span class="n">dev_file</span><span class="o">=</span><span class="s1">&#39;dev.jsonl&#39;</span><span class="p">,</span> <span class="n">test_file</span><span class="o">=</span><span class="s1">&#39;test.jsonl&#39;</span><span class="p">,</span> <span class="n">loader_func</span><span class="o">=&lt;</span><span class="n">function</span> <span class="n">read_jsonl</span> <span class="n">at</span> <span class="mh">0x7f4893d7c620</span><span class="o">&gt;</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#recon.corpus.Corpus.from_disk" title="Permanent link">&para;</a></h3>
+<h3 id="recon.corpus.Corpus.from_disk"><code class="codehilite"><span class="n">from_disk</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">train_file</span><span class="o">=</span><span class="s1">&#39;train.jsonl&#39;</span><span class="p">,</span> <span class="n">dev_file</span><span class="o">=</span><span class="s1">&#39;dev.jsonl&#39;</span><span class="p">,</span> <span class="n">test_file</span><span class="o">=</span><span class="s1">&#39;test.jsonl&#39;</span><span class="p">,</span> <span class="n">loader_func</span><span class="o">=&lt;</span><span class="n">function</span> <span class="n">read_jsonl</span> <span class="n">at</span> <span class="mh">0x7f7de7632f28</span><span class="o">&gt;</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#recon.corpus.Corpus.from_disk" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
 <details class="note"><summary>Show source code in <code>recon/corpus.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>30
 31
@@ -1024,7 +1024,7 @@
         <span class="n">dev_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;dev.jsonl&quot;</span><span class="p">,</span>
         <span class="n">test_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;test.jsonl&quot;</span><span class="p">,</span>
         <span class="n">loader_func</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="n">read_jsonl</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Corpus&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Load Corpus from disk given a directory with files </span>
 <span class="sd">        named explicitly train.jsonl, dev.jsonl, and test.jsonl</span>
 
@@ -1043,10 +1043,10 @@
 
         <span class="k">try</span><span class="p">:</span>
             <span class="n">test_data</span> <span class="o">=</span> <span class="n">loader_func</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="n">test_file</span><span class="p">)</span>
-            <span class="n">ds</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">dev_data</span><span class="p">,</span> <span class="n">test</span><span class="o">=</span><span class="n">test_data</span><span class="p">)</span>
+            <span class="n">corpus</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">dev_data</span><span class="p">,</span> <span class="n">test</span><span class="o">=</span><span class="n">test_data</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="n">ds</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">dev_data</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">ds</span>
+            <span class="n">corpus</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">dev_data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">corpus</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -1092,7 +1092,7 @@ named explicitly train.jsonl, dev.jsonl, and test.jsonl</p>
 <td><code>loader_func</code></td>
 <td><code>Callable</code></td>
 <td>Callable that reads a file and returns a List of Examples.  Defaults to <a href="/reconner/api/loaders/#recon.loaders.read_jsonl">read_jsonl</a></td>
-<td><code>&lt;function read_jsonl at 0x7f4893d7c620&gt;</code></td>
+<td><code>&lt;function read_jsonl at 0x7f7de7632f28&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1111,7 +1111,12 @@ named explicitly train.jsonl, dev.jsonl, and test.jsonl</p>
 71
 72
 73
-74</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">to_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+74
+75
+76
+77
+78
+79</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">to_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Save Corpus to Disk</span>
 
 <span class="sd">        Args:</span>
@@ -1120,10 +1125,15 @@ named explicitly train.jsonl, dev.jsonl, and test.jsonl</p>
 <span class="sd">                or overwrite existing data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">data_dir</span> <span class="o">=</span> <span class="n">ensure_path</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">force</span><span class="p">:</span>
+            <span class="n">data_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-        <span class="n">srsly</span><span class="o">.</span><span class="n">write_jsonl</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s2">&quot;train.jsonl&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
-        <span class="n">srsly</span><span class="o">.</span><span class="n">write_jsonl</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s2">&quot;dev.jsonl&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
-        <span class="n">srsly</span><span class="o">.</span><span class="n">write_jsonl</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s2">&quot;test.jsonl&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+        <span class="k">def</span> <span class="nf">serialize</span><span class="p">(</span><span class="n">examples</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">]]:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">examples</span><span class="p">]</span>
+
+        <span class="n">srsly</span><span class="o">.</span><span class="n">write_jsonl</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s2">&quot;train.jsonl&quot;</span><span class="p">,</span> <span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">train</span><span class="p">))</span>
+        <span class="n">srsly</span><span class="o">.</span><span class="n">write_jsonl</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s2">&quot;dev.jsonl&quot;</span><span class="p">,</span> <span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dev</span><span class="p">))</span>
+        <span class="n">srsly</span><span class="o">.</span><span class="n">write_jsonl</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s2">&quot;test.jsonl&quot;</span><span class="p">,</span> <span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test</span><span class="p">))</span>
 </code></pre></div>
 </td></tr></table>
 

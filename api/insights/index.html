@@ -781,7 +781,7 @@
 
 <span class="sd">    Returns:</span>
 <span class="sd">        List[HardestExample]: Sorted list of the hardest examples for a model to work on.</span>
-<span class="sd">    &quot;&quot;&quot;</span>    
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">has_examples</span> <span class="o">=</span> <span class="nb">any</span><span class="p">([</span><span class="n">pe</span><span class="o">.</span><span class="n">examples</span> <span class="k">for</span> <span class="n">pe</span> <span class="ow">in</span> <span class="n">pred_errors</span><span class="p">])</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">has_examples</span><span class="p">:</span>
@@ -794,12 +794,12 @@
     <span class="k">for</span> <span class="n">pe</span> <span class="ow">in</span> <span class="n">pred_errors</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">pe</span><span class="o">.</span><span class="n">examples</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">pe</span><span class="o">.</span><span class="n">examples</span><span class="p">:</span>
-                <span class="n">examples_text_map</span><span class="p">[</span><span class="n">example</span><span class="o">.</span><span class="n">text</span><span class="p">]</span> <span class="o">=</span> <span class="n">example</span>
-                <span class="n">example_pred_errors_map</span><span class="p">[</span><span class="n">example</span><span class="o">.</span><span class="n">text</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pe</span><span class="p">)</span>
+                <span class="n">examples_text_map</span><span class="p">[</span><span class="n">example</span><span class="o">.</span><span class="n">original</span><span class="o">.</span><span class="n">text</span><span class="p">]</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">original</span>
+                <span class="n">example_pred_errors_map</span><span class="p">[</span><span class="n">example</span><span class="o">.</span><span class="n">original</span><span class="o">.</span><span class="n">text</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pe</span><span class="p">)</span>
 
     <span class="n">hardest_examples</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">example_text</span><span class="p">,</span> <span class="n">example_pred_errors</span> <span class="ow">in</span> <span class="n">example_pred_errors_map</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">example</span> <span class="o">=</span> <span class="n">examples_text_map</span><span class="p">[</span><span class="n">example_text</span><span class="p">]</span>
+        <span class="n">example</span> <span class="o">=</span> <span class="n">examples_text_map</span><span class="p">[</span><span class="n">example_text</span><span class="p">]</span>  <span class="c1"># type: ignore</span>
 
         <span class="n">record</span> <span class="o">=</span> <span class="n">HardestExample</span><span class="p">(</span><span class="n">example</span><span class="o">=</span><span class="n">example</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">example_pred_errors</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">return_pred_errors</span><span class="p">:</span>
@@ -1253,17 +1253,17 @@ in different examples for all label pairs in data.</p>
     <span class="n">anns</span> <span class="o">=</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">spans</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">data</span><span class="p">)</span>
 
     <span class="n">errors</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)))</span>  <span class="c1"># type: ignore</span>
-    <span class="n">error_examples</span><span class="p">:</span> <span class="n">DefaultDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">error_examples</span><span class="p">:</span> <span class="n">DefaultDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">PredictionErrorExamplePair</span><span class="p">]]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span>
+        <span class="nb">list</span>
+    <span class="p">)</span>
     <span class="n">n_errors</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">for</span> <span class="n">orig_example</span><span class="p">,</span> <span class="n">pred_example</span><span class="p">,</span> <span class="n">ann</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">recognizer</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">texts</span><span class="p">),</span> <span class="n">anns</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">k</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">n_errors</span> <span class="o">&gt;</span> <span class="n">k</span><span class="p">:</span>
             <span class="k">break</span>
 
-
         <span class="n">pred_error_example_pair</span> <span class="o">=</span> <span class="n">PredictionErrorExamplePair</span><span class="p">(</span>
-            <span class="n">original</span><span class="o">=</span><span class="n">orig_example</span><span class="p">,</span>
-            <span class="n">predicted</span><span class="o">=</span><span class="n">pred_example</span>
+            <span class="n">original</span><span class="o">=</span><span class="n">orig_example</span><span class="p">,</span> <span class="n">predicted</span><span class="o">=</span><span class="n">pred_example</span>
         <span class="p">)</span>
 
         <span class="n">cand</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([(</span><span class="n">s</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">pred_example</span><span class="o">.</span><span class="n">spans</span><span class="p">])</span>
@@ -1319,7 +1319,7 @@ in different examples for all label pairs in data.</p>
     <span class="k">for</span> <span class="n">re</span> <span class="ow">in</span> <span class="n">ranked_errors</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">examples</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">examples</span><span class="p">:</span>
-                <span class="n">error_texts</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                <span class="n">error_texts</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">original</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 
     <span class="n">error_rate</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">error_texts</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
