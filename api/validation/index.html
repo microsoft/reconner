@@ -93,7 +93,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#recon.validation.filter_overlaps" tabindex="0" class="md-skip">
+      <a href="#recon.validation.add_tokens" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -405,6 +405,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#recon.validation.add_tokens" class="md-nav__link">
+    add_tokens()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#recon.validation.filter_overlaps" class="md-nav__link">
     filter_overlaps()
   </a>
@@ -558,6 +565,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#recon.validation.add_tokens" class="md-nav__link">
+    add_tokens()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#recon.validation.filter_overlaps" class="md-nav__link">
     filter_overlaps()
   </a>
@@ -613,7 +627,7 @@
                 
                   <h1>Validation</h1>
                 
-                <h2 id="recon.validation.filter_overlaps"><code class="codehilite"><span class="n">filter_overlaps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code><a class="headerlink" href="#recon.validation.filter_overlaps" title="Permanent link">&para;</a></h2>
+                <h2 id="recon.validation.add_tokens"><code class="codehilite"><span class="n">add_tokens</span><span class="p">(</span><span class="n">nlp</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span></code><a class="headerlink" href="#recon.validation.add_tokens" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
 <details class="note"><summary>Show source code in <code>recon/validation.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>42
 43
@@ -633,7 +647,94 @@
 57
 58
 59
-60</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">filter_overlaps</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+60
+61</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">add_tokens</span><span class="p">(</span><span class="n">nlp</span><span class="p">:</span> <span class="n">Language</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+    <span class="sd">&quot;&quot;&quot;Add tokens to each to JSON Example</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        nlp (Language): spaCy Language instance for tokenization</span>
+<span class="sd">        data (List[Dict[str, Any]]): List of JSON Examples</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List[Dict[str, Any]]: List of JSON Examples with tokens</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">texts</span> <span class="o">=</span> <span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">data</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">nlp</span><span class="o">.</span><span class="n">disable_pipes</span><span class="p">(</span><span class="o">*</span><span class="n">nlp</span><span class="o">.</span><span class="n">pipe_names</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">e</span><span class="p">,</span> <span class="n">doc</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">nlp</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">texts</span><span class="p">)):</span>
+            <span class="n">e</span><span class="p">[</span><span class="s2">&quot;tokens&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">idx</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">idx</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">i</span><span class="p">}</span>
+                <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">doc</span>
+            <span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">data</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Add tokens to each to JSON Example</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nlp</code></td>
+<td><code>Language</code></td>
+<td>spaCy Language instance for tokenization</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td><code>List[Dict[str, Any]]</code></td>
+<td>List of JSON Examples</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>List[Dict[str, Any]]</code></td>
+<td>List[Dict[str, Any]]: List of JSON Examples with tokens</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="recon.validation.filter_overlaps"><code class="codehilite"><span class="n">filter_overlaps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code><a class="headerlink" href="#recon.validation.filter_overlaps" title="Permanent link">&para;</a></h2>
+<div class="autodoc">
+<details class="note"><summary>Show source code in <code>recon/validation.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">filter_overlaps</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
     <span class="sd">&quot;&quot;&quot;Filter overlapping entity spans by picking the longest one.</span>
 
 <span class="sd">    Args:</span>
@@ -717,10 +818,10 @@
     <span class="sd">&quot;&quot;&quot;Fix annotations format for a consistent dataset</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        data (List[Dict[str, Any]]): List of Examples</span>
+<span class="sd">        data (List[Dict[str, Any]]): List of JSON Examples</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        List[Dict[str, Any]]: List of Examples with corrected formatting</span>
+<span class="sd">        List[Dict[str, Any]]: List of JSON Examples with corrected formatting</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
         <span class="k">if</span> <span class="s2">&quot;meta&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">e</span><span class="p">:</span>
@@ -752,7 +853,7 @@
 <tr>
 <td><code>data</code></td>
 <td><code>List[Dict[str, Any]]</code></td>
-<td>List of Examples</td>
+<td>List of JSON Examples</td>
 <td><em>required</em></td>
 </tr>
 </tbody>
@@ -768,16 +869,14 @@
 <tbody>
 <tr>
 <td><code>List[Dict[str, Any]]</code></td>
-<td>List[Dict[str, Any]]: List of Examples with corrected formatting</td>
+<td>List[Dict[str, Any]]: List of JSON Examples with corrected formatting</td>
 </tr>
 </tbody>
 </table>
 </div>
 <h2 id="recon.validation.json_to_examples"><code class="codehilite"><span class="n">json_to_examples</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code><a class="headerlink" href="#recon.validation.json_to_examples" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/validation.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 6
- 7
- 8
+<details class="note"><summary>Show source code in <code>recon/validation.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 8
  9
 10
 11
@@ -795,8 +894,6 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        List[Example]: List of typed Examples</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">fix_annotations_format</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">filter_overlaps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">Example</span><span class="p">(</span><span class="o">**</span><span class="n">example</span><span class="p">)</span> <span class="k">for</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
@@ -840,29 +937,7 @@
 </div>
 <h2 id="recon.validation.remove_overlapping_entities"><code class="codehilite"><span class="n">remove_overlapping_entities</span><span class="p">(</span><span class="n">sorted_spacy_format_entities</span><span class="p">)</span></code><a class="headerlink" href="#recon.validation.remove_overlapping_entities" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/validation.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
+<details class="note"><summary>Show source code in <code>recon/validation.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>114
 115
 116
 117
@@ -887,7 +962,29 @@
 136
 137
 138
-139</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">remove_overlapping_entities</span><span class="p">(</span>
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">remove_overlapping_entities</span><span class="p">(</span>
     <span class="n">sorted_spacy_format_entities</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -945,33 +1042,33 @@ and follow the spacy format.</p>
 </div>
 <h2 id="recon.validation.select_subset_of_overlapping_chain"><code class="codehilite"><span class="n">select_subset_of_overlapping_chain</span><span class="p">(</span><span class="n">chain</span><span class="p">)</span></code><a class="headerlink" href="#recon.validation.select_subset_of_overlapping_chain" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/validation.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">select_subset_of_overlapping_chain</span><span class="p">(</span>
+<details class="note"><summary>Show source code in <code>recon/validation.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">select_subset_of_overlapping_chain</span><span class="p">(</span>
     <span class="n">chain</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
     <span class="sd">&quot;&quot;&quot;</span>

@@ -400,8 +400,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recon.stats.calculate_entity_coverage_stats" class="md-nav__link">
-    calculate_entity_coverage_stats()
+  <a href="#recon.stats.calculate_entity_coverage_similarity" class="md-nav__link">
+    calculate_entity_coverage_similarity()
   </a>
   
 </li>
@@ -600,8 +600,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recon.stats.calculate_entity_coverage_stats" class="md-nav__link">
-    calculate_entity_coverage_stats()
+  <a href="#recon.stats.calculate_entity_coverage_similarity" class="md-nav__link">
+    calculate_entity_coverage_similarity()
   </a>
   
 </li>
@@ -683,7 +683,7 @@
                 
                   <h1>Stats</h1>
                 
-                <h2 id="recon.stats.calculate_entity_coverage_entropy"><code class="codehilite"><span class="n">calculate_entity_coverage_entropy</span><span class="p">(</span><span class="n">entity_coverage_stats</span><span class="p">)</span></code><a class="headerlink" href="#recon.stats.calculate_entity_coverage_entropy" title="Permanent link">&para;</a></h2>
+                <h2 id="recon.stats.calculate_entity_coverage_entropy"><code class="codehilite"><span class="n">calculate_entity_coverage_entropy</span><span class="p">(</span><span class="n">entity_coverage</span><span class="p">)</span></code><a class="headerlink" href="#recon.stats.calculate_entity_coverage_entropy" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
 <details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>259
 260
@@ -696,21 +696,17 @@
 267
 268
 269
-270
-271
-272</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_entity_coverage_entropy</span><span class="p">(</span>
-    <span class="n">entity_coverage_stats</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">EntityCoverageStats</span><span class="p">],</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+270</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_entity_coverage_entropy</span><span class="p">(</span><span class="n">entity_coverage</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">EntityCoverage</span><span class="p">],)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Use Entropy to calculate a metric for entity coverage.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        entity_coverage_stats (List[EntityCoverageStats]): List of EntityCoverageStats </span>
+<span class="sd">        entity_coverage (List[EntityCoverage]): List of EntityCoverage </span>
 <span class="sd">            from get_entity_coverage</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        float: Entropy for entity coverage counts</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">counts</span> <span class="o">=</span> <span class="p">[</span><span class="n">ecs</span><span class="o">.</span><span class="n">count</span> <span class="k">for</span> <span class="n">ecs</span> <span class="ow">in</span> <span class="n">entity_coverage_stats</span><span class="p">]</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="p">[</span><span class="n">ecs</span><span class="o">.</span><span class="n">count</span> <span class="k">for</span> <span class="n">ecs</span> <span class="ow">in</span> <span class="n">entity_coverage</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">entropy</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">counts</span><span class="p">))</span>  <span class="c1"># type: ignore</span>
 </code></pre></div>
 </td></tr></table>
@@ -729,9 +725,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>entity_coverage_stats</code></td>
-<td><code>List[recon.types.EntityCoverageStats]</code></td>
-<td>List of EntityCoverageStats  from get_entity_coverage</td>
+<td><code>entity_coverage</code></td>
+<td><code>List[recon.types.EntityCoverage]</code></td>
+<td>List of EntityCoverage  from get_entity_coverage</td>
 <td><em>required</em></td>
 </tr>
 </tbody>
@@ -752,7 +748,7 @@
 </tbody>
 </table>
 </div>
-<h2 id="recon.stats.calculate_entity_coverage_stats"><code class="codehilite"><span class="n">calculate_entity_coverage_stats</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></code><a class="headerlink" href="#recon.stats.calculate_entity_coverage_stats" title="Permanent link">&para;</a></h2>
+<h2 id="recon.stats.calculate_entity_coverage_similarity"><code class="codehilite"><span class="n">calculate_entity_coverage_similarity</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></code><a class="headerlink" href="#recon.stats.calculate_entity_coverage_similarity" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
 <details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>158
 159
@@ -796,7 +792,7 @@
 197
 198
 199
-200</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_entity_coverage_stats</span><span class="p">(</span>
+200</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_entity_coverage_similarity</span><span class="p">(</span>
     <span class="n">x</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EntityCoverageStats</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Calculate how well dataset x covers the entities in dataset y.</span>
@@ -1128,7 +1124,9 @@ by dividing each n by the sum of all n in seq</p>
 </div>
 <h2 id="recon.stats.detect_outliers"><code class="codehilite"><span class="n">detect_outliers</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">use_log</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#recon.stats.detect_outliers" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>275
+<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>273
+274
+275
 276
 277
 278
@@ -1143,12 +1141,7 @@ by dividing each n by the sum of all n in seq</p>
 287
 288
 289
-290
-291
-292
-293
-294
-295</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">detect_outliers</span><span class="p">(</span><span class="n">seq</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">use_log</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Outliers</span><span class="p">:</span>
+290</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">detect_outliers</span><span class="p">(</span><span class="n">seq</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">use_log</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Outliers</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Detect outliers in a numerical sequence.</span>
 
 <span class="sd">    Args:</span>
@@ -1158,14 +1151,11 @@ by dividing each n by the sum of all n in seq</p>
 <span class="sd">    Returns:</span>
 <span class="sd">        Tuple[List[int], List[int]]: Tuple of low and high indices</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">use_log</span><span class="p">:</span>
-        <span class="n">seq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
     <span class="n">q1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
     <span class="n">q3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span>
     <span class="n">iqr</span> <span class="o">=</span> <span class="n">q3</span> <span class="o">-</span> <span class="n">q1</span>
     <span class="n">fence_low</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">q1</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">iqr</span><span class="p">)</span>
     <span class="n">fence_high</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">q3</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">iqr</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">fence_low</span><span class="p">,</span> <span class="n">q1</span><span class="p">,</span> <span class="n">q3</span><span class="p">,</span> <span class="n">fence_high</span><span class="p">)</span>
     <span class="n">low_indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">fence_low</span><span class="p">]</span>
     <span class="n">high_indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="n">fence_high</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">Outliers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="n">low_indices</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="n">high_indices</span><span class="p">)</span>

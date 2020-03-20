@@ -573,19 +573,25 @@
                 
                 <p>Load a list of Example data from JSON represented records in 
 the <a href="https://prodi.gy">Prodigy</a> format.</p>
-<h2 id="recon.loaders.read_json"><code class="codehilite"><span class="n">read_json</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></code><a class="headerlink" href="#recon.loaders.read_json" title="Permanent link">&para;</a></h2>
+<h2 id="recon.loaders.read_json"><code class="codehilite"><span class="n">read_json</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">loading_pipeline</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">)</span></code><a class="headerlink" href="#recon.loaders.read_json" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/loaders.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>27
-28
-29
-30
-31
-32
+<details class="note"><summary>Show source code in <code>recon/loaders.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>32
 33
 34
 35
 36
-37</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">read_json</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">read_json</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">loading_pipeline</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;Read annotations in JSON file format</span>
 
 <span class="sd">    Args:</span>
@@ -595,7 +601,9 @@ the <a href="https://prodi.gy">Prodigy</a> format.</p>
 <span class="sd">        List[Example]: List of Examples</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">srsly</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">json_to_examples</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">loading_pipeline</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">loading_pipelines</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">loading_pipeline</span><span class="p">)</span>
+    <span class="n">pipeline</span> <span class="o">=</span> <span class="n">loading_pipeline</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+    <span class="k">return</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -636,10 +644,9 @@ the <a href="https://prodi.gy">Prodigy</a> format.</p>
 </tbody>
 </table>
 </div>
-<h2 id="recon.loaders.read_jsonl"><code class="codehilite"><span class="n">read_jsonl</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></code><a class="headerlink" href="#recon.loaders.read_jsonl" title="Permanent link">&para;</a></h2>
+<h2 id="recon.loaders.read_jsonl"><code class="codehilite"><span class="n">read_jsonl</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">loading_pipeline</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">)</span></code><a class="headerlink" href="#recon.loaders.read_jsonl" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/loaders.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>14
-15
+<details class="note"><summary>Show source code in <code>recon/loaders.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>15
 16
 17
 18
@@ -648,7 +655,14 @@ the <a href="https://prodi.gy">Prodigy</a> format.</p>
 21
 22
 23
-24</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">read_jsonl</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">read_jsonl</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">loading_pipeline</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;Read annotations in JSONL file format</span>
 
 <span class="sd">    Args:</span>
@@ -658,7 +672,9 @@ the <a href="https://prodi.gy">Prodigy</a> format.</p>
 <span class="sd">        List[Example]: List of Examples</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">srsly</span><span class="o">.</span><span class="n">read_jsonl</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">json_to_examples</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">loading_pipeline</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">loading_pipelines</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">loading_pipeline</span><span class="p">)</span>
+    <span class="n">pipeline</span> <span class="o">=</span> <span class="n">loading_pipeline</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+    <span class="k">return</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 

@@ -671,7 +671,11 @@
 85
 86
 87
-88</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
+88
+89
+90
+91
+92</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;Run spaCy nlp.pipe on a batch of raw texts.</span>
 
 <span class="sd">        Args:</span>
@@ -690,6 +694,10 @@
                         <span class="n">text</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">start_char</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">end_char</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">label_</span>
                     <span class="p">)</span>
                     <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">ents</span>
+                <span class="p">],</span>
+                <span class="n">tokens</span><span class="o">=</span><span class="p">[</span>
+                    <span class="n">Token</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">idx</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">idx</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">i</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">doc</span>
                 <span class="p">],</span>
             <span class="p">)</span>
 </code></pre></div>
