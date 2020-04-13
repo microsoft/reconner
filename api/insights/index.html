@@ -713,7 +713,7 @@
     <span class="sd">&quot;&quot;&quot;Get a dictionary of unique text spans by label for your data</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        data (List[Example]): List of Examples</span>
+<span class="sd">        data (List[Example]): List of examples</span>
 <span class="sd">        use_lower (bool, optional): Use the lowercase form of the span text.</span>
 
 <span class="sd">    Returns:</span>
@@ -751,7 +751,7 @@
 <tr>
 <td><code>data</code></td>
 <td><code>List[recon.types.Example]</code></td>
-<td>List of Examples</td>
+<td>List of examples</td>
 <td><em>required</em></td>
 </tr>
 <tr>
@@ -867,7 +867,7 @@
 <span class="sd">        remove_pred_error_examples (bool, optional): Whether to remove examples from returned PredictionError. Defaults to True.</span>
 
 <span class="sd">    Raises:</span>
-<span class="sd">        ValueError: Each PredictionError must have a List of Examples </span>
+<span class="sd">        ValueError: Each PredictionError must have a List of examples </span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        List[HardestExample]: Sorted list of the hardest examples for a model to work on.</span>
@@ -976,7 +976,7 @@
 <tbody>
 <tr>
 <td><code>ValueError</code></td>
-<td>Each PredictionError must have a List of Examples</td>
+<td>Each PredictionError must have a List of examples</td>
 </tr>
 </tbody>
 </table>
@@ -1019,7 +1019,7 @@
     <span class="sd">&quot;&quot;&quot;Identify annotated spans that have different labels in different examples</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        data (List[Example]): Input List of Examples</span>
+<span class="sd">        data (List[Example]): Input List of examples</span>
 <span class="sd">        label1 (str): First label to compare</span>
 <span class="sd">        label2 (str): Second label to compare</span>
 <span class="sd">        use_lower (bool, optional): Use the lowercase form of the span text in ents_to_label.</span>
@@ -1048,7 +1048,7 @@
 <tr>
 <td><code>data</code></td>
 <td><code>List[recon.types.Example]</code></td>
-<td>Input List of Examples</td>
+<td>Input List of examples</td>
 <td><em>required</em></td>
 </tr>
 <tr>
@@ -1129,7 +1129,7 @@
 <span class="sd">    in different examples for all label pairs in data.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        data (List[Example]): Input List of Examples</span>
+<span class="sd">        data (List[Example]): Input List of examples</span>
 <span class="sd">        use_lower (bool, optional): Use the lowercase form of the span text in ents_to_label.</span>
 <span class="sd">        dedupe (bool, optional): Whether to deduplicate for table view vs confusion matrix.</span>
 <span class="sd">            False by default for easy confusion matrix display.</span>
@@ -1176,7 +1176,7 @@ in different examples for all label pairs in data.</p>
 <tr>
 <td><code>data</code></td>
 <td><code>List[recon.types.Example]</code></td>
-<td>Input List of Examples</td>
+<td>Input List of examples</td>
 <td><em>required</em></td>
 </tr>
 <tr>

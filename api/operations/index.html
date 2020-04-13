@@ -848,7 +848,7 @@
 
 <span class="sd">        Returns:</span>
 <span class="sd">            OperationResult: Container holding new data and the state of the Operation</span>
-<span class="sd">        &quot;&quot;&quot;</span>        
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">initial_state</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;initial_state&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">initial_state</span><span class="p">:</span>
             <span class="n">initial_state</span> <span class="o">=</span> <span class="n">OperationState</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
@@ -1006,7 +1006,7 @@
 <span class="sd">            name (str): Name of operation</span>
 <span class="sd">            batch (bool): Whether the operation handles a batch of data or not</span>
 <span class="sd">            op (Callable): Decorated function</span>
-<span class="sd">        &quot;&quot;&quot;</span>        
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">batch</span> <span class="o">=</span> <span class="n">batch</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">op</span> <span class="o">=</span> <span class="n">op</span>
@@ -1088,7 +1088,7 @@
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Callable: Original function</span>
-<span class="sd">        &quot;&quot;&quot;</span>        
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">op</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">registry</span><span class="o">.</span><span class="n">operations</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)(</span><span class="n">Operation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">,</span> <span class="n">op</span><span class="p">))</span>
 
@@ -1208,11 +1208,11 @@ recon will take care of applying it to a full Dataset</p>
 <span class="sd">    yielding tuples of (example hash, example)</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        data (List[Example]): List of Examples to iterate</span>
+<span class="sd">        data (List[Example]): List of examples to iterate</span>
 
 <span class="sd">    Yields:</span>
 <span class="sd">        Iterator[Tuple[int, Example]]: Tuples of (example hash, example)</span>
-<span class="sd">    &quot;&quot;&quot;</span>    
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
         <span class="k">yield</span> <span class="nb">hash</span><span class="p">(</span><span class="n">example</span><span class="p">),</span> <span class="n">example</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
@@ -1235,7 +1235,7 @@ yielding tuples of (example hash, example)</p>
 <tr>
 <td><code>data</code></td>
 <td><code>List[recon.types.Example]</code></td>
-<td>List of Examples to iterate</td>
+<td>List of examples to iterate</td>
 <td><em>required</em></td>
 </tr>
 </tbody>

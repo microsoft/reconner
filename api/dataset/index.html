@@ -713,7 +713,7 @@
                 
                 <h2 id="recon.dataset.Dataset"><code class="codehilite"><span class="n">Dataset</span></code><a class="headerlink" href="#recon.dataset.Dataset" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<p>A Dataset is a around a List of Examples.
+<p>A Dataset is a around a List of examples.
     Datasets are responsible for tracking all Operations done on them.
     This ensures data lineage and easy reporting of how changes in the 
     data based on various Operations effects overall quality.</p>
@@ -771,10 +771,10 @@ Now I have git-like &quot;commits&quot; for the data used in each model.
 
 <span class="sd">        Args:</span>
 <span class="sd">            func (Callable[[List[Example], Any, Any], Any]): </span>
-<span class="sd">                Function from an existing recon module that can operate on a List of Examples</span>
+<span class="sd">                Function from an existing recon module that can operate on a List of examples</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Result of running func on List of Examples</span>
+<span class="sd">            Result of running func on List of examples</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
 </code></pre></div>
@@ -796,7 +796,7 @@ Now I have git-like &quot;commits&quot; for the data used in each model.
 <tr>
 <td><code>func</code></td>
 <td><code>Callable[[List[recon.types.Example], Any, Any], Any]</code></td>
-<td>Function from an existing recon module that can operate on a List of Examples</td>
+<td>Function from an existing recon module that can operate on a List of examples</td>
 <td><em>required</em></td>
 </tr>
 </tbody>
@@ -812,7 +812,7 @@ Now I have git-like &quot;commits&quot; for the data used in each model.
 <tbody>
 <tr>
 <td><code>Any</code></td>
-<td>Result of running func on List of Examples</td>
+<td>Result of running func on List of examples</td>
 </tr>
 </tbody>
 </table>
@@ -891,7 +891,7 @@ Now I have git-like &quot;commits&quot; for the data used in each model.
 </tbody>
 </table>
 </div>
-<h3 id="recon.dataset.Dataset.from_disk"><code class="codehilite"><span class="n">from_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">loader_func</span><span class="o">=&lt;</span><span class="n">function</span> <span class="n">read_jsonl</span> <span class="n">at</span> <span class="mh">0x7f3bf1a8c378</span><span class="o">&gt;</span><span class="p">)</span></code><a class="headerlink" href="#recon.dataset.Dataset.from_disk" title="Permanent link">&para;</a></h3>
+<h3 id="recon.dataset.Dataset.from_disk"><code class="codehilite"><span class="n">from_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">loader_func</span><span class="o">=&lt;</span><span class="n">function</span> <span class="n">read_jsonl</span> <span class="n">at</span> <span class="mh">0x7fb6f52db378</span><span class="o">&gt;</span><span class="p">)</span></code><a class="headerlink" href="#recon.dataset.Dataset.from_disk" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
 <details class="note"><summary>Show source code in <code>recon/dataset.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>152
 153
@@ -950,7 +950,7 @@ Now I have git-like &quot;commits&quot; for the data used in each model.
 
 <span class="sd">        Args:</span>
 <span class="sd">            path (Path): path to load from</span>
-<span class="sd">            loader_func (Callable, optional): Callable that reads a file and returns a List of Examples. </span>
+<span class="sd">            loader_func (Callable, optional): Callable that reads a file and returns a List of examples. </span>
 <span class="sd">                Defaults to [read_jsonl][recon.loaders.read_jsonl]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">path</span> <span class="o">=</span> <span class="n">ensure_path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
@@ -1022,8 +1022,8 @@ and returns an iterator of Examples</p>
 <tr>
 <td><code>loader_func</code></td>
 <td><code>Callable</code></td>
-<td>Callable that reads a file and returns a List of Examples.  Defaults to <a href="/reconner/api/loaders/#recon.loaders.read_jsonl">read_jsonl</a></td>
-<td><code>&lt;function read_jsonl at 0x7f3bf1a8c378&gt;</code></td>
+<td>Callable that reads a file and returns a List of examples.  Defaults to <a href="/reconner/api/loaders/#recon.loaders.read_jsonl">read_jsonl</a></td>
+<td><code>&lt;function read_jsonl at 0x7fb6f52db378&gt;</code></td>
 </tr>
 </tbody>
 </table>

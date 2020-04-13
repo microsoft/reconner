@@ -894,9 +894,9 @@
         <span class="sd">&quot;&quot;&quot;Initialize a Corpus.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            train (Dataset): List of Examples for **train** set</span>
-<span class="sd">            dev (Dataset): List of Examples for **dev** set</span>
-<span class="sd">            test (Dataset, optional): Defaults to None. List of Examples for **test** set</span>
+<span class="sd">            train (Dataset): List of examples for **train** set</span>
+<span class="sd">            dev (Dataset): List of examples for **dev** set</span>
+<span class="sd">            test (Dataset, optional): Defaults to None. List of examples for **test** set</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">example_store</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">examples</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">data</span> <span class="o">+</span> <span class="n">dev</span><span class="o">.</span><span class="n">data</span>
@@ -933,19 +933,19 @@
 <tr>
 <td><code>train</code></td>
 <td><code>Dataset</code></td>
-<td>List of Examples for <strong>train</strong> set</td>
+<td>List of examples for <strong>train</strong> set</td>
 <td><em>required</em></td>
 </tr>
 <tr>
 <td><code>dev</code></td>
 <td><code>Dataset</code></td>
-<td>List of Examples for <strong>dev</strong> set</td>
+<td>List of examples for <strong>dev</strong> set</td>
 <td><em>required</em></td>
 </tr>
 <tr>
 <td><code>test</code></td>
 <td><code>Dataset</code></td>
-<td>Defaults to None. List of Examples for <strong>test</strong> set</td>
+<td>Defaults to None. List of examples for <strong>test</strong> set</td>
 <td><code>None</code></td>
 </tr>
 </tbody>
@@ -978,7 +978,7 @@
 
 <span class="sd">        Args:</span>
 <span class="sd">            func (Callable[[List[Example], Any, Any], Any]): </span>
-<span class="sd">                Function from an existing recon module that can operate on a List of Examples</span>
+<span class="sd">                Function from an existing recon module that can operate on a List of examples</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            CorpusApplyResult: CorpusApplyResult mapping dataset name to return type of func Callable</span>
@@ -1009,7 +1009,7 @@
 <tr>
 <td><code>func</code></td>
 <td><code>Callable[[List[recon.types.Example], Any, Any], Any]</code></td>
-<td>Function from an existing recon module that can operate on a List of Examples</td>
+<td>Function from an existing recon module that can operate on a List of examples</td>
 <td><em>required</em></td>
 </tr>
 </tbody>
@@ -1080,7 +1080,7 @@
 </tbody>
 </table>
 </div>
-<h3 id="recon.corpus.Corpus.from_disk"><code class="codehilite"><span class="n">from_disk</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">train_file</span><span class="o">=</span><span class="s1">&#39;train.jsonl&#39;</span><span class="p">,</span> <span class="n">dev_file</span><span class="o">=</span><span class="s1">&#39;dev.jsonl&#39;</span><span class="p">,</span> <span class="n">test_file</span><span class="o">=</span><span class="s1">&#39;test.jsonl&#39;</span><span class="p">,</span> <span class="n">loader_func</span><span class="o">=&lt;</span><span class="n">function</span> <span class="n">read_jsonl</span> <span class="n">at</span> <span class="mh">0x7f3bf1a8c378</span><span class="o">&gt;</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#recon.corpus.Corpus.from_disk" title="Permanent link">&para;</a></h3>
+<h3 id="recon.corpus.Corpus.from_disk"><code class="codehilite"><span class="n">from_disk</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">train_file</span><span class="o">=</span><span class="s1">&#39;train.jsonl&#39;</span><span class="p">,</span> <span class="n">dev_file</span><span class="o">=</span><span class="s1">&#39;dev.jsonl&#39;</span><span class="p">,</span> <span class="n">test_file</span><span class="o">=</span><span class="s1">&#39;test.jsonl&#39;</span><span class="p">,</span> <span class="n">loader_func</span><span class="o">=&lt;</span><span class="n">function</span> <span class="n">read_jsonl</span> <span class="n">at</span> <span class="mh">0x7fb6f52db378</span><span class="o">&gt;</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#recon.corpus.Corpus.from_disk" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
 <details class="note"><summary>Show source code in <code>recon/corpus.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>125
 126
@@ -1129,7 +1129,7 @@
 <span class="sd">            train_file (str, optional): Filename of train data under data_dir. Defaults to train.jsonl.</span>
 <span class="sd">            dev_file (str, optional): Filename of dev data under data_dir. Defaults to dev.jsonl.</span>
 <span class="sd">            test_file (str, optional): Filename of test data under data_dir. Defaults to test.jsonl.</span>
-<span class="sd">            loader_func (Callable, optional): Callable that reads a file and returns a List of Examples. </span>
+<span class="sd">            loader_func (Callable, optional): Callable that reads a file and returns a List of examples. </span>
 <span class="sd">                Defaults to [read_jsonl][recon.loaders.read_jsonl]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">data_dir</span> <span class="o">=</span> <span class="n">ensure_path</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
@@ -1187,8 +1187,8 @@ named explicitly train.jsonl, dev.jsonl, and test.jsonl</p>
 <tr>
 <td><code>loader_func</code></td>
 <td><code>Callable</code></td>
-<td>Callable that reads a file and returns a List of Examples.  Defaults to <a href="/reconner/api/loaders/#recon.loaders.read_jsonl">read_jsonl</a></td>
-<td><code>&lt;function read_jsonl at 0x7f3bf1a8c378&gt;</code></td>
+<td>Callable that reads a file and returns a List of examples.  Defaults to <a href="/reconner/api/loaders/#recon.loaders.read_jsonl">read_jsonl</a></td>
+<td><code>&lt;function read_jsonl at 0x7fb6f52db378&gt;</code></td>
 </tr>
 </tbody>
 </table>
