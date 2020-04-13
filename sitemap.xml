@@ -36,6 +36,14 @@
      <lastmod>2020-04-13</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://microsoft.github.io/reconner/api/dataset/</loc>
+     <lastmod>2020-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://microsoft.github.io/reconner/api/hashing/</loc>
+     <lastmod>2020-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://microsoft.github.io/reconner/api/insights/</loc>
      <lastmod>2020-04-13</lastmod>
      <changefreq>daily</changefreq>
@@ -44,7 +52,19 @@
      <lastmod>2020-04-13</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://microsoft.github.io/reconner/api/operations/</loc>
+     <lastmod>2020-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://microsoft.github.io/reconner/api/stats/</loc>
+     <lastmod>2020-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://microsoft.github.io/reconner/api/store/</loc>
+     <lastmod>2020-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://microsoft.github.io/reconner/api/tokenization/</loc>
      <lastmod>2020-04-13</lastmod>
      <changefreq>daily</changefreq>
     </url><url>

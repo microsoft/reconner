@@ -468,6 +468,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../dataset/" title="Dataset" class="md-nav__link">
+      Dataset
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hashing/" title="Hashing" class="md-nav__link">
+      Hashing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../insights/" title="Insights" class="md-nav__link">
       Insights
     </a>
@@ -492,8 +516,44 @@
 
 
   <li class="md-nav__item">
+    <a href="../operations/" title="Operations" class="md-nav__link">
+      Operations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../stats/" title="Stats" class="md-nav__link">
       Stats
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../store/" title="Store" class="md-nav__link">
+      Store
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tokenization/" title="Tokenization" class="md-nav__link">
+      Tokenization
     </a>
   </li>
 
@@ -517,13 +577,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-12" type="checkbox" id="nav-3-12">
     
-    <label class="md-nav__link" for="nav-3-7">
+    <label class="md-nav__link" for="nav-3-12">
       Recognizers
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-7">
+      <label class="md-nav__title" for="nav-3-12">
         Recognizers
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -846,7 +906,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">example_store</span> <span class="o">=</span> <span class="n">example_store</span>
 
         <span class="k">if</span> <span class="n">test</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">test</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;testsw&quot;</span><span class="p">)</span>
+            <span class="n">test</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">ds</span> <span class="ow">in</span> <span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">dev</span><span class="p">,</span> <span class="n">test</span><span class="p">):</span>
             <span class="n">ds</span><span class="o">.</span><span class="n">example_store</span> <span class="o">=</span> <span class="n">example_store</span>
@@ -1020,7 +1080,7 @@
 </tbody>
 </table>
 </div>
-<h3 id="recon.corpus.Corpus.from_disk"><code class="codehilite"><span class="n">from_disk</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">train_file</span><span class="o">=</span><span class="s1">&#39;train.jsonl&#39;</span><span class="p">,</span> <span class="n">dev_file</span><span class="o">=</span><span class="s1">&#39;dev.jsonl&#39;</span><span class="p">,</span> <span class="n">test_file</span><span class="o">=</span><span class="s1">&#39;test.jsonl&#39;</span><span class="p">,</span> <span class="n">loader_func</span><span class="o">=&lt;</span><span class="n">function</span> <span class="n">read_jsonl</span> <span class="n">at</span> <span class="mh">0x7ff964ede378</span><span class="o">&gt;</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#recon.corpus.Corpus.from_disk" title="Permanent link">&para;</a></h3>
+<h3 id="recon.corpus.Corpus.from_disk"><code class="codehilite"><span class="n">from_disk</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">train_file</span><span class="o">=</span><span class="s1">&#39;train.jsonl&#39;</span><span class="p">,</span> <span class="n">dev_file</span><span class="o">=</span><span class="s1">&#39;dev.jsonl&#39;</span><span class="p">,</span> <span class="n">test_file</span><span class="o">=</span><span class="s1">&#39;test.jsonl&#39;</span><span class="p">,</span> <span class="n">loader_func</span><span class="o">=&lt;</span><span class="n">function</span> <span class="n">read_jsonl</span> <span class="n">at</span> <span class="mh">0x7f3bf1a8c378</span><span class="o">&gt;</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#recon.corpus.Corpus.from_disk" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
 <details class="note"><summary>Show source code in <code>recon/corpus.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>125
 126
@@ -1128,7 +1188,7 @@ named explicitly train.jsonl, dev.jsonl, and test.jsonl</p>
 <td><code>loader_func</code></td>
 <td><code>Callable</code></td>
 <td>Callable that reads a file and returns a List of Examples.  Defaults to <a href="/reconner/api/loaders/#recon.loaders.read_jsonl">read_jsonl</a></td>
-<td><code>&lt;function read_jsonl at 0x7ff964ede378&gt;</code></td>
+<td><code>&lt;function read_jsonl at 0x7f3bf1a8c378&gt;</code></td>
 </tr>
 </tbody>
 </table>
