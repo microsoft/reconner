@@ -236,7 +236,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/loading_data/" title="Loading your data" class="md-nav__link">
+    <a href="../../tutorial/1_loading_data/" title="Loading your data" class="md-nav__link">
       Loading your data
     </a>
   </li>
@@ -248,7 +248,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/ner_stats/" title="NER Stats" class="md-nav__link">
+    <a href="../../tutorial/2_ner_stats/" title="NER Stats" class="md-nav__link">
       NER Stats
     </a>
   </li>
@@ -260,7 +260,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/corpus_apply/" title="Using a Corpus" class="md-nav__link">
+    <a href="../../tutorial/3_corpus_apply/" title="Using a Corpus" class="md-nav__link">
       Using a Corpus
     </a>
   </li>
@@ -272,7 +272,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/getting_insights/" title="Getting Insights" class="md-nav__link">
+    <a href="../../tutorial/4_more_stats/" title="More NER Stats" class="md-nav__link">
+      More NER Stats
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorial/5_getting_insights/" title="Getting Insights" class="md-nav__link">
       Getting Insights
     </a>
   </li>
@@ -572,7 +584,7 @@
                   <h1>Corrections</h1>
                 
                 <p>Make corrections to your data.</p>
-<h2 id="recon.corrections.fix_annotations"><code class="codehilite"><span class="n">fix_annotations</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">corrections</span><span class="p">,</span> <span class="n">use_lower</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code><a class="headerlink" href="#recon.corrections.fix_annotations" title="Permanent link">&para;</a></h2>
+<h2 id="recon.corrections.fix_annotations"><code class="codehilite"><span class="n">fix_annotations</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="n">corrections</span><span class="p">,</span> <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#recon.corrections.fix_annotations" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
 <details class="note"><summary>Show source code in <code>recon/corrections.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>27
 28
@@ -623,9 +635,10 @@
 73
 74
 75
-76</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">fix_annotations</span><span class="p">(</span>
-    <span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span> <span class="n">corrections</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">use_lower</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
+76</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nd">@operation</span><span class="p">(</span><span class="s2">&quot;fix_annotations&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">fix_annotations</span><span class="p">(</span>
+    <span class="n">example</span><span class="p">:</span> <span class="n">Example</span><span class="p">,</span> <span class="n">corrections</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">case_sensitive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Example</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Fix annotations in a copy of List[Example] data.</span>
 
 <span class="sd">    This function will NOT add annotations to your data.</span>
@@ -633,46 +646,45 @@
 <span class="sd">    labels for specific spans.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        data (List[Example]): List of Examples</span>
+<span class="sd">        example (Example): Input Example</span>
 <span class="sd">        corrections (Dict[str, str]): Dictionary of corrections mapping entity text to a new label.</span>
-<span class="sd">        If the value is set to None, the annotation will be removed</span>
-<span class="sd">        use_lower (bool, optional): Use the lowercase form of the span text </span>
-<span class="sd">            for matching corrections. Defaults to True.</span>
+<span class="sd">            If the value is set to None, the annotation will be removed</span>
+<span class="sd">        case_sensitive (bool, optional): Consider case of text for each correction</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        List[Example]: Fixed Examples</span>
+<span class="sd">        Example: Example with fixed annotations</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">data_copy</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">use_lower</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">case_sensitive</span><span class="p">:</span>
+        <span class="n">corrections</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="n">l</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">corrections</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="k">else</span><span class="p">:</span>
         <span class="n">corrections</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span> <span class="n">l</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">corrections</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
 
     <span class="n">prints</span><span class="p">:</span> <span class="n">DefaultDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 
-    <span class="k">for</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-        <span class="n">ents_to_remove</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">):</span>
-            <span class="n">t</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">ents_to_remove</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">text</span> <span class="k">if</span> <span class="n">case_sensitive</span> <span class="k">else</span> <span class="n">s</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 
-            <span class="k">if</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">corrections</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">corrections</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="ow">is</span> <span class="nb">print</span><span class="p">:</span>
-                    <span class="n">prints</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">100</span><span class="p">),</span> <span class="n">example</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">label</span><span class="p">]</span>
-                <span class="k">elif</span> <span class="n">corrections</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">ents_to_remove</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">s</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">corrections</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">corrections</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">corrections</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="ow">is</span> <span class="nb">print</span><span class="p">:</span>
+                <span class="n">prints</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">100</span><span class="p">),</span> <span class="n">example</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">label</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">corrections</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">ents_to_remove</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">s</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">corrections</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
 
-        <span class="n">i</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ents_to_remove</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">idx</span> <span class="o">=</span> <span class="n">ents_to_remove</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-            <span class="k">del</span> <span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-            <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ents_to_remove</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">ents_to_remove</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
 
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">prints</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;**</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">**&quot;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">prints</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">data</span>
+    <span class="k">return</span> <span class="n">example</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -693,22 +705,22 @@ labels for specific spans.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>data</code></td>
-<td><code>List[recon.types.Example]</code></td>
-<td>List of Examples</td>
+<td><code>example</code></td>
+<td><code>Example</code></td>
+<td>Input Example</td>
 <td><em>required</em></td>
 </tr>
 <tr>
 <td><code>corrections</code></td>
 <td><code>Dict[str, str]</code></td>
-<td>Dictionary of corrections mapping entity text to a new label.</td>
+<td>Dictionary of corrections mapping entity text to a new label. If the value is set to None, the annotation will be removed</td>
 <td><em>required</em></td>
 </tr>
 <tr>
-<td><code>use_lower</code></td>
+<td><code>case_sensitive</code></td>
 <td><code>bool</code></td>
-<td>Use the lowercase form of the span text  for matching corrections. Defaults to True.</td>
-<td><code>True</code></td>
+<td>Consider case of text for each correction</td>
+<td><code>False</code></td>
 </tr>
 </tbody>
 </table>
@@ -722,16 +734,15 @@ labels for specific spans.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>List[recon.types.Example]</code></td>
-<td>List[Example]: Fixed Examples</td>
+<td><code>Example</code></td>
+<td>Example: Example with fixed annotations</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h2 id="recon.corrections.rename_labels"><code class="codehilite"><span class="n">rename_labels</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">label_map</span><span class="p">)</span></code><a class="headerlink" href="#recon.corrections.rename_labels" title="Permanent link">&para;</a></h2>
+<h2 id="recon.corrections.rename_labels"><code class="codehilite"><span class="n">rename_labels</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="n">label_map</span><span class="p">)</span></code><a class="headerlink" href="#recon.corrections.rename_labels" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/corrections.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>10
-11
+<details class="note"><summary>Show source code in <code>recon/corrections.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>11
 12
 13
 14
@@ -744,21 +755,20 @@ labels for specific spans.</p>
 21
 22
 23
-24</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">rename_labels</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span> <span class="n">label_map</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
+24</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nd">@operation</span><span class="p">(</span><span class="s2">&quot;rename_labels&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">rename_labels</span><span class="p">(</span><span class="n">example</span><span class="p">:</span> <span class="n">Example</span><span class="p">,</span> <span class="n">label_map</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Example</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Rename labels in a copy of List[Example] data</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        data (List[Example]): List of Examples</span>
+<span class="sd">        example (Example): Input Example</span>
 <span class="sd">        label_map (Dict[str, str]): One-to-one mapping of label names</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        List[Example]: Copy List of Examples with renamed labels</span>
+<span class="sd">        Example: Copy of Example with renamed labels</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">data_copy</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">data_copy</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">:</span>
-            <span class="n">span</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">span</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="n">span</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">data_copy</span>
+    <span class="k">for</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">:</span>
+        <span class="n">span</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">span</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="n">span</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">example</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -776,9 +786,9 @@ labels for specific spans.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>data</code></td>
-<td><code>List[recon.types.Example]</code></td>
-<td>List of Examples</td>
+<td><code>example</code></td>
+<td><code>Example</code></td>
+<td>Input Example</td>
 <td><em>required</em></td>
 </tr>
 <tr>
@@ -799,8 +809,8 @@ labels for specific spans.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>List[recon.types.Example]</code></td>
-<td>List[Example]: Copy List of Examples with renamed labels</td>
+<td><code>Example</code></td>
+<td>Example: Copy of Example with renamed labels</td>
 </tr>
 </tbody>
 </table>
@@ -889,6 +899,8 @@ labels for specific spans.</p>
       <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
       
         <script src="../../js/termynal.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js"></script>
       
         <script src="../../js/custom.js"></script>
       

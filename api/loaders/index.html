@@ -93,7 +93,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#recon.loaders.read_json" tabindex="0" class="md-skip">
+      <a href="#recon.loaders.json_to_examples" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -236,7 +236,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/loading_data/" title="Loading your data" class="md-nav__link">
+    <a href="../../tutorial/1_loading_data/" title="Loading your data" class="md-nav__link">
       Loading your data
     </a>
   </li>
@@ -248,7 +248,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/ner_stats/" title="NER Stats" class="md-nav__link">
+    <a href="../../tutorial/2_ner_stats/" title="NER Stats" class="md-nav__link">
       NER Stats
     </a>
   </li>
@@ -260,7 +260,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/corpus_apply/" title="Using a Corpus" class="md-nav__link">
+    <a href="../../tutorial/3_corpus_apply/" title="Using a Corpus" class="md-nav__link">
       Using a Corpus
     </a>
   </li>
@@ -272,7 +272,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/getting_insights/" title="Getting Insights" class="md-nav__link">
+    <a href="../../tutorial/4_more_stats/" title="More NER Stats" class="md-nav__link">
+      More NER Stats
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorial/5_getting_insights/" title="Getting Insights" class="md-nav__link">
       Getting Insights
     </a>
   </li>
@@ -379,6 +391,13 @@
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recon.loaders.json_to_examples" class="md-nav__link">
+    json_to_examples()
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#recon.loaders.read_json" class="md-nav__link">
@@ -537,6 +556,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#recon.loaders.json_to_examples" class="md-nav__link">
+    json_to_examples()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#recon.loaders.read_json" class="md-nav__link">
     read_json()
   </a>
@@ -573,9 +599,72 @@
                 
                 <p>Load a list of Example data from JSON represented records in 
 the <a href="https://prodi.gy">Prodigy</a> format.</p>
-<h2 id="recon.loaders.read_json"><code class="codehilite"><span class="n">read_json</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">loading_pipeline</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">)</span></code><a class="headerlink" href="#recon.loaders.read_json" title="Permanent link">&para;</a></h2>
+<h2 id="recon.loaders.json_to_examples"><code class="codehilite"><span class="n">json_to_examples</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code><a class="headerlink" href="#recon.loaders.json_to_examples" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/loaders.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>32
+<details class="note"><summary>Show source code in <code>recon/loaders.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">json_to_examples</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Convert List of Dicts to List of typed Examples</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data (List[Dict[str, Any]]): Input List of Dicts to convert</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List[Example]: List of typed Examples</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">Example</span><span class="p">(</span><span class="o">**</span><span class="n">example</span><span class="p">)</span> <span class="k">for</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Convert List of Dicts to List of typed Examples</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>List[Dict[str, Any]]</code></td>
+<td>Input List of Dicts to convert</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>List[recon.types.Example]</code></td>
+<td>List[Example]: List of typed Examples</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="recon.loaders.read_json"><code class="codehilite"><span class="n">read_json</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></code><a class="headerlink" href="#recon.loaders.read_json" title="Permanent link">&para;</a></h2>
+<div class="autodoc">
+<details class="note"><summary>Show source code in <code>recon/loaders.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>30
+31
+32
 33
 34
 35
@@ -584,14 +673,7 @@ the <a href="https://prodi.gy">Prodigy</a> format.</p>
 38
 39
 40
-41
-42
-43
-44
-45
-46</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">read_json</span><span class="p">(</span>
-    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">loading_pipeline</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
+41</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">read_json</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;Read annotations in JSON file format</span>
 
 <span class="sd">    Args:</span>
@@ -600,10 +682,9 @@ the <a href="https://prodi.gy">Prodigy</a> format.</p>
 <span class="sd">    Returns:</span>
 <span class="sd">        List[Example]: List of Examples</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">srsly</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-    <span class="n">loading_pipeline</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">loading_pipelines</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">loading_pipeline</span><span class="p">)</span>
-    <span class="n">pipeline</span> <span class="o">=</span> <span class="n">loading_pipeline</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
-    <span class="k">return</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">srsly</span><span class="o">.</span><span class="n">read_jsonl</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">examples</span> <span class="o">=</span> <span class="n">json_to_examples</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">examples</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -644,10 +725,9 @@ the <a href="https://prodi.gy">Prodigy</a> format.</p>
 </tbody>
 </table>
 </div>
-<h2 id="recon.loaders.read_jsonl"><code class="codehilite"><span class="n">read_jsonl</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">loading_pipeline</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">)</span></code><a class="headerlink" href="#recon.loaders.read_jsonl" title="Permanent link">&para;</a></h2>
+<h2 id="recon.loaders.read_jsonl"><code class="codehilite"><span class="n">read_jsonl</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></code><a class="headerlink" href="#recon.loaders.read_jsonl" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/loaders.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>15
-16
+<details class="note"><summary>Show source code in <code>recon/loaders.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>16
 17
 18
 19
@@ -658,11 +738,7 @@ the <a href="https://prodi.gy">Prodigy</a> format.</p>
 24
 25
 26
-27
-28
-29</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">read_jsonl</span><span class="p">(</span>
-    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">loading_pipeline</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
+27</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">read_jsonl</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;Read annotations in JSONL file format</span>
 
 <span class="sd">    Args:</span>
@@ -671,10 +747,9 @@ the <a href="https://prodi.gy">Prodigy</a> format.</p>
 <span class="sd">    Returns:</span>
 <span class="sd">        List[Example]: List of Examples</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">srsly</span><span class="o">.</span><span class="n">read_jsonl</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
-    <span class="n">loading_pipeline</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">loading_pipelines</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">loading_pipeline</span><span class="p">)</span>
-    <span class="n">pipeline</span> <span class="o">=</span> <span class="n">loading_pipeline</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
-    <span class="k">return</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">srsly</span><span class="o">.</span><span class="n">read_jsonl</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">examples</span> <span class="o">=</span> <span class="n">json_to_examples</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">examples</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -799,6 +874,8 @@ the <a href="https://prodi.gy">Prodigy</a> format.</p>
       <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
       
         <script src="../../js/termynal.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js"></script>
       
         <script src="../../js/custom.js"></script>
       

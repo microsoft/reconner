@@ -13,7 +13,7 @@
         <meta name="description" content="Debug annotated Named Entity Recognition (NER) data for inconsitencies and get insights on improving the quality of your data.">
       
       
-        <link rel="canonical" href="https://microsoft.github.io/reconner/tutorial/ner_stats/">
+        <link rel="canonical" href="https://microsoft.github.io/reconner/tutorial/2_ner_stats/">
       
       
       
@@ -238,7 +238,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../loading_data/" title="Loading your data" class="md-nav__link">
+    <a href="../1_loading_data/" title="Loading your data" class="md-nav__link">
       Loading your data
     </a>
   </li>
@@ -307,7 +307,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../corpus_apply/" title="Using a Corpus" class="md-nav__link">
+    <a href="../3_corpus_apply/" title="Using a Corpus" class="md-nav__link">
       Using a Corpus
     </a>
   </li>
@@ -319,7 +319,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../getting_insights/" title="Getting Insights" class="md-nav__link">
+    <a href="../4_more_stats/" title="More NER Stats" class="md-nav__link">
+      More NER Stats
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../5_getting_insights/" title="Getting Insights" class="md-nav__link">
       Getting Insights
     </a>
   </li>
@@ -572,16 +584,18 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/microsoft/reconner/tree/master/docs/tutorial/ner_stats.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/microsoft/reconner/tree/master/docs/tutorial/2_ner_stats.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="tutorial-ner-statistics">Tutorial - NER Statistics<a class="headerlink" href="#tutorial-ner-statistics" title="Permanent link">&para;</a></h1>
 <p>Getting statistics about your NER data is extremely helpful throughout the annotation process. It helps you ensure that you're spendind time on the right annotations and that you have enough examples for each type as well as enough examples with <strong>NO ENTITIES</strong> at all (this is often overlooked but <strong>VERY</strong> important to build a model that generalizes well).</p>
 <p>Once you have your data loaded either by itself as a list of <code>Example</code>s or as a <code>Dataset</code> you can easily get statistics using the <a href="../../api/stats#ner_stats"><code>stats.ner_stats</code></a> function.</p>
 <p>The <code>stats.get_ner_stats</code> function expects a <code>List[Example]</code> as it's input parameter and will return a serializable response with info about your data. Let's see how this works on the provided example data.</p>
-<div class="admonition error">
-<p class="admonition-title">Error</p>
-<p>Fix this, add CLI for example data download</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you don't already have the example data or a dataset of your own, you can download it now. Open a terminal and run the <code>download</code> command.
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> recon download examples ./data
+</code></pre></div></p>
 </div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <p>Create a file main.py with:</p>
@@ -649,7 +663,7 @@ And it'd be really annoying to have to call the same function on each dataset:</
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../loading_data/" title="Loading your data" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../1_loading_data/" title="Loading your data" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -664,7 +678,7 @@ And it'd be really annoying to have to call the same function on each dataset:</
           </a>
         
         
-          <a href="../corpus_apply/" title="Using a Corpus" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../3_corpus_apply/" title="Using a Corpus" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
@@ -712,6 +726,8 @@ And it'd be really annoying to have to call the same function on each dataset:</
       <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
       
         <script src="../../js/termynal.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js"></script>
       
         <script src="../../js/custom.js"></script>
       

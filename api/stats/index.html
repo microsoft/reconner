@@ -236,7 +236,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/loading_data/" title="Loading your data" class="md-nav__link">
+    <a href="../../tutorial/1_loading_data/" title="Loading your data" class="md-nav__link">
       Loading your data
     </a>
   </li>
@@ -248,7 +248,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/ner_stats/" title="NER Stats" class="md-nav__link">
+    <a href="../../tutorial/2_ner_stats/" title="NER Stats" class="md-nav__link">
       NER Stats
     </a>
   </li>
@@ -260,7 +260,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/corpus_apply/" title="Using a Corpus" class="md-nav__link">
+    <a href="../../tutorial/3_corpus_apply/" title="Using a Corpus" class="md-nav__link">
       Using a Corpus
     </a>
   </li>
@@ -272,7 +272,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/getting_insights/" title="Getting Insights" class="md-nav__link">
+    <a href="../../tutorial/4_more_stats/" title="More NER Stats" class="md-nav__link">
+      More NER Stats
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorial/5_getting_insights/" title="Getting Insights" class="md-nav__link">
       Getting Insights
     </a>
   </li>
@@ -421,13 +433,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recon.stats.counts_to_probs" class="md-nav__link">
-    counts_to_probs()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#recon.stats.detect_outliers" class="md-nav__link">
     detect_outliers()
   </a>
@@ -451,6 +456,13 @@
         <li class="md-nav__item">
   <a href="#recon.stats.get_ner_stats" class="md-nav__link">
     get_ner_stats()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recon.stats.get_probs_from_counts" class="md-nav__link">
+    get_probs_from_counts()
   </a>
   
 </li>
@@ -621,13 +633,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recon.stats.counts_to_probs" class="md-nav__link">
-    counts_to_probs()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#recon.stats.detect_outliers" class="md-nav__link">
     detect_outliers()
   </a>
@@ -651,6 +656,13 @@
         <li class="md-nav__item">
   <a href="#recon.stats.get_ner_stats" class="md-nav__link">
     get_ner_stats()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recon.stats.get_probs_from_counts" class="md-nav__link">
+    get_probs_from_counts()
   </a>
   
 </li>
@@ -685,18 +697,18 @@
                 
                 <h2 id="recon.stats.calculate_entity_coverage_entropy"><code class="codehilite"><span class="n">calculate_entity_coverage_entropy</span><span class="p">(</span><span class="n">entity_coverage</span><span class="p">)</span></code><a class="headerlink" href="#recon.stats.calculate_entity_coverage_entropy" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>259
+<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>252
+253
+254
+255
+256
+257
+258
+259
 260
 261
 262
-263
-264
-265
-266
-267
-268
-269
-270</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_entity_coverage_entropy</span><span class="p">(</span><span class="n">entity_coverage</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">EntityCoverage</span><span class="p">],)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+263</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_entity_coverage_entropy</span><span class="p">(</span><span class="n">entity_coverage</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">EntityCoverage</span><span class="p">],)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Use Entropy to calculate a metric for entity coverage.</span>
 
 <span class="sd">    Args:</span>
@@ -750,7 +762,8 @@
 </div>
 <h2 id="recon.stats.calculate_entity_coverage_similarity"><code class="codehilite"><span class="n">calculate_entity_coverage_similarity</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></code><a class="headerlink" href="#recon.stats.calculate_entity_coverage_similarity" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>158
+<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>157
+158
 159
 160
 161
@@ -787,14 +800,7 @@
 192
 193
 194
-195
-196
-197
-198
-199
-200</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_entity_coverage_similarity</span><span class="p">(</span>
-    <span class="n">x</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EntityCoverageStats</span><span class="p">:</span>
+195</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_entity_coverage_similarity</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">EntityCoverageStats</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Calculate how well dataset x covers the entities in dataset y.</span>
 <span class="sd">    This function should be used to calculate how similar your train set</span>
 <span class="sd">    annotations cover the annotations in your dev/test set</span>
@@ -811,10 +817,9 @@
 <span class="sd">            often entities occur in each dataset x and y)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">get_ec_map</span><span class="p">(</span><span class="n">ecs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">EntityCoverage</span><span class="p">],</span> <span class="n">sep</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;|||&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ec</span><span class="o">.</span><span class="n">text</span><span class="si">}{</span><span class="n">sep</span><span class="si">}{</span><span class="n">ec</span><span class="o">.</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">ec</span><span class="o">.</span><span class="n">count</span> <span class="k">for</span> <span class="n">ec</span> <span class="ow">in</span> <span class="n">ecs</span><span class="p">}</span>
-
-    <span class="n">pipeline</span> <span class="o">=</span> <span class="n">compose</span><span class="p">(</span><span class="n">get_entity_coverage</span><span class="p">,</span> <span class="n">get_ec_map</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">pipeline</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+        <span class="n">ecs</span> <span class="o">=</span> <span class="n">get_entity_coverage</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="nb">hash</span><span class="p">(</span><span class="n">ec</span><span class="p">):</span> <span class="n">ec</span><span class="o">.</span><span class="n">count</span> <span class="k">for</span> <span class="n">ec</span> <span class="ow">in</span> <span class="n">ecs</span><span class="p">}</span>
 
     <span class="n">x_map</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">y_map</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
@@ -832,8 +837,7 @@
         <span class="n">count_union</span> <span class="o">+=</span> <span class="n">count</span>
 
     <span class="k">return</span> <span class="n">EntityCoverageStats</span><span class="p">(</span>
-        <span class="n">entity</span><span class="o">=</span><span class="p">(</span><span class="n">n_intersection</span> <span class="o">/</span> <span class="n">n_union</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
-        <span class="n">count</span><span class="o">=</span><span class="p">(</span><span class="n">count_intersection</span> <span class="o">/</span> <span class="n">count_union</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="n">entity</span><span class="o">=</span><span class="p">(</span><span class="n">n_intersection</span> <span class="o">/</span> <span class="n">n_union</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="p">(</span><span class="n">count_intersection</span> <span class="o">/</span> <span class="n">count_union</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
@@ -885,18 +889,18 @@ annotations cover the annotations in your dev/test set</p>
 </div>
 <h2 id="recon.stats.calculate_label_balance_entropy"><code class="codehilite"><span class="n">calculate_label_balance_entropy</span><span class="p">(</span><span class="n">ner_stats</span><span class="p">)</span></code><a class="headerlink" href="#recon.stats.calculate_label_balance_entropy" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>245
+<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>238
+239
+240
+241
+242
+243
+244
+245
 246
 247
 248
-249
-250
-251
-252
-253
-254
-255
-256</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_label_balance_entropy</span><span class="p">(</span><span class="n">ner_stats</span><span class="p">:</span> <span class="n">NERStats</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+249</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_label_balance_entropy</span><span class="p">(</span><span class="n">ner_stats</span><span class="p">:</span> <span class="n">NERStats</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Use Entropy to calculate a metric for label balance based on an NERStats object </span>
 
 <span class="sd">    Args:</span>
@@ -950,7 +954,9 @@ annotations cover the annotations in your dev/test set</p>
 </div>
 <h2 id="recon.stats.calculate_label_distribution_similarity"><code class="codehilite"><span class="n">calculate_label_distribution_similarity</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></code><a class="headerlink" href="#recon.stats.calculate_label_distribution_similarity" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 84
+<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 82
+ 83
+ 84
  85
  86
  87
@@ -975,9 +981,9 @@ annotations cover the annotations in your dev/test set</p>
 106
 107
 108
-109</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_label_distribution_similarity</span><span class="p">(</span>
-    <span class="n">x</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+109
+110
+111</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_label_distribution_similarity</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Calculate the similarity of the label distribution for 2 datasets.</span>
 
 <span class="sd">    e.g. This can help you understand how well your train set models your dev and test sets.</span>
@@ -997,7 +1003,13 @@ annotations cover the annotations in your dev/test set</p>
 <span class="sd">    Returns:</span>
 <span class="sd">        float: Similarity of label distributions</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">pipeline</span> <span class="o">=</span> <span class="n">compose</span><span class="p">(</span><span class="n">get_ner_stats</span><span class="p">,</span> <span class="n">get_sorted_type_counts</span><span class="p">,</span> <span class="n">counts_to_probs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">pipeline</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+        <span class="n">stats</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">NERStats</span><span class="p">,</span> <span class="n">get_ner_stats</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+        <span class="n">sorted_type_counts</span> <span class="o">=</span> <span class="n">get_sorted_type_counts</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>
+        <span class="n">counts_to_probs</span> <span class="o">=</span> <span class="n">get_probs_from_counts</span><span class="p">(</span><span class="n">sorted_type_counts</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">counts_to_probs</span>
+
     <span class="n">distance</span> <span class="o">=</span> <span class="n">jensenshannon</span><span class="p">(</span><span class="n">pipeline</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">distance</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
@@ -1058,73 +1070,16 @@ calculate_label_distribution_similarity(corpus.train, corpus.test)
 </tbody>
 </table>
 </div>
-<h2 id="recon.stats.counts_to_probs"><code class="codehilite"><span class="n">counts_to_probs</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span></code><a class="headerlink" href="#recon.stats.counts_to_probs" title="Permanent link">&para;</a></h2>
-<div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">counts_to_probs</span><span class="p">(</span><span class="n">seq</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;Convert a sequence of counts to a sequence of probabilties</span>
-<span class="sd">    by dividing each n by the sum of all n in seq</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        seq (Sequence[int]): Sequence of counts</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        Sequence[float]: Sequence of probabilities</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-
-</details>
-<p>Convert a sequence of counts to a sequence of probabilties
-by dividing each n by the sum of all n in seq</p>
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>seq</code></td>
-<td><code>Sequence[int]</code></td>
-<td>Sequence of counts</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Sequence[float]</code></td>
-<td>Sequence[float]: Sequence of probabilities</td>
-</tr>
-</tbody>
-</table>
-</div>
 <h2 id="recon.stats.detect_outliers"><code class="codehilite"><span class="n">detect_outliers</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">use_log</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#recon.stats.detect_outliers" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>273
+<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>266
+267
+268
+269
+270
+271
+272
+273
 274
 275
 276
@@ -1134,14 +1089,7 @@ by dividing each n by the sum of all n in seq</p>
 280
 281
 282
-283
-284
-285
-286
-287
-288
-289
-290</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">detect_outliers</span><span class="p">(</span><span class="n">seq</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">use_log</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Outliers</span><span class="p">:</span>
+283</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">detect_outliers</span><span class="p">(</span><span class="n">seq</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">use_log</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Outliers</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Detect outliers in a numerical sequence.</span>
 
 <span class="sd">    Args:</span>
@@ -1207,7 +1155,12 @@ by dividing each n by the sum of all n in seq</p>
 </div>
 <h2 id="recon.stats.entropy"><code class="codehilite"><span class="n">entropy</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#recon.stats.entropy" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>216
+<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>211
+212
+213
+214
+215
+216
 217
 218
 219
@@ -1226,14 +1179,7 @@ by dividing each n by the sum of all n in seq</p>
 232
 233
 234
-235
-236
-237
-238
-239
-240
-241
-242</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="n">seq</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span> <span class="n">total</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+235</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="n">seq</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span> <span class="n">total</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Calculate Shannon Entropy for a sequence of Floats or Integers.</span>
 <span class="sd">    If Floats, check they are probabilities</span>
 <span class="sd">    If Integers, divide each n in seq by total and calculate entropy</span>
@@ -1254,11 +1200,9 @@ by dividing each n by the sum of all n in seq</p>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">seq</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">float</span><span class="p">):</span>
         <span class="n">e</span> <span class="o">=</span> <span class="n">scipy_entropy</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">seq</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="n">e</span> <span class="o">=</span> <span class="n">scipy_entropy</span><span class="p">(</span><span class="n">counts_to_probs</span><span class="p">(</span><span class="n">seq</span><span class="p">))</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="n">scipy_entropy</span><span class="p">(</span><span class="n">get_probs_from_counts</span><span class="p">(</span><span class="n">seq</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-            <span class="s2">&quot;Parameter seq must be a sequence of probabilites or integers.&quot;</span>
-        <span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Parameter seq must be a sequence of probabilites or integers.&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">e</span>
 </code></pre></div>
 </td></tr></table>
@@ -1325,9 +1269,7 @@ If Integers, divide each n in seq by total and calculate entropy</p>
 </div>
 <h2 id="recon.stats.get_entity_coverage"><code class="codehilite"><span class="n">get_entity_coverage</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;||&#39;</span><span class="p">,</span> <span class="n">use_lower</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_examples</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#recon.stats.get_entity_coverage" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>112
-113
-114
+<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>114
 115
 116
 117
@@ -1367,12 +1309,8 @@ If Integers, divide each n in seq by total and calculate entropy</p>
 151
 152
 153
-154
-155</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_entity_coverage</span><span class="p">(</span>
-    <span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span>
-    <span class="n">sep</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;||&quot;</span><span class="p">,</span>
-    <span class="n">use_lower</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="n">return_examples</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+154</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_entity_coverage</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span> <span class="n">sep</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;||&quot;</span><span class="p">,</span> <span class="n">use_lower</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">return_examples</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">EntityCoverage</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;Identify how well you dataset covers an entity type. Get insights</span>
 <span class="sd">    on the how many times certain text/label span combinations exist across your</span>
@@ -1475,7 +1413,8 @@ annotating examples your Model already understands well.</p>
 </div>
 <h2 id="recon.stats.get_ner_stats"><code class="codehilite"><span class="n">get_ner_stats</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">serialize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">return_examples</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#recon.stats.get_ner_stats" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>22
+<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>21
+22
 23
 24
 25
@@ -1516,9 +1455,7 @@ annotating examples your Model already understands well.</p>
 60
 61
 62
-63
-64
-65</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_ner_stats</span><span class="p">(</span>
+63</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_ner_stats</span><span class="p">(</span>
     <span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span> <span class="n">serialize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">return_examples</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">NERStats</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;Compute statistics for NER data</span>
@@ -1545,8 +1482,7 @@ annotating examples your Model already understands well.</p>
                 <span class="n">examples</span><span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
     <span class="n">sorted_anns_by_count</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">annotations_per_type</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">annotations_per_type</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="p">}</span>
 
     <span class="n">stats</span> <span class="o">=</span> <span class="n">NERStats</span><span class="p">(</span>
@@ -1614,9 +1550,75 @@ annotating examples your Model already understands well.</p>
 </tbody>
 </table>
 </div>
+<h2 id="recon.stats.get_probs_from_counts"><code class="codehilite"><span class="n">get_probs_from_counts</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span></code><a class="headerlink" href="#recon.stats.get_probs_from_counts" title="Permanent link">&para;</a></h2>
+<div class="autodoc">
+<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_probs_from_counts</span><span class="p">(</span><span class="n">seq</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Convert a sequence of counts to a sequence of probabilties</span>
+<span class="sd">    by dividing each n by the sum of all n in seq</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        seq (Sequence[int]): Sequence of counts</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Sequence[float]: Sequence of probabilities</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Convert a sequence of counts to a sequence of probabilties
+by dividing each n by the sum of all n in seq</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>seq</code></td>
+<td><code>Sequence[int]</code></td>
+<td>Sequence of counts</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Sequence[float]</code></td>
+<td>Sequence[float]: Sequence of probabilities</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h2 id="recon.stats.get_sorted_type_counts"><code class="codehilite"><span class="n">get_sorted_type_counts</span><span class="p">(</span><span class="n">ner_stats</span><span class="p">)</span></code><a class="headerlink" href="#recon.stats.get_sorted_type_counts" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>68
+<details class="note"><summary>Show source code in <code>recon/stats.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>66
+67
+68
 69
 70
 71
@@ -1627,9 +1629,7 @@ annotating examples your Model already understands well.</p>
 76
 77
 78
-79
-80
-81</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_sorted_type_counts</span><span class="p">(</span><span class="n">ner_stats</span><span class="p">:</span> <span class="n">NERStats</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+79</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_sorted_type_counts</span><span class="p">(</span><span class="n">ner_stats</span><span class="p">:</span> <span class="n">NERStats</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;Get list of counts for each type in n_annotations_per_type property </span>
 <span class="sd">    of an NERStats object sorted by type name</span>
 
@@ -1768,6 +1768,8 @@ of an NERStats object sorted by type name</p>
       <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
       
         <script src="../../js/termynal.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js"></script>
       
         <script src="../../js/custom.js"></script>
       

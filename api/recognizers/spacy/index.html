@@ -236,7 +236,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../tutorial/loading_data/" title="Loading your data" class="md-nav__link">
+    <a href="../../../tutorial/1_loading_data/" title="Loading your data" class="md-nav__link">
       Loading your data
     </a>
   </li>
@@ -248,7 +248,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../tutorial/ner_stats/" title="NER Stats" class="md-nav__link">
+    <a href="../../../tutorial/2_ner_stats/" title="NER Stats" class="md-nav__link">
       NER Stats
     </a>
   </li>
@@ -260,7 +260,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../tutorial/corpus_apply/" title="Using a Corpus" class="md-nav__link">
+    <a href="../../../tutorial/3_corpus_apply/" title="Using a Corpus" class="md-nav__link">
       Using a Corpus
     </a>
   </li>
@@ -272,7 +272,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../tutorial/getting_insights/" title="Getting Insights" class="md-nav__link">
+    <a href="../../../tutorial/4_more_stats/" title="More NER Stats" class="md-nav__link">
+      More NER Stats
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorial/5_getting_insights/" title="Getting Insights" class="md-nav__link">
       Getting Insights
     </a>
   </li>
@@ -609,14 +621,14 @@
 </div>
 <h2 id="recon.recognizer.SpacyEntityRecognizer.__init__"><code class="codehilite"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nlp</span><span class="p">)</span></code><a class="headerlink" href="#recon.recognizer.SpacyEntityRecognizer.__init__" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/recognizer.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>44
-45
-46
+<details class="note"><summary>Show source code in <code>recon/recognizer.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>46
 47
 48
 49
 50
-51</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nlp</span><span class="p">:</span> <span class="n">Language</span><span class="p">):</span>
+51
+52
+53</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nlp</span><span class="p">:</span> <span class="n">Language</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initialize a SpacyEntityRecognizer</span>
 
 <span class="sd">        Args:</span>
@@ -651,9 +663,7 @@
 </div>
 <h2 id="recon.recognizer.SpacyEntityRecognizer.predict"><code class="codehilite"><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">)</span></code><a class="headerlink" href="#recon.recognizer.SpacyEntityRecognizer.predict" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/recognizer.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>68
-69
-70
+<details class="note"><summary>Show source code in <code>recon/recognizer.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>70
 71
 72
 73
@@ -675,7 +685,11 @@
 89
 90
 91
-92</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
+92
+93
+94
+95
+96</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;Run spaCy nlp.pipe on a batch of raw texts.</span>
 
 <span class="sd">        Args:</span>
@@ -691,14 +705,16 @@
                 <span class="n">text</span><span class="o">=</span><span class="n">doc</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
                 <span class="n">spans</span><span class="o">=</span><span class="p">[</span>
                     <span class="n">Span</span><span class="p">(</span>
-                        <span class="n">text</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">start_char</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">end_char</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">label_</span>
+                        <span class="n">text</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+                        <span class="n">start</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">start_char</span><span class="p">,</span>
+                        <span class="n">end</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">end_char</span><span class="p">,</span>
+                        <span class="n">label</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">label_</span><span class="p">,</span>
+                        <span class="n">token_start</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">start</span><span class="p">,</span>
+                        <span class="n">token_end</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">end</span><span class="p">,</span>
                     <span class="p">)</span>
                     <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">ents</span>
                 <span class="p">],</span>
-                <span class="n">tokens</span><span class="o">=</span><span class="p">[</span>
-                    <span class="n">Token</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">idx</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">idx</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">i</span><span class="p">)</span>
-                    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">doc</span>
-                <span class="p">],</span>
+                <span class="n">tokens</span><span class="o">=</span><span class="p">[</span><span class="n">Token</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">idx</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">idx</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">],</span>
             <span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
@@ -811,6 +827,8 @@
       <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
       
         <script src="../../../js/termynal.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js"></script>
       
         <script src="../../../js/custom.js"></script>
       
