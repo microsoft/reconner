@@ -842,9 +842,21 @@ Now I have git-like &quot;commits&quot; for the data used in each model.
 123
 124
 125
-126</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">apply_</span><span class="p">(</span>
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">apply_</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">operation</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="n">OperationResult</span><span class="p">],</span>
+        <span class="n">operation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="n">OperationResult</span><span class="p">]],</span>
         <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
         <span class="n">initial_state</span><span class="p">:</span> <span class="n">OperationState</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
@@ -855,6 +867,18 @@ Now I have git-like &quot;commits&quot; for the data used in each model.
 <span class="sd">            operation (Callable[[Any], OperationResult]): Any operation that</span>
 <span class="sd">                changes data in place. See recon.operations.registry.operations</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">operation</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">operation</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">operations</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">operation</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">operation</span><span class="p">:</span>
+                <span class="n">operation</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Callable</span><span class="p">,</span> <span class="n">operation</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">operation</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+            <span class="nb">hasattr</span><span class="p">(</span><span class="n">operation</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">operation</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">registry</span><span class="o">.</span><span class="n">operations</span>
+        <span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;This function is not an operation. Ensure your function is registered in the operations registry.&quot;</span>
+            <span class="p">)</span>
+
         <span class="n">result</span><span class="p">:</span> <span class="n">OperationResult</span> <span class="o">=</span> <span class="n">operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">initial_state</span><span class="o">=</span><span class="n">initial_state</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">operations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
         <span class="n">dataset_changed</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span>
@@ -884,28 +908,16 @@ Now I have git-like &quot;commits&quot; for the data used in each model.
 <tbody>
 <tr>
 <td><code>operation</code></td>
-<td><code>Callable[[Any], recon.types.OperationResult]</code></td>
+<td><code>Union[str, Callable[[Any], recon.types.OperationResult]]</code></td>
 <td>Any operation that changes data in place. See recon.operations.registry.operations</td>
 <td><em>required</em></td>
 </tr>
 </tbody>
 </table>
 </div>
-<h3 id="recon.dataset.Dataset.from_disk"><code class="codehilite"><span class="n">from_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">loader_func</span><span class="o">=&lt;</span><span class="n">function</span> <span class="n">read_jsonl</span> <span class="n">at</span> <span class="mh">0x7fb6f52db378</span><span class="o">&gt;</span><span class="p">)</span></code><a class="headerlink" href="#recon.dataset.Dataset.from_disk" title="Permanent link">&para;</a></h3>
+<h3 id="recon.dataset.Dataset.from_disk"><code class="codehilite"><span class="n">from_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">loader_func</span><span class="o">=&lt;</span><span class="n">function</span> <span class="n">read_jsonl</span> <span class="n">at</span> <span class="mh">0x7f30b1ca6378</span><span class="o">&gt;</span><span class="p">)</span></code><a class="headerlink" href="#recon.dataset.Dataset.from_disk" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/dataset.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
+<details class="note"><summary>Show source code in <code>recon/dataset.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>164
 165
 166
 167
@@ -944,7 +956,19 @@ Now I have git-like &quot;commits&quot; for the data used in each model.
 200
 201
 202
-203</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">from_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">loader_func</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="n">read_jsonl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span>
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">from_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">loader_func</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="n">read_jsonl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Load Dataset from disk given a path and a loader function that reads the data</span>
 <span class="sd">        and returns an iterator of Examples</span>
 
@@ -1023,26 +1047,14 @@ and returns an iterator of Examples</p>
 <td><code>loader_func</code></td>
 <td><code>Callable</code></td>
 <td>Callable that reads a file and returns a List of examples.  Defaults to <a href="/reconner/api/loaders/#recon.loaders.read_jsonl">read_jsonl</a></td>
-<td><code>&lt;function read_jsonl at 0x7fb6f52db378&gt;</code></td>
+<td><code>&lt;function read_jsonl at 0x7f30b1ca6378&gt;</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 <h3 id="recon.dataset.Dataset.pipe_"><code class="codehilite"><span class="n">pipe_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">operations</span><span class="p">)</span></code><a class="headerlink" href="#recon.dataset.Dataset.pipe_" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/dataset.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
+<details class="note"><summary>Show source code in <code>recon/dataset.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>140
 141
 142
 143
@@ -1052,7 +1064,19 @@ and returns an iterator of Examples</p>
 147
 148
 149
-150</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">pipe_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">operations</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">OperationState</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">pipe_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">operations</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">OperationState</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Run a sequence of operations on dataset data.</span>
 <span class="sd">        Internally calls Dataset.apply_ and will resolve named</span>
 <span class="sd">        operations in registry.operations</span>
@@ -1104,19 +1128,7 @@ operations in registry.operations</p>
 </div>
 <h3 id="recon.dataset.Dataset.to_disk"><code class="codehilite"><span class="n">to_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_path</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save_examples</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code><a class="headerlink" href="#recon.dataset.Dataset.to_disk" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/dataset.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
+<details class="note"><summary>Show source code in <code>recon/dataset.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>217
 218
 219
 220
@@ -1130,7 +1142,19 @@ operations in registry.operations</p>
 228
 229
 230
-231</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">to_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">save_examples</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">to_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">save_examples</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Save Corpus to Disk</span>
 
 <span class="sd">        Args:</span>
