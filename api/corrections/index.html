@@ -382,6 +382,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#recon.corrections.strip_annotations" class="md-nav__link">
+    strip_annotations()
+  </a>
+  
+</li>
+      
       
       
       
@@ -618,6 +625,13 @@
         <li class="md-nav__item">
   <a href="#recon.corrections.rename_labels" class="md-nav__link">
     rename_labels()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recon.corrections.strip_annotations" class="md-nav__link">
+    strip_annotations()
   </a>
   
 </li>
@@ -871,6 +885,112 @@ labels for specific spans.</p>
 <tr>
 <td><code>Example</code></td>
 <td>Example: Copy of Example with renamed labels</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="recon.corrections.strip_annotations"><code class="codehilite"><span class="n">strip_annotations</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="n">strip_chars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">])</span></code><a class="headerlink" href="#recon.corrections.strip_annotations" title="Permanent link">&para;</a></h2>
+<div class="autodoc">
+<details class="note"><summary>Show source code in <code>recon/corrections.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nd">@operation</span><span class="p">(</span><span class="s2">&quot;strip_annotations&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">strip_annotations</span><span class="p">(</span><span class="n">example</span><span class="p">:</span> <span class="n">Example</span><span class="p">,</span> <span class="n">strip_chars</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;!&quot;</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Example</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Strip punctuation and spaces from start and end of annotations.</span>
+<span class="sd">    These characters are almost always a mistake and will confuse a model</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        example (Example): Input Example</span>
+<span class="sd">        strip_chars (List[str], optional): Characters to strip.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Example: Example with stripped spans</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">strip_chars</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+                <span class="n">ch</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+                <span class="k">while</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">strip_chars</span><span class="p">:</span>
+                    <span class="n">s</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+                    <span class="n">s</span><span class="o">.</span><span class="n">start</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">ch</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">s</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+                <span class="n">ch</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">while</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">strip_chars</span><span class="p">:</span>
+                    <span class="n">s</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">text</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="n">ch</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="n">s</span><span class="o">.</span><span class="n">end</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">example</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Strip punctuation and spaces from start and end of annotations.
+These characters are almost always a mistake and will confuse a model</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>example</code></td>
+<td><code>Example</code></td>
+<td>Input Example</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>strip_chars</code></td>
+<td><code>List[str]</code></td>
+<td>Characters to strip.</td>
+<td><code>['.', '!', '?', '-', ':', ' ']</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Example</code></td>
+<td>Example: Example with stripped spans</td>
 </tr>
 </tbody>
 </table>
