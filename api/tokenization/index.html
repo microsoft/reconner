@@ -279,8 +279,56 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Dataset
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Dataset
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../../tutorial/3_corpus_apply/" title="Using a Corpus" class="md-nav__link">
+    <a href="../../tutorial/3_dataset_intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorial/3_dataset_mutate/" title="Making changes to a Dataset" class="md-nav__link">
+      Making changes to a Dataset
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorial/3_corpus_apply.md" title="Using a Corpus" class="md-nav__link">
       Using a Corpus
     </a>
   </li>
@@ -663,9 +711,32 @@
                 
                   <h1>Tokenization</h1>
                 
-                <h2 id="recon.tokenization.add_tokens"><code class="codehilite"><span class="n">add_tokens</span><span class="p">(</span><span class="n">examples</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#recon.tokenization.add_tokens" title="Permanent link">&para;</a></h2>
+                <h2 id="recon.tokenization.add_tokens"><code class="codehilite"><span class="n">add_tokens</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span></code><a class="headerlink" href="#recon.tokenization.add_tokens" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/tokenization.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>161
+<details class="note"><summary>Show source code in <code>recon/tokenization.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
 162
 163
 164
@@ -676,112 +747,41 @@
 169
 170
 171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nd">@operation</span><span class="p">(</span><span class="s2">&quot;add_tokens&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">add_tokens</span><span class="p">(</span>
-    <span class="n">examples</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span>
-    <span class="o">*</span><span class="p">,</span>
-    <span class="n">callbacks</span><span class="p">:</span> <span class="n">TransformationCallbacks</span> <span class="o">=</span> <span class="n">TransformationCallbacks</span><span class="p">(),</span>
-    <span class="n">tokenizer</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
-    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
+172</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nd">@operation</span><span class="p">(</span><span class="s2">&quot;recon.v1.add_tokens&quot;</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="p">[</span><span class="n">spacy_pre_processor</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">add_tokens</span><span class="p">(</span><span class="n">example</span><span class="p">:</span> <span class="n">Example</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">preprocessed_outputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Example</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;Add tokens to each Example</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        examples (List[Example]): List of examples</span>
-<span class="sd">        tokenizer (str, optional): Name of tokenizer in tokenizers registry to use</span>
-<span class="sd">        verbose (bool, optional): Print status</span>
+<span class="sd">        example (Example): Input Example</span>
+<span class="sd">        preprocessed_outputs (Dict[str, Any]): Outputs of preprocessors</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        List[Example]: List of examples with tokens</span>
+<span class="sd">        Example: Example with tokens</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">output_examples</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">tokenization_errors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Example</span><span class="p">,</span> <span class="n">Span</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">unfixable_examples</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-    <span class="n">nlp</span> <span class="o">=</span> <span class="n">tokenizers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">)()</span>
-    <span class="n">texts</span> <span class="o">=</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">examples</span><span class="p">)</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">preprocessed_outputs</span><span class="p">[</span><span class="s2">&quot;recon.v1.spacy&quot;</span><span class="p">]</span>
 
-    <span class="k">with</span> <span class="n">nlp</span><span class="o">.</span><span class="n">disable_pipes</span><span class="p">(</span><span class="o">*</span><span class="n">nlp</span><span class="o">.</span><span class="n">pipe_names</span><span class="p">):</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">orig_example_hash</span><span class="p">,</span> <span class="n">example</span><span class="p">),</span> <span class="n">doc</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">op_iter</span><span class="p">(</span><span class="n">examples</span><span class="p">),</span> <span class="n">nlp</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">texts</span><span class="p">)):</span>
-            <span class="n">tokens</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="n">token_starts</span> <span class="o">=</span> <span class="p">{}</span>
-            <span class="n">token_ends</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">token_starts</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">token_ends</span> <span class="o">=</span> <span class="p">{}</span>
 
-            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
-                <span class="n">start</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">idx</span>
-                <span class="n">end</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">idx</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-                <span class="n">tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Token</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">i</span><span class="p">))</span>
-                <span class="n">token_starts</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
-                <span class="n">token_ends</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">idx</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">idx</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="n">tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Token</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">i</span><span class="p">))</span>
+        <span class="n">token_starts</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
+        <span class="n">token_ends</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
 
-            <span class="n">example</span><span class="o">.</span><span class="n">tokens</span> <span class="o">=</span> <span class="n">tokens</span>
+    <span class="n">example</span><span class="o">.</span><span class="n">tokens</span> <span class="o">=</span> <span class="n">tokens</span>
 
-            <span class="k">for</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">span</span><span class="o">.</span><span class="n">start</span> <span class="ow">in</span> <span class="n">token_starts</span> <span class="ow">and</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span> <span class="ow">in</span> <span class="n">token_ends</span><span class="p">:</span>
-                    <span class="n">span</span><span class="o">.</span><span class="n">token_start</span> <span class="o">=</span> <span class="n">token_starts</span><span class="p">[</span><span class="n">span</span><span class="o">.</span><span class="n">start</span><span class="p">]</span><span class="o">.</span><span class="n">i</span>
-                    <span class="n">span</span><span class="o">.</span><span class="n">token_end</span> <span class="o">=</span> <span class="n">token_ends</span><span class="p">[</span><span class="n">span</span><span class="o">.</span><span class="n">end</span><span class="p">]</span><span class="o">.</span><span class="n">i</span>
+    <span class="k">for</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">span</span><span class="o">.</span><span class="n">start</span> <span class="ow">in</span> <span class="n">token_starts</span> <span class="ow">and</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span> <span class="ow">in</span> <span class="n">token_ends</span><span class="p">:</span>
+            <span class="n">span</span><span class="o">.</span><span class="n">token_start</span> <span class="o">=</span> <span class="n">token_starts</span><span class="p">[</span><span class="n">span</span><span class="o">.</span><span class="n">start</span><span class="p">]</span><span class="o">.</span><span class="n">i</span>
+            <span class="n">span</span><span class="o">.</span><span class="n">token_end</span> <span class="o">=</span> <span class="n">token_ends</span><span class="p">[</span><span class="n">span</span><span class="o">.</span><span class="n">end</span><span class="p">]</span><span class="o">.</span><span class="n">i</span>
 
-                <span class="k">if</span> <span class="n">span</span><span class="o">.</span><span class="n">token_start</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">span</span><span class="o">.</span><span class="n">token_end</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">tokenization_errors</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">example</span><span class="p">,</span> <span class="n">span</span><span class="p">))</span>
-                    <span class="n">unfixable_examples</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">span</span><span class="o">.</span><span class="n">token_start</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">span</span><span class="o">.</span><span class="n">token_end</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
 
-            <span class="k">if</span> <span class="n">example</span><span class="o">.</span><span class="n">text</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unfixable_examples</span><span class="p">:</span>
-                <span class="n">callbacks</span><span class="o">.</span><span class="n">track_example</span><span class="p">(</span><span class="n">orig_example_hash</span><span class="p">,</span> <span class="n">example</span><span class="p">)</span>
-                <span class="n">output_examples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">example</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">callbacks</span><span class="o">.</span><span class="n">remove_example</span><span class="p">(</span><span class="n">orig_example_hash</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tokenization_errors</span><span class="p">)</span><span class="si">}</span><span class="s2"> tokenization errors.&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">unfixable_examples</span><span class="p">)</span><span class="si">}</span><span class="s2"> unfixable examples.&quot;</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">output_examples</span>
+    <span class="k">return</span> <span class="n">example</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -799,22 +799,16 @@
 </thead>
 <tbody>
 <tr>
-<td><code>examples</code></td>
-<td><code>List[recon.types.Example]</code></td>
-<td>List of examples</td>
+<td><code>example</code></td>
+<td><code>Example</code></td>
+<td>Input Example</td>
 <td><em>required</em></td>
 </tr>
 <tr>
-<td><code>tokenizer</code></td>
-<td><code>str</code></td>
-<td>Name of tokenizer in tokenizers registry to use</td>
-<td><code>'default'</code></td>
-</tr>
-<tr>
-<td><code>verbose</code></td>
-<td><code>bool</code></td>
-<td>Print status</td>
-<td><code>False</code></td>
+<td><code>preprocessed_outputs</code></td>
+<td><code>Dict[str, Any]</code></td>
+<td>Outputs of preprocessors</td>
+<td><em>required</em></td>
 </tr>
 </tbody>
 </table>
@@ -828,20 +822,15 @@
 </thead>
 <tbody>
 <tr>
-<td><code>List[recon.types.Example]</code></td>
-<td>List[Example]: List of examples with tokens</td>
+<td><code>Union[recon.types.Example, NoneType]</code></td>
+<td>Example: Example with tokens</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h2 id="recon.tokenization.fix_tokenization_and_spacing"><code class="codehilite"><span class="n">fix_tokenization_and_spacing</span><span class="p">(</span><span class="n">examples</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#recon.tokenization.fix_tokenization_and_spacing" title="Permanent link">&para;</a></h2>
+<h2 id="recon.tokenization.fix_tokenization_and_spacing"><code class="codehilite"><span class="n">fix_tokenization_and_spacing</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span></code><a class="headerlink" href="#recon.tokenization.fix_tokenization_and_spacing" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/tokenization.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 21
- 22
- 23
- 24
- 25
- 26
+<details class="note"><summary>Show source code in <code>recon/tokenization.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 26
  27
  28
  29
@@ -950,167 +939,116 @@
 132
 133
 134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nd">@operation</span><span class="p">(</span><span class="s2">&quot;fix_tokenization_and_spacing&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+135</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nd">@operation</span><span class="p">(</span><span class="s2">&quot;recon.v1.fix_tokenization_and_spacing&quot;</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="p">[</span><span class="n">spacy_pre_processor</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">fix_tokenization_and_spacing</span><span class="p">(</span>
-    <span class="n">examples</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span>
-    <span class="o">*</span><span class="p">,</span>
-    <span class="n">callbacks</span><span class="p">:</span> <span class="n">TransformationCallbacks</span> <span class="o">=</span> <span class="n">TransformationCallbacks</span><span class="p">(),</span>
-    <span class="n">tokenizer</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
-    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">]:</span>
+    <span class="n">example</span><span class="p">:</span> <span class="n">Example</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">preprocessed_outputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Example</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;Fix tokenization and spacing issues where there are annotation spans that </span>
 <span class="sd">    don&#39;t fall on a token boundary. This can happen if annotations are done at the</span>
 <span class="sd">    character level, not the token level. Often, when scraping web text it&#39;s easy to</span>
 <span class="sd">    get two words pushed together where one is an entity so this can fix a lot of issues.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        examples (List[Example]): List of examples</span>
-<span class="sd">        tokenizer (str, optional): Name of tokenizer in tokenizers registry to use</span>
-<span class="sd">        verbose (bool, optional): Print status</span>
+<span class="sd">        example (Example): Input Example</span>
+<span class="sd">        preprocessed_outputs (Dict[str, Any]): Outputs of preprocessors</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        List[Example]: List of examples with fixed tokenization</span>
+<span class="sd">        Example: Example with spans fixed to align to token boundaries.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">fixed_examples</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">tokenization_errors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Example</span><span class="p">,</span> <span class="n">Span</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">unfixable_examples</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 
-    <span class="n">nlp</span> <span class="o">=</span> <span class="n">tokenizers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)()</span>
-    <span class="n">texts</span> <span class="o">=</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">examples</span><span class="p">)</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">preprocessed_outputs</span><span class="p">[</span><span class="s2">&quot;recon.v1.spacy&quot;</span><span class="p">]</span>
 
-    <span class="k">with</span> <span class="n">nlp</span><span class="o">.</span><span class="n">disable_pipes</span><span class="p">(</span><span class="o">*</span><span class="n">nlp</span><span class="o">.</span><span class="n">pipe_names</span><span class="p">):</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">orig_example_hash</span><span class="p">,</span> <span class="n">example</span><span class="p">),</span> <span class="n">doc</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">op_iter</span><span class="p">(</span><span class="n">examples</span><span class="p">),</span> <span class="n">nlp</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">texts</span><span class="p">)):</span>
-            <span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="o">.</span><span class="n">make_doc</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">token_starts</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">token_ends</span> <span class="o">=</span> <span class="p">{}</span>
 
-            <span class="n">tokens</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="n">token_starts</span> <span class="o">=</span> <span class="p">{}</span>
-            <span class="n">token_ends</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">idx</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">idx</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="n">tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Token</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">i</span><span class="p">))</span>
+        <span class="n">token_starts</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
+        <span class="n">token_ends</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
 
-            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
-                <span class="n">start</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">idx</span>
-                <span class="n">end</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">idx</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-                <span class="n">tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Token</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">i</span><span class="p">))</span>
-                <span class="n">token_starts</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
-                <span class="n">token_ends</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
+    <span class="n">spans_to_increment</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">span_i</span><span class="p">,</span> <span class="n">span</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">span</span><span class="o">.</span><span class="n">start</span> <span class="ow">in</span> <span class="n">token_starts</span> <span class="ow">and</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span> <span class="ow">in</span> <span class="n">token_ends</span><span class="p">:</span>
+            <span class="c1"># Aligns to token boundaries, nothing to change here</span>
+            <span class="k">continue</span>
 
-            <span class="n">spans_to_increment</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">span_i</span><span class="p">,</span> <span class="n">span</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">span</span><span class="o">.</span><span class="n">start</span> <span class="ow">in</span> <span class="n">token_starts</span> <span class="ow">and</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span> <span class="ow">in</span> <span class="n">token_ends</span><span class="p">:</span>
-                    <span class="c1"># Aligns to token boundaries, nothing to change here</span>
-                    <span class="k">continue</span>
-
-                <span class="k">if</span> <span class="n">span</span><span class="o">.</span><span class="n">start</span> <span class="ow">in</span> <span class="n">token_starts</span> <span class="ow">and</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">token_ends</span><span class="p">:</span>
-                    <span class="c1"># Span start aligns to token_start but end doesn&#39;t</span>
-                    <span class="c1"># e.g. [customer][PERSONTYPE]s but should be annotated as [customers][PERSONTYPE]</span>
-                    <span class="n">tokenization_errors</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">example</span><span class="p">,</span> <span class="n">span</span><span class="p">))</span>
-                    <span class="c1"># print(&quot;BAD END&quot;)</span>
-                    <span class="k">if</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span> <span class="o">+</span> <span class="mi">1</span> <span class="ow">in</span> <span class="n">token_ends</span><span class="p">:</span>
-                        <span class="c1"># Likely off by 1 annotation</span>
-                        <span class="c1"># e.g. [customer][PERSONTYPE]s but should be annotated as [customers][PERSONTYPE]</span>
-                        <span class="n">span</span><span class="o">.</span><span class="n">end</span> <span class="o">+=</span> <span class="mi">1</span>
-                        <span class="n">span</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="n">span</span><span class="o">.</span><span class="n">start</span> <span class="p">:</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span><span class="p">]</span>
-                        <span class="c1"># print(&quot;SPAN CORRECTED OFF BY 1&quot;, example.text, span)</span>
-                    <span class="k">elif</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">in</span> <span class="n">token_ends</span><span class="p">:</span>
-                        <span class="n">span</span><span class="o">.</span><span class="n">end</span> <span class="o">-=</span> <span class="mi">1</span>
-                        <span class="n">span</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="n">span</span><span class="o">.</span><span class="n">start</span> <span class="p">:</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span><span class="p">]</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="c1"># Likely bad tokenization</span>
-                        <span class="c1"># e.g. [Quadling][GPE]Country should be split to [Quadling][GPE] Country</span>
-                        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">span_i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">)):</span>
-                            <span class="n">spans_to_increment</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-                        <span class="n">fe_text</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">text</span>
-
-                        <span class="n">split_start</span> <span class="o">=</span> <span class="n">span</span><span class="o">.</span><span class="n">start</span>
-                        <span class="k">if</span> <span class="p">(</span>
-                            <span class="nb">len</span><span class="p">(</span><span class="n">spans_to_increment</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span>
-                            <span class="ow">and</span> <span class="n">span_i</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">(</span><span class="n">spans_to_increment</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
-                        <span class="p">):</span>
-                            <span class="n">split_start</span> <span class="o">+=</span> <span class="n">spans_to_increment</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">span_i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-                        <span class="n">split_end</span> <span class="o">=</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span>
-                        <span class="k">if</span> <span class="p">(</span>
-                            <span class="nb">len</span><span class="p">(</span><span class="n">spans_to_increment</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span>
-                            <span class="ow">and</span> <span class="n">span_i</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">(</span><span class="n">spans_to_increment</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
-                        <span class="p">):</span>
-                            <span class="n">split_end</span> <span class="o">+=</span> <span class="n">spans_to_increment</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">span_i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-                        <span class="n">new_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fe_text</span><span class="p">[:</span><span class="n">split_start</span><span class="p">]</span><span class="si">}{</span><span class="n">span</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">fe_text</span><span class="p">[</span><span class="n">split_end</span><span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span>
-
-                        <span class="n">example</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">new_text</span>
-
-                <span class="k">elif</span> <span class="n">span</span><span class="o">.</span><span class="n">start</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">token_starts</span> <span class="ow">and</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span> <span class="ow">in</span> <span class="n">token_ends</span><span class="p">:</span>
-                    <span class="c1"># Bad tokenization</span>
-                    <span class="c1"># e.g. with[Raymond][PERSON] but text should be split to with [Raymond][PERSON]</span>
-                    <span class="c1"># print(&quot;BAD START&quot;, span.text)</span>
-                    <span class="n">tokenization_errors</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">example</span><span class="p">,</span> <span class="n">span</span><span class="p">))</span>
-                    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">span_i</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">)):</span>
-                        <span class="n">spans_to_increment</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-
-                    <span class="n">fe_text</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">text</span>
-
-                    <span class="n">split_start</span> <span class="o">=</span> <span class="n">span</span><span class="o">.</span><span class="n">start</span>
-                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">spans_to_increment</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">span_i</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">(</span><span class="n">spans_to_increment</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]:</span>
-                        <span class="n">split_start</span> <span class="o">+=</span> <span class="n">spans_to_increment</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">span_i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-                    <span class="n">split_end</span> <span class="o">=</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span>
-                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">spans_to_increment</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">span_i</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">(</span><span class="n">spans_to_increment</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]:</span>
-                        <span class="n">split_end</span> <span class="o">+=</span> <span class="n">spans_to_increment</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">span_i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
-                    <span class="n">new_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fe_text</span><span class="p">[:</span><span class="n">split_start</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">span</span><span class="o">.</span><span class="n">text</span><span class="si">}{</span><span class="n">fe_text</span><span class="p">[</span><span class="n">split_end</span><span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span>
-                    <span class="n">example</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">new_text</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="c1"># Something is super fucked up.</span>
-                    <span class="c1"># print(&quot;SPAN CORRECTED OFF BY 1 unfixable&quot;, example.text, span)</span>
-                    <span class="n">before</span> <span class="o">=</span> <span class="n">span</span><span class="o">.</span><span class="n">start</span>
-                    <span class="n">after</span> <span class="o">=</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span>
-                    <span class="n">tokenization_errors</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">example</span><span class="p">,</span> <span class="n">span</span><span class="p">))</span>
-
-                    <span class="c1"># if (before &gt;= 0 and after &lt; len(span.text) and span[before] not in token_starts and span[before] != &#39; &#39; and span[after] not in token_ends and span[after] != &#39; &#39;):</span>
-                    <span class="c1">#     fe_text = example.text</span>
-                    <span class="c1">#     new_text = f&quot;{fe_text[:span.start]} {span.text}{fe_text[span.end:]}&quot;</span>
-                    <span class="c1">#     spans_to_increment[span_i] += 1</span>
-                    <span class="c1">#     for j in range(span_i + 1, len(example.spans)):</span>
-                    <span class="c1">#         spans_to_increment[j] += 2</span>
-                    <span class="c1"># else:</span>
-                    <span class="n">unfixable_examples</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-                    <span class="k">break</span>
-
-                <span class="c1"># Increment the start and end characters for each span</span>
-            <span class="k">for</span> <span class="n">span_i</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">spans_to_increment</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">[</span><span class="n">span_i</span><span class="p">]</span><span class="o">.</span><span class="n">start</span> <span class="o">+=</span> <span class="n">count</span>
-                <span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">[</span><span class="n">span_i</span><span class="p">]</span><span class="o">.</span><span class="n">end</span> <span class="o">+=</span> <span class="n">count</span>
-
-            <span class="k">if</span> <span class="n">example</span><span class="o">.</span><span class="n">text</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unfixable_examples</span><span class="p">:</span>
-                <span class="n">callbacks</span><span class="o">.</span><span class="n">track_example</span><span class="p">(</span><span class="n">orig_example_hash</span><span class="p">,</span> <span class="n">example</span><span class="p">)</span>
-                <span class="n">fixed_examples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">example</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">span</span><span class="o">.</span><span class="n">start</span> <span class="ow">in</span> <span class="n">token_starts</span> <span class="ow">and</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">token_ends</span><span class="p">:</span>
+            <span class="c1"># Span start aligns to token_start but end doesn&#39;t</span>
+            <span class="c1"># e.g. [customer][PERSONTYPE]s but should be annotated as [customers][PERSONTYPE]</span>
+            <span class="c1"># tokenization_errors.append((example, span))</span>
+            <span class="c1"># print(&quot;BAD END&quot;)</span>
+            <span class="k">if</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span> <span class="o">+</span> <span class="mi">1</span> <span class="ow">in</span> <span class="n">token_ends</span><span class="p">:</span>
+                <span class="c1"># Likely off by 1 annotation</span>
+                <span class="c1"># e.g. [customer][PERSONTYPE]s but should be annotated as [customers][PERSONTYPE]</span>
+                <span class="n">span</span><span class="o">.</span><span class="n">end</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">span</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="n">span</span><span class="o">.</span><span class="n">start</span> <span class="p">:</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span><span class="p">]</span>
+                <span class="c1"># print(&quot;SPAN CORRECTED OFF BY 1&quot;, example.text, span)</span>
+            <span class="k">elif</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">in</span> <span class="n">token_ends</span><span class="p">:</span>
+                <span class="n">span</span><span class="o">.</span><span class="n">end</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="n">span</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="n">span</span><span class="o">.</span><span class="n">start</span> <span class="p">:</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">callbacks</span><span class="o">.</span><span class="n">remove_example</span><span class="p">(</span><span class="n">orig_example_hash</span><span class="p">)</span>
+                <span class="c1"># Likely bad tokenization</span>
+                <span class="c1"># e.g. [Quadling][GPE]Country should be split to [Quadling][GPE] Country</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">span_i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">)):</span>
+                    <span class="n">spans_to_increment</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">fe_text</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">text</span>
 
-    <span class="k">if</span> <span class="n">tokenization_errors</span> <span class="ow">and</span> <span class="n">verbose</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tokenization_errors</span><span class="p">)</span><span class="si">}</span><span class="s2"> tokenization errors.&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">unfixable_examples</span><span class="p">)</span><span class="si">}</span><span class="s2"> unfixable tokenization errors.&quot;</span><span class="p">)</span>
+                <span class="n">split_start</span> <span class="o">=</span> <span class="n">span</span><span class="o">.</span><span class="n">start</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">spans_to_increment</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">span_i</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">(</span><span class="n">spans_to_increment</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="n">split_start</span> <span class="o">+=</span> <span class="n">spans_to_increment</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">span_i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">split_end</span> <span class="o">=</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">spans_to_increment</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">span_i</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">(</span><span class="n">spans_to_increment</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="n">split_end</span> <span class="o">+=</span> <span class="n">spans_to_increment</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">span_i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">new_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fe_text</span><span class="p">[:</span><span class="n">split_start</span><span class="p">]</span><span class="si">}{</span><span class="n">span</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">fe_text</span><span class="p">[</span><span class="n">split_end</span><span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span>
 
-    <span class="k">return</span> <span class="n">fixed_examples</span>
+                <span class="n">example</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">new_text</span>
+
+        <span class="k">elif</span> <span class="n">span</span><span class="o">.</span><span class="n">start</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">token_starts</span> <span class="ow">and</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span> <span class="ow">in</span> <span class="n">token_ends</span><span class="p">:</span>
+            <span class="c1"># Bad tokenization</span>
+            <span class="c1"># e.g. with[Raymond][PERSON] but text should be split to with [Raymond][PERSON]</span>
+            <span class="c1"># print(&quot;BAD START&quot;, span.text)</span>
+            <span class="c1"># tokenization_errors.append((example, span))</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">span_i</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">)):</span>
+                <span class="n">spans_to_increment</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="n">fe_text</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">text</span>
+
+            <span class="n">split_start</span> <span class="o">=</span> <span class="n">span</span><span class="o">.</span><span class="n">start</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">spans_to_increment</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">span_i</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">(</span><span class="n">spans_to_increment</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">split_start</span> <span class="o">+=</span> <span class="n">spans_to_increment</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">span_i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">split_end</span> <span class="o">=</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">spans_to_increment</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">span_i</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">(</span><span class="n">spans_to_increment</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">split_end</span> <span class="o">+=</span> <span class="n">spans_to_increment</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">span_i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+            <span class="n">new_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fe_text</span><span class="p">[:</span><span class="n">split_start</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">span</span><span class="o">.</span><span class="n">text</span><span class="si">}{</span><span class="n">fe_text</span><span class="p">[</span><span class="n">split_end</span><span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">example</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">new_text</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Something is super fucked up.</span>
+            <span class="c1"># print(&quot;SPAN CORRECTED OFF BY 1 unfixable&quot;, example.text, span)</span>
+            <span class="n">before</span> <span class="o">=</span> <span class="n">span</span><span class="o">.</span><span class="n">start</span>
+            <span class="n">after</span> <span class="o">=</span> <span class="n">span</span><span class="o">.</span><span class="n">end</span>
+            <span class="c1"># tokenization_errors.append((example, span))</span>
+
+            <span class="c1"># if (before &gt;= 0 and after &lt; len(span.text) and span[before] not in token_starts and span[before] != &#39; &#39; and span[after] not in token_ends and span[after] != &#39; &#39;):</span>
+            <span class="c1">#     fe_text = example.text</span>
+            <span class="c1">#     new_text = f&quot;{fe_text[:span.start]} {span.text}{fe_text[span.end:]}&quot;</span>
+            <span class="c1">#     spans_to_increment[span_i] += 1</span>
+            <span class="c1">#     for j in range(span_i + 1, len(example.spans)):</span>
+            <span class="c1">#         spans_to_increment[j] += 2</span>
+            <span class="c1"># else:</span>
+            <span class="c1"># unfixable_examples.add(example.text)</span>
+            <span class="c1"># break</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="c1"># Increment the start and end characters for each span</span>
+    <span class="k">for</span> <span class="n">span_i</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">spans_to_increment</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">[</span><span class="n">span_i</span><span class="p">]</span><span class="o">.</span><span class="n">start</span> <span class="o">+=</span> <span class="n">count</span>
+        <span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">[</span><span class="n">span_i</span><span class="p">]</span><span class="o">.</span><span class="n">end</span> <span class="o">+=</span> <span class="n">count</span>
+
+    <span class="k">return</span> <span class="n">example</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -1131,22 +1069,16 @@ get two words pushed together where one is an entity so this can fix a lot of is
 </thead>
 <tbody>
 <tr>
-<td><code>examples</code></td>
-<td><code>List[recon.types.Example]</code></td>
-<td>List of examples</td>
+<td><code>example</code></td>
+<td><code>Example</code></td>
+<td>Input Example</td>
 <td><em>required</em></td>
 </tr>
 <tr>
-<td><code>tokenizer</code></td>
-<td><code>str</code></td>
-<td>Name of tokenizer in tokenizers registry to use</td>
-<td><code>'default'</code></td>
-</tr>
-<tr>
-<td><code>verbose</code></td>
-<td><code>bool</code></td>
-<td>Print status</td>
-<td><code>False</code></td>
+<td><code>preprocessed_outputs</code></td>
+<td><code>Dict[str, Any]</code></td>
+<td>Outputs of preprocessors</td>
+<td><code>{}</code></td>
 </tr>
 </tbody>
 </table>
@@ -1160,8 +1092,8 @@ get two words pushed together where one is an entity so this can fix a lot of is
 </thead>
 <tbody>
 <tr>
-<td><code>List[recon.types.Example]</code></td>
-<td>List[Example]: List of examples with fixed tokenization</td>
+<td><code>Union[recon.types.Example, NoneType]</code></td>
+<td>Example: Example with spans fixed to align to token boundaries.</td>
 </tr>
 </tbody>
 </table>

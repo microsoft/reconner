@@ -285,64 +285,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#load-corpus-from_disk" class="md-nav__link">
-    Load Corpus from_disk
+  <a href="#loaders" class="md-nav__link">
+    Loaders
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-process-of-loading-data" class="md-nav__link">
-    The Process of Loading Data
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-read-data-from-disk" class="md-nav__link">
-    1. Read data from disk
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-fix-tokenization-and-spacing" class="md-nav__link">
-    2. Fix Tokenization and Spacing
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-add-tokens" class="md-nav__link">
-    3. Add Tokens
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-fix-annotation-format" class="md-nav__link">
-    4. Fix Annotation Format
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-filter-overlapping-entities" class="md-nav__link">
-    5. Filter Overlapping Entities
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-load-into-reconner-type-system" class="md-nav__link">
-    6. Load into ReconNER type system
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -381,8 +326,56 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Dataset
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Dataset
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../3_corpus_apply/" title="Using a Corpus" class="md-nav__link">
+    <a href="../3_dataset_intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../3_dataset_mutate/" title="Making changes to a Dataset" class="md-nav__link">
+      Making changes to a Dataset
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../3_corpus_apply.md" title="Using a Corpus" class="md-nav__link">
       Using a Corpus
     </a>
   </li>
@@ -690,64 +683,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#load-corpus-from_disk" class="md-nav__link">
-    Load Corpus from_disk
+  <a href="#loaders" class="md-nav__link">
+    Loaders
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-process-of-loading-data" class="md-nav__link">
-    The Process of Loading Data
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-read-data-from-disk" class="md-nav__link">
-    1. Read data from disk
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-fix-tokenization-and-spacing" class="md-nav__link">
-    2. Fix Tokenization and Spacing
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-add-tokens" class="md-nav__link">
-    3. Add Tokens
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-fix-annotation-format" class="md-nav__link">
-    4. Fix Annotation Format
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-filter-overlapping-entities" class="md-nav__link">
-    5. Filter Overlapping Entities
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-load-into-reconner-type-system" class="md-nav__link">
-    6. Load into ReconNER type system
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -778,7 +716,7 @@
                 
                 
                 <h1 id="loading-your-data">Loading your data<a class="headerlink" href="#loading-your-data" title="Permanent link">&para;</a></h1>
-<p>ReconNER expects your data to be in the most basic <a href="https://prodi.gy/docs/api-interfaces#ner">Prodigy Annotation Format</a>.</p>
+<p>Recon NER expects your data to be in the most basic <a href="https://prodi.gy/docs/api-interfaces#ner">Prodigy Annotation Format</a>.</p>
 <p>A single example in this format looks like:</p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Apple updates its analytics service with new metrics&quot;</span><span class="p">,</span>
@@ -786,56 +724,35 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>ReconNER does require that you have the tokens property set and will try to resolve any tokenization errors in your
-data for you. If your have already been tokenized (which is true if you used the ner_manual Prodigy recipe), ReconNER
-will skip the tokenization step.</p>
-<p>ReconNER expects your data to be in a collection in the <code>.jsonl</code> File Format.</p>
-<h2 id="load-corpus-from_disk">Load Corpus from_disk<a class="headerlink" href="#load-corpus-from_disk" title="Permanent link">&para;</a></h2>
-<p>There are several utilities available for loading your data.</p>
-<p>The easiest way to load your data is to initialize a <a href="../../api/corpus/">Corpus</a> from disk.
-If you have a train/dev/test split or just train/dev files in the same directory, it's as easy as calling the <code>from_disk</code> <code>classmethod</code> for the <code>Corpus</code> object.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">corpus</span> <span class="o">=</span> <span class="n">Corpus</span><span class="o">.</span><span class="n">from_disk</span><span class="p">(</span><span class="s1">&#39;path/to/data_dir&#39;</span><span class="p">)</span>
-</code></pre></div>
-
-<p><code>Corpus.from_disk</code> will look in the <code>data_dir</code> you provide for a file structure that looks like:</p>
-<div class="codehilite"><pre><span></span><code>data_dir
-│   train.jsonl
-│   dev.jsonl
-│   test.jsonl
-</code></pre></div>
-
+<p>Recon does require that you have the tokens property set and will try to resolve any tokenization errors in your
+data for you as well as add tokens if they don't already exist. If your have already been tokenized (which is true if you used the ner_manual Prodigy recipe), Recon will skip the tokenization step.</p>
+<p>Recon expects your data to be in a collection in a JSONL or JSON file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More loaders for different file types (<code>CONLL</code>) will be added in future versions</p>
+</div>
+<h2 id="loaders">Loaders<a class="headerlink" href="#loaders" title="Permanent link">&para;</a></h2>
+<p>Recon comes with a few loaders, <code>read_jsonl</code> and <code>read_json</code>. They're simple enough, they just load the data from disk and create instances of the strongly typed <code>Example</code> class for each raw example.</p>
+<p>The <code>Example</code> class provides some basic validation that ensures all spans have a text property (which they don't if you're using newer versions of Prodigy and the ner.manual recipe for annotation).</p>
+<p>Everything in Recon is built to run on a single <code>Example</code> or a <code>List[Example]</code>.</p>
+<p>However, the goal of Recon is to provide insights across all of your annotated examples, not just one. For this, we need a wrapper around a set of examples. This is called a <a href="/api/dataset"><code>Dataset</code></a>.</p>
+<p>Let's use the <code>read_jsonl</code> loader to load some annotated data created with Prodigy</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The test.jsonl file is <strong>optional</strong> but generally you should split your annotated data into train/dev/test files.</p>
+<p>If you don't have any data available, you can use the data in the examples folder <a href="https://github.com/microsoft/reconner/tree/master/examples/data/skills">here</a>. We'll be using this data for the rest of the tutorial.</p>
 </div>
-<h2 id="the-process-of-loading-data">The Process of Loading Data<a class="headerlink" href="#the-process-of-loading-data" title="Permanent link">&para;</a></h2>
-<p>While it's recommended to load data using the <code>Corpus.from_disk</code> method, you can also load data directly from disk using the <code>loaders.read_jsonl</code> and <code>loaders.read_json</code> functions.</p>
-<p>These functions expect the same example format (in fact, the <code>Corpus.from_disk</code> runs <code>loaders.read_jsonl</code> function) and run a few steps.</p>
-<p>The default pipeline that ReconNER runs when you load data is the following:</p>
-<div class="mermaid">graph TD
-  AA[File System Prodigy Format Dataset `train.jsonl`] --&gt;|srsly.read_jsonl| A[Raw Data in Prodigy Dict format]
-  A --&gt;|fix_tokenization_and_spacing| B[Raw Data with all annotations aligned to spaCy token boundaries]
-  B --&gt;|add_tokens| C[Raw Data with added `tokens` property]
-  C --&gt;|fix_annotations_format| D[Raw Data with fixed annotations format.]
-  D --&gt;|json_to_examples| E[Strongly typed List of recon.types.Example instances ready for downstream analysis]
-</div>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">recon.loaders</span> <span class="kn">import</span> <span class="n">read_jsonl</span>
+<span class="kn">from</span> <span class="nn">recon.types</span> <span class="kn">import</span> <span class="n">Example</span>
 
-<h3 id="1-read-data-from-disk">1. Read data from disk<a class="headerlink" href="#1-read-data-from-disk" title="Permanent link">&para;</a></h3>
-<p>Loads your data with <a href="https://github.com/explosion/srsly" class="external-link" target="_blank">srsly</a> using <code>srsly.read_jsonl</code> or <code>srsly.read_json</code></p>
-<h3 id="2-fix-tokenization-and-spacing">2. Fix Tokenization and Spacing<a class="headerlink" href="#2-fix-tokenization-and-spacing" title="Permanent link">&para;</a></h3>
-<p>Fixes all annotations that are not aligned to spaCy token boundaries if possible. If examples cannot easily be fixed, the default behavior is to remove these
-examples. This should rarely be the case and if this function cannot correct the Example it was likely a bad example that would confuse your model anyway.</p>
-<h3 id="3-add-tokens">3. Add Tokens<a class="headerlink" href="#3-add-tokens" title="Permanent link">&para;</a></h3>
-<p>The previous step computes token boundaries but then can alter the text of some examples to fix spacing and tokenization issues.
-In this step we rerun the spaCy tokenizer and add a tokens property to the data inline with the Prodigy format.</p>
-<h3 id="4-fix-annotation-format">4. Fix Annotation Format<a class="headerlink" href="#4-fix-annotation-format" title="Permanent link">&para;</a></h3>
-<p>Fixes some common issues in Annotation formatting that can arise using the <a href="../../api/validation/#fix_annotations_format"><code>validation.fix_annotations_format</code></a></p>
-<h3 id="5-filter-overlapping-entities">5. Filter Overlapping Entities<a class="headerlink" href="#5-filter-overlapping-entities" title="Permanent link">&para;</a></h3>
-<p>Often, you'll find your data has overlapping entities. For instance, imagine you have 2 annotators and one decided "Tesla" is a <code>PRODUCT</code> and the other noticed that the sentence is actually about "Tesla Motors" which they label as an <code>ORG</code>. This function does it's best to resolve these overlaps and in the case above would select "Tesla Motors" <code>ORG</code> as the correct entity, deleting "Tesla" <code>PRODUCT</code> from the data <a href="../../api/validation/#filter_overlaps"><code>validation.filter_overlaps</code></a></p>
-<h3 id="6-load-into-reconner-type-system">6. Load into ReconNER type system<a class="headerlink" href="#6-load-into-reconner-type-system" title="Permanent link">&para;</a></h3>
-<p>Finally these loaders will take a list of JSON examples in the Prodigy Annotation Format outlined above and convert it into a list of <code>Example</code> models using <a href="https://pydantic-docs.helpmanual.io/" class="external-link" target="_blank">Pydantic</a></p>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">read_jsonl</span><span class="p">(</span><span class="s1">&#39;examples/data/skills/train.jsonl&#39;</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">Example</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Now we have some examples to work, we can start examining our data.</p>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<p>Once you have your data loaded, you can run other ReconNER functions on top of it to gain insights into the quality and completeness of your NER data</p>
+<p>Once you have your data loaded, you can run other Recon functions on top of it to gain insights into the quality and completeness of your NER data as well as to start making corrections to the inconsistently annotated examples you almost certainly have (Don't worry, that's fine! Messy data is everywhere, even Microsoft)</p>
                 
                   
                 

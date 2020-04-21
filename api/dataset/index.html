@@ -279,8 +279,56 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Dataset
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Dataset
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../../tutorial/3_corpus_apply/" title="Using a Corpus" class="md-nav__link">
+    <a href="../../tutorial/3_dataset_intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorial/3_dataset_mutate/" title="Making changes to a Dataset" class="md-nav__link">
+      Making changes to a Dataset
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorial/3_corpus_apply.md" title="Using a Corpus" class="md-nav__link">
       Using a Corpus
     </a>
   </li>
@@ -933,7 +981,7 @@ Now I have git-like &quot;commits&quot; for the data used in each model.
 </tbody>
 </table>
 </div>
-<h3 id="recon.dataset.Dataset.from_disk"><code class="codehilite"><span class="n">from_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">loader_func</span><span class="o">=&lt;</span><span class="n">function</span> <span class="n">read_jsonl</span> <span class="n">at</span> <span class="mh">0x7fe3b88dd378</span><span class="o">&gt;</span><span class="p">)</span></code><a class="headerlink" href="#recon.dataset.Dataset.from_disk" title="Permanent link">&para;</a></h3>
+<h3 id="recon.dataset.Dataset.from_disk"><code class="codehilite"><span class="n">from_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">loader_func</span><span class="o">=&lt;</span><span class="n">function</span> <span class="n">read_jsonl</span> <span class="n">at</span> <span class="mh">0x7fbf69fcb400</span><span class="o">&gt;</span><span class="p">)</span></code><a class="headerlink" href="#recon.dataset.Dataset.from_disk" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
 <details class="note"><summary>Show source code in <code>recon/dataset.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>163
 164
@@ -1065,7 +1113,7 @@ and returns an iterator of Examples</p>
 <td><code>loader_func</code></td>
 <td><code>Callable</code></td>
 <td>Callable that reads a file and returns a List of examples.  Defaults to <a href="/reconner/api/loaders/#recon.loaders.read_jsonl">read_jsonl</a></td>
-<td><code>&lt;function read_jsonl at 0x7fe3b88dd378&gt;</code></td>
+<td><code>&lt;function read_jsonl at 0x7fbf69fcb400&gt;</code></td>
 </tr>
 </tbody>
 </table>

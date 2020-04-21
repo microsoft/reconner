@@ -13,7 +13,7 @@
         <meta name="description" content="Debug annotated Named Entity Recognition (NER) data for inconsitencies and get insights on improving the quality of your data.">
       
       
-        <link rel="canonical" href="https://microsoft.github.io/reconner/tutorial/custom_entity_recognizer/">
+        <link rel="canonical" href="https://microsoft.github.io/reconner/tutorial/3_dataset_intro/">
       
       
       
@@ -40,7 +40,7 @@
     
     
       
-        <title>Custom EntityRecognizer - Recon</title>
+        <title>Introduction - Recon</title>
       
     
     
@@ -76,9 +76,9 @@
     
     
 
-  <meta property="og:url" content="https://microsoft.github.io/reconner/tutorial/custom_entity_recognizer/">
+  <meta property="og:url" content="https://microsoft.github.io/reconner/tutorial/3_dataset_intro/">
   
-    <meta property="og:title" content="Custom EntityRecognizer - Recon">
+    <meta property="og:title" content="Introduction - Recon">
   
   <meta property="og:description" content="Debug annotated Named Entity Recognition (NER) data for inconsitencies and get insights on improving the quality of your data.">
   <meta property="og:image" content="https://microsoft.github.io/reconner/img/recon.svg">
@@ -88,7 +88,7 @@
   <meta name="twitter:site" content="@kabir_khan14">
   <meta name="twitter:creator" content="@kabir_khan14">
   
-    <meta property="twitter:title" content="Custom EntityRecognizer - Recon">
+    <meta property="twitter:title" content="Introduction - Recon">
   
   <meta name="twitter:description" content="Debug annotated Named Entity Recognition (NER) data for inconsitencies and get insights on improving the quality of your data.">
   <meta name="twitter:image" content="https://microsoft.github.io/reconner/img/recon.svg">
@@ -113,7 +113,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#custom-entityrecognizer" tabindex="0" class="md-skip">
+      <a href="#getting-started-with-datasets" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -139,7 +139,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Custom EntityRecognizer
+                Introduction
               
             </span>
           
@@ -280,10 +280,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
     
     <label class="md-nav__link" for="nav-2-3">
       Dataset
@@ -299,11 +301,59 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../3_dataset_intro/" title="Introduction" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Introduction
+      </label>
+    
+    <a href="./" title="Introduction" class="md-nav__link md-nav__link--active">
       Introduction
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-datasets" class="md-nav__link">
+    Getting Started with Datasets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applying-functions-to-datasets" class="md-nav__link">
+    Applying functions to Datasets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -364,20 +414,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="Custom EntityRecognizer" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../custom_entity_recognizer/" title="Custom EntityRecognizer" class="md-nav__link">
       Custom EntityRecognizer
     </a>
-    
   </li>
 
         
@@ -640,8 +681,36 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-datasets" class="md-nav__link">
+    Getting Started with Datasets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applying-functions-to-datasets" class="md-nav__link">
+    Applying functions to Datasets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -653,10 +722,115 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/microsoft/reconner/tree/master/docs/tutorial/custom_entity_recognizer.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/microsoft/reconner/tree/master/docs/tutorial/3_dataset_intro.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="custom-entityrecognizer">Custom EntityRecognizer<a class="headerlink" href="#custom-entityrecognizer" title="Permanent link">&para;</a></h1>
+                  <h1>Introduction</h1>
+                
+                <p>In Recon, a <a href="/api/dataset"><code>Dataset</code></a> has a few responsibilities.</p>
+<ul>
+<li>Store exampels</li>
+<li>Store state of <strong>every</strong> mutation made to it using recon operations</li>
+<li>Provide an easy interface to apply functions and pipelines to the dataset data</li>
+<li>Easily serialize and deserialize from/to disk to track state of data across the duration of an annotation project</li>
+</ul>
+<h2 id="getting-started-with-datasets">Getting Started with Datasets<a class="headerlink" href="#getting-started-with-datasets" title="Permanent link">&para;</a></h2>
+<p>The easiest way to get started with a <code>Dataset</code> is using the from_disk method.</p>
+<p>The following example starts by initializing a Dataset with a name ("train") and loading the train.jsonl data for the skills example dataset</p>
+<p>Replace the code in main.py with the following</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">typer</span>
+<span class="kn">from</span> <span class="nn">recon.dataset</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">recon.stats</span> <span class="kn">import</span> <span class="n">get_ner_stats</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">data_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;train&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">from_disk</span><span class="p">(</span><span class="n">data_file</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">get_ner_stats</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">serialize</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">typer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>
+</code></pre></div>
+
+<p>and run with the same command. You should see the exact same result as you did without
+using a Dataset. That's because <code>Dataset.from_disk</code> calls <code>read_jsonl</code></p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> python main.py ./examples/data/skills/train.jsonl
+<span class="go">{</span>
+<span class="go">    &quot;n_examples&quot;:106,</span>
+<span class="go">    &quot;n_examples_no_entities&quot;:29,</span>
+<span class="go">    &quot;n_annotations&quot;:243,</span>
+<span class="go">    &quot;n_annotations_per_type&quot;:{</span>
+<span class="go">        &quot;SKILL&quot;:197,</span>
+<span class="go">        &quot;PRODUCT&quot;:33,</span>
+<span class="go">        &quot;JOB_ROLE&quot;:10,</span>
+<span class="go">        &quot;skill&quot;:2,</span>
+<span class="go">        &quot;product&quot;:1</span>
+<span class="go">    },</span>
+<span class="go">    &quot;examples_with_type&quot;:null</span>
+<span class="go">}</span>
+</code></pre></div>
+
+<h2 id="applying-functions-to-datasets">Applying functions to Datasets<a class="headerlink" href="#applying-functions-to-datasets" title="Permanent link">&para;</a></h2>
+<p>In the previous example we called the get_ner_stats function on the data from the train <code>Dataset</code>.
+<code>Dataset</code> provides a utility function called <code>apply</code>. <code>Dataset.apply</code> takes any function that operates on a List of Examples and runs it on the Dataset's internal data.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">typer</span>
+<span class="kn">from</span> <span class="nn">recon.dataset</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">recon.stats</span> <span class="kn">import</span> <span class="n">get_ner_stats</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">data_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;train&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">from_disk</span><span class="p">(</span><span class="n">data_file</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_ner_stats</span><span class="p">,</span> <span class="n">serialize</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">typer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>
+</code></pre></div>
+
+<p>This might not be that interesting (it doesn't save you a ton of code) but <code>Dataset.apply</code> can accept either a function or a name for a registered Recon operation. All functions are registered in a Recon registry.</p>
+<p>All functions packaged with recon have "recon.vN..." as  a prefix.</p>
+<p>So the above example can be converted to:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">typer</span>
+<span class="kn">from</span> <span class="nn">recon.dataset</span> <span class="kn">import</span> <span class="n">Dataset</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">data_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;train&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">from_disk</span><span class="p">(</span><span class="n">data_file</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="s2">&quot;recon.v1.get_ner_stats&quot;</span><span class="p">,</span> <span class="n">serialize</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">typer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>
+</code></pre></div>
+
+<p>This means you don't have to import the get_ner_stats function. For a full list of operations see
+the <a href="/api/operations">operations API guide</a></p>
+<p>All of these examples should return the exact same response. See for yourself:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> python main.py ./examples/data/skills/train.jsonl
+<span class="go">{</span>
+<span class="go">    &quot;n_examples&quot;:106,</span>
+<span class="go">    &quot;n_examples_no_entities&quot;:29,</span>
+<span class="go">    &quot;n_annotations&quot;:243,</span>
+<span class="go">    &quot;n_annotations_per_type&quot;:{</span>
+<span class="go">        &quot;SKILL&quot;:197,</span>
+<span class="go">        &quot;PRODUCT&quot;:33,</span>
+<span class="go">        &quot;JOB_ROLE&quot;:10,</span>
+<span class="go">        &quot;skill&quot;:2,</span>
+<span class="go">        &quot;product&quot;:1</span>
+<span class="go">    },</span>
+<span class="go">    &quot;examples_with_type&quot;:null</span>
+<span class="go">}</span>
+</code></pre></div>
+
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p>It's great that we can manage our data operations using a Dataset and named functions but our data is still messy. We still have those pesky lowercased labels for "skill" and "product" that should clearly be "SKILL" and "PRODUCT" respectively.
+In the next step of the tutorial we'll learn how to run operations that mutate a <code>Dataset</code> and everything Recon does to keep track of these operations for you.</p>
                 
                   
                 
@@ -678,7 +852,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../5_getting_insights/" title="Getting Insights" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../2_ner_stats/" title="NER Stats" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -687,19 +861,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Getting Insights
+                NER Stats
               </span>
             </div>
           </a>
         
         
-          <a href="../../api/corpus/" title="Corpus" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../3_dataset_mutate/" title="Making changes to a Dataset" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Corpus
+                Making changes to a Dataset
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

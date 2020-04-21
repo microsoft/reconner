@@ -279,8 +279,56 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Dataset
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Dataset
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../../tutorial/3_corpus_apply/" title="Using a Corpus" class="md-nav__link">
+    <a href="../../tutorial/3_dataset_intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorial/3_dataset_mutate/" title="Making changes to a Dataset" class="md-nav__link">
+      Making changes to a Dataset
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorial/3_corpus_apply.md" title="Using a Corpus" class="md-nav__link">
       Using a Corpus
     </a>
   </li>
@@ -757,22 +805,22 @@
                 
                   <h1>Operations</h1>
                 
-                <h2 id="recon.operations.Operation"><code class="codehilite"><span class="n">Operation</span></code><a class="headerlink" href="#recon.operations.Operation" title="Permanent link">&para;</a></h2>
+                <p>Operations are functions that operate on either a list of the examples or a single example.
+If the function operates on a single example, Recon will take care of applying it to all examples in a dataset.</p>
+<p>The following operations are built into Recon</p>
+<!-- `recon.v1.filter_overlaps` -  -->
+
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<p>... full list of operations to come</p>
+</div>
+<h2 id="recon.operations.Operation"><code class="codehilite"><span class="n">Operation</span></code><a class="headerlink" href="#recon.operations.Operation" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
 <p>Operation class that takes care of calling and reporting
     the results of an operation on a Dataset</p>
 <h3 id="recon.operations.Operation.__call__"><code class="codehilite"><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code><a class="headerlink" href="#recon.operations.Operation.__call__" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/operations.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
+<details class="note"><summary>Show source code in <code>recon/operations.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>100
 101
 102
 103
@@ -850,14 +898,7 @@
 175
 176
 177
-178
-179
-180
-181
-182
-183
-184
-185</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OperationResult</span><span class="p">:</span>
+178</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OperationResult</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Runs op on a dataset and records the results</span>
 
 <span class="sd">        Args:</span>
@@ -869,7 +910,7 @@
 <span class="sd">        Returns:</span>
 <span class="sd">            OperationResult: Container holding new data and the state of the Operation</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">initial_state</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;initial_state&quot;</span><span class="p">)</span>
+        <span class="n">initial_state</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;initial_state&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="s2">&quot;initial_state&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">initial_state</span><span class="p">:</span>
             <span class="n">initial_state</span> <span class="o">=</span> <span class="n">OperationState</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
         <span class="n">state</span> <span class="o">=</span> <span class="n">initial_state</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -900,47 +941,31 @@
             <span class="p">)</span>
             <span class="n">dataset</span><span class="o">.</span><span class="n">example_store</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_example</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">track_example</span><span class="p">(</span><span class="n">orig_example_hash</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">new_example</span><span class="p">:</span> <span class="n">Example</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">orig_example_hash</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">new_example</span><span class="p">:</span>
-                <span class="n">remove_example</span><span class="p">(</span><span class="n">orig_example_hash</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">new_example</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">orig_example_hash</span><span class="p">:</span>
-                <span class="n">add_example</span><span class="p">(</span><span class="n">new_example</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">orig_example_hash</span> <span class="ow">and</span> <span class="n">new_example</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">orig_example_hash</span> <span class="o">!=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">new_example</span><span class="p">):</span>
-                    <span class="n">change_example</span><span class="p">(</span><span class="n">orig_example_hash</span><span class="p">,</span> <span class="n">new_example</span><span class="p">)</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">orig_example_hash</span><span class="p">,</span> <span class="n">example</span><span class="p">,</span> <span class="n">preprocessed_outputs</span> <span class="ow">in</span> <span class="n">op_iter</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pre</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">preprocessed_outputs</span><span class="p">:</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">op</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">preprocessed_outputs</span><span class="o">=</span><span class="n">preprocessed_outputs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Error tracking example, no data sent&quot;</span><span class="p">)</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">op</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-        <span class="n">callbacks</span> <span class="o">=</span> <span class="n">TransformationCallbacks</span><span class="p">(</span>
-            <span class="n">add_example</span><span class="o">=</span><span class="n">add_example</span><span class="p">,</span>
-            <span class="n">remove_example</span><span class="o">=</span><span class="n">remove_example</span><span class="p">,</span>
-            <span class="n">change_example</span><span class="o">=</span><span class="n">change_example</span><span class="p">,</span>
-            <span class="n">track_example</span><span class="o">=</span><span class="n">track_example</span><span class="p">,</span>
-        <span class="p">)</span>
-
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">:</span>
-            <span class="n">new_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">op</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">new_data</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">for</span> <span class="n">orig_example_hash</span><span class="p">,</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">op_iter</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
-                <span class="n">res</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Example</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">op</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">res</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">res</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">remove_example</span><span class="p">(</span><span class="n">orig_example_hash</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="n">old_example_present</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">for</span> <span class="n">new_example</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">hash</span><span class="p">(</span><span class="n">new_example</span><span class="p">)</span> <span class="o">==</span> <span class="n">orig_example_hash</span><span class="p">:</span>
+                        <span class="n">old_example_present</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">new_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_example</span><span class="p">)</span>
+                        <span class="n">add_example</span><span class="p">(</span><span class="n">new_example</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">old_example_present</span><span class="p">:</span>
                     <span class="n">remove_example</span><span class="p">(</span><span class="n">orig_example_hash</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-                    <span class="n">old_example_present</span> <span class="o">=</span> <span class="kc">False</span>
-                    <span class="k">for</span> <span class="n">new_example</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
-                        <span class="k">if</span> <span class="nb">hash</span><span class="p">(</span><span class="n">new_example</span><span class="p">)</span> <span class="o">==</span> <span class="n">orig_example_hash</span><span class="p">:</span>
-                            <span class="n">old_example_present</span> <span class="o">=</span> <span class="kc">True</span>
-                        <span class="k">else</span><span class="p">:</span>
-                            <span class="n">new_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_example</span><span class="p">)</span>
-                            <span class="n">add_example</span><span class="p">(</span><span class="n">new_example</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="ow">not</span> <span class="n">old_example_present</span><span class="p">:</span>
-                        <span class="n">remove_example</span><span class="p">(</span><span class="n">orig_example_hash</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
-                    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">spans</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
-                    <span class="n">new_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-                    <span class="n">track_example</span><span class="p">(</span><span class="n">orig_example_hash</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+                <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">spans</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
+                <span class="n">new_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">hash</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">orig_example_hash</span><span class="p">:</span>
+                    <span class="n">change_example</span><span class="p">(</span><span class="n">orig_example_hash</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
 
         <span class="n">transformation_counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">([</span><span class="n">t</span><span class="o">.</span><span class="n">type</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">state</span><span class="o">.</span><span class="n">transformations</span><span class="p">])</span>
 
@@ -1007,28 +1032,28 @@
 </tbody>
 </table>
 </div>
-<h3 id="recon.operations.Operation.__init__"><code class="codehilite"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">preprocessors</span><span class="p">,</span> <span class="n">op</span><span class="p">)</span></code><a class="headerlink" href="#recon.operations.Operation.__init__" title="Permanent link">&para;</a></h3>
+<h3 id="recon.operations.Operation.__init__"><code class="codehilite"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pre</span><span class="p">,</span> <span class="n">op</span><span class="p">)</span></code><a class="headerlink" href="#recon.operations.Operation.__init__" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/operations.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">preprocessors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PreProcessor</span><span class="p">],</span> <span class="n">op</span><span class="p">:</span> <span class="n">Callable</span><span class="p">):</span>
+<details class="note"><summary>Show source code in <code>recon/operations.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pre</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PreProcessor</span><span class="p">],</span> <span class="n">op</span><span class="p">:</span> <span class="n">Callable</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initialize an Operation instance</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            name (str): Name of operation</span>
-<span class="sd">            batch (bool): Whether the operation handles a batch of data or not</span>
+<span class="sd">            pre (List[PreProcessor]): List of preprocessors to run</span>
 <span class="sd">            op (Callable): Decorated function</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">batch</span> <span class="o">=</span> <span class="n">batch</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pre</span> <span class="o">=</span> <span class="n">pre</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">op</span> <span class="o">=</span> <span class="n">op</span>
 </code></pre></div>
 </td></tr></table>
@@ -1053,9 +1078,9 @@
 <td><em>required</em></td>
 </tr>
 <tr>
-<td><code>batch</code></td>
-<td><code>bool</code></td>
-<td>Whether the operation handles a batch of data or not</td>
+<td><code>pre</code></td>
+<td><code>List[recon.preprocess.PreProcessor]</code></td>
+<td>List of preprocessors to run</td>
 <td><em>required</em></td>
 </tr>
 <tr>
@@ -1072,16 +1097,7 @@
 <div class="autodoc">
 <h3 id="recon.operations.operation.__call__"><code class="codehilite"><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code><a class="headerlink" href="#recon.operations.operation.__call__" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/operations.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>52
-53
-54
-55
-56
-57
-58
-59
-60
-61
+<details class="note"><summary>Show source code in <code>recon/operations.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>61
 62
 63
 64
@@ -1092,13 +1108,22 @@
 69
 70
 71
-72</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Decorator for an operation. </span>
 <span class="sd">        The first arg is the function being decorated.</span>
 <span class="sd">        This function can either operate on a List[Example]</span>
 <span class="sd">        and in that case self.batch should be True.</span>
 
-<span class="sd">        e.g. @operation(&quot;some_name&quot;, batch=True)</span>
+<span class="sd">        e.g. @operation(&quot;recon.v1.some_name&quot;, batch=True)</span>
 
 <span class="sd">        Or it should operate on a single example and </span>
 <span class="sd">        recon will take care of applying it to a full Dataset</span>
@@ -1110,7 +1135,7 @@
 <span class="sd">            Callable: Original function</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">op</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">registry</span><span class="o">.</span><span class="n">operations</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)(</span><span class="n">Operation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocessors</span><span class="p">,</span> <span class="n">op</span><span class="p">))</span>
+        <span class="n">registry</span><span class="o">.</span><span class="n">operations</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)(</span><span class="n">Operation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pre</span><span class="p">,</span> <span class="n">op</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">op</span>
 </code></pre></div>
@@ -1121,7 +1146,7 @@
 The first arg is the function being decorated.
 This function can either operate on a List[Example]
 and in that case self.batch should be True.</p>
-<p>e.g. @operation("some_name", batch=True)</p>
+<p>e.g. @operation("recon.v1.some_name", batch=True)</p>
 <p>Or it should operate on a single example and 
 recon will take care of applying it to a full Dataset</p>
 <p><strong>Parameters</strong></p>
@@ -1159,27 +1184,25 @@ recon will take care of applying it to a full Dataset</p>
 </tbody>
 </table>
 </div>
-<h3 id="recon.operations.operation.__init__"><code class="codehilite"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">preprocessors</span><span class="o">=</span><span class="p">[])</span></code><a class="headerlink" href="#recon.operations.operation.__init__" title="Permanent link">&para;</a></h3>
+<h3 id="recon.operations.operation.__init__"><code class="codehilite"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="p">[])</span></code><a class="headerlink" href="#recon.operations.operation.__init__" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>recon/operations.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>41
-42
-43
-44
-45
-46
-47
-48
-49
-50</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">preprocessors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PreProcessor</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]):</span>
+<details class="note"><summary>Show source code in <code>recon/operations.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>51
+52
+53
+54
+55
+56
+57
+58
+59</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pre</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PreProcessor</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]):</span>
         <span class="sd">&quot;&quot;&quot;Decorate an operation that makes some changes to a dataset.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            name (str): Operation name.</span>
-<span class="sd">            batch (bool): Send all examples in dataset for batch operation. </span>
+<span class="sd">            pre (List[PreProcessor]): List of preprocessors to run</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">batch</span> <span class="o">=</span> <span class="n">batch</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">preprocessors</span> <span class="o">=</span> <span class="n">preprocessors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pre</span> <span class="o">=</span> <span class="n">pre</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -1203,16 +1226,16 @@ recon will take care of applying it to a full Dataset</p>
 <td><em>required</em></td>
 </tr>
 <tr>
-<td><code>batch</code></td>
-<td><code>bool</code></td>
-<td>Send all examples in dataset for batch operation.</td>
-<td><code>False</code></td>
+<td><code>pre</code></td>
+<td><code>List[recon.preprocess.PreProcessor]</code></td>
+<td>List of preprocessors to run</td>
+<td><code>[]</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<h2 id="recon.operations.op_iter"><code class="codehilite"><span class="n">op_iter</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code><a class="headerlink" href="#recon.operations.op_iter" title="Permanent link">&para;</a></h2>
+<h2 id="recon.operations.op_iter"><code class="codehilite"><span class="n">op_iter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pre</span><span class="p">)</span></code><a class="headerlink" href="#recon.operations.op_iter" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
 <details class="note"><summary>Show source code in <code>recon/operations.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>26
 27
@@ -1225,18 +1248,38 @@ recon will take care of applying it to a full Dataset</p>
 34
 35
 36
-37</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">op_iter</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Example</span><span class="p">]]:</span>
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">op_iter</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Example</span><span class="p">],</span> <span class="n">pre</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PreProcessor</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Example</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]:</span>
     <span class="sd">&quot;&quot;&quot;Iterate over list of examples for an operation</span>
 <span class="sd">    yielding tuples of (example hash, example)</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        data (List[Example]): List of examples to iterate</span>
+<span class="sd">        pre (List[PreProcessor]): List of preprocessors to run</span>
 
 <span class="sd">    Yields:</span>
 <span class="sd">        Iterator[Tuple[int, Example]]: Tuples of (example hash, example)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">preprocessed_outputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Example</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">processor</span> <span class="ow">in</span> <span class="n">pre</span><span class="p">:</span>
+        <span class="n">processor_outputs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">processor</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">processor_outputs</span><span class="p">)):</span>
+            <span class="n">preprocessed_outputs</span><span class="p">[</span><span class="n">example</span><span class="p">][</span><span class="n">processor</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">processor_outputs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
     <span class="k">for</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="nb">hash</span><span class="p">(</span><span class="n">example</span><span class="p">),</span> <span class="n">example</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="nb">hash</span><span class="p">(</span><span class="n">example</span><span class="p">),</span> <span class="n">example</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">preprocessed_outputs</span><span class="p">[</span><span class="n">example</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -1258,6 +1301,12 @@ yielding tuples of (example hash, example)</p>
 <td><code>data</code></td>
 <td><code>List[recon.types.Example]</code></td>
 <td>List of examples to iterate</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>pre</code></td>
+<td><code>List[recon.preprocess.PreProcessor]</code></td>
+<td>List of preprocessors to run</td>
 <td><em>required</em></td>
 </tr>
 </tbody>

@@ -279,8 +279,56 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Dataset
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Dataset
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../../tutorial/3_corpus_apply/" title="Using a Corpus" class="md-nav__link">
+    <a href="../../tutorial/3_dataset_intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorial/3_dataset_mutate/" title="Making changes to a Dataset" class="md-nav__link">
+      Making changes to a Dataset
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorial/3_corpus_apply.md" title="Using a Corpus" class="md-nav__link">
       Using a Corpus
     </a>
   </li>
@@ -707,7 +755,7 @@
 37
 38
 39
-40</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nd">@operation</span><span class="p">(</span><span class="s2">&quot;filter_overlaps&quot;</span><span class="p">)</span>
+40</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nd">@operation</span><span class="p">(</span><span class="s2">&quot;recon.v1.filter_overlaps&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">filter_overlaps</span><span class="p">(</span><span class="n">example</span><span class="p">:</span> <span class="n">Example</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Example</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Filter overlapping entity spans by picking the longest one.</span>
 
@@ -931,7 +979,7 @@ longest entity in the chain until there are no entities remaining</p>
 20
 21
 22
-23</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nd">@operation</span><span class="p">(</span><span class="s2">&quot;upcase_labels&quot;</span><span class="p">)</span>
+23</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nd">@operation</span><span class="p">(</span><span class="s2">&quot;recon.v1.upcase_labels&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">upcase_labels</span><span class="p">(</span><span class="n">example</span><span class="p">:</span> <span class="n">Example</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Example</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Convert all span labels to uppercase to normalize</span>
 

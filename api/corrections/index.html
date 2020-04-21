@@ -279,8 +279,56 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Dataset
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Dataset
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../../tutorial/3_corpus_apply/" title="Using a Corpus" class="md-nav__link">
+    <a href="../../tutorial/3_dataset_intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorial/3_dataset_mutate/" title="Making changes to a Dataset" class="md-nav__link">
+      Making changes to a Dataset
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorial/3_corpus_apply.md" title="Using a Corpus" class="md-nav__link">
       Using a Corpus
     </a>
   </li>
@@ -729,7 +777,7 @@
 73
 74
 75
-76</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nd">@operation</span><span class="p">(</span><span class="s2">&quot;fix_annotations&quot;</span><span class="p">)</span>
+76</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nd">@operation</span><span class="p">(</span><span class="s2">&quot;recon.v1.fix_annotations&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">fix_annotations</span><span class="p">(</span>
     <span class="n">example</span><span class="p">:</span> <span class="n">Example</span><span class="p">,</span> <span class="n">corrections</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">case_sensitive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Example</span><span class="p">:</span>
@@ -849,7 +897,7 @@ labels for specific spans.</p>
 21
 22
 23
-24</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nd">@operation</span><span class="p">(</span><span class="s2">&quot;rename_labels&quot;</span><span class="p">)</span>
+24</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nd">@operation</span><span class="p">(</span><span class="s2">&quot;recon.v1.rename_labels&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">rename_labels</span><span class="p">(</span><span class="n">example</span><span class="p">:</span> <span class="n">Example</span><span class="p">,</span> <span class="n">label_map</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Example</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Rename labels in a copy of List[Example] data</span>
 
@@ -939,8 +987,12 @@ labels for specific spans.</p>
 104
 105
 106
-107</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nd">@operation</span><span class="p">(</span><span class="s2">&quot;strip_annotations&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">strip_annotations</span><span class="p">(</span><span class="n">example</span><span class="p">:</span> <span class="n">Example</span><span class="p">,</span> <span class="n">strip_chars</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;!&quot;</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Example</span><span class="p">:</span>
+107
+108
+109</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nd">@operation</span><span class="p">(</span><span class="s2">&quot;recon.v1.strip_annotations&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">strip_annotations</span><span class="p">(</span>
+    <span class="n">example</span><span class="p">:</span> <span class="n">Example</span><span class="p">,</span> <span class="n">strip_chars</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;!&quot;</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Example</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Strip punctuation and spaces from start and end of annotations.</span>
 <span class="sd">    These characters are almost always a mistake and will confuse a model</span>
 
@@ -950,7 +1002,7 @@ labels for specific spans.</p>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        Example: Example with stripped spans</span>
-<span class="sd">    &quot;&quot;&quot;</span>    
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">example</span><span class="o">.</span><span class="n">spans</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">strip_chars</span><span class="p">:</span>
