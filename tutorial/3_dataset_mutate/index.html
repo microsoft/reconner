@@ -914,30 +914,35 @@
 <span class="gp">$</span> cat examples/fixed_data/skills/.recon/train/state.json
 
 <span class="go">{</span>
-<span class="go">    &quot;name&quot;:&quot;recon.v1.upcase_labels&quot;,</span>
-<span class="go">    &quot;batch&quot;:false,</span>
-<span class="go">    &quot;args&quot;:[],</span>
-<span class="go">    &quot;kwargs&quot;:{},</span>
-<span class="go">    &quot;status&quot;:&quot;COMPLETED&quot;,</span>
-<span class="go">    &quot;ts&quot;:1586687281,</span>
-<span class="go">    &quot;examples_added&quot;:0,</span>
-<span class="go">    &quot;examples_removed&quot;:0,</span>
-<span class="go">    &quot;examples_changed&quot;:3,</span>
-<span class="go">    &quot;transformations&quot;:[</span>
+<span class="go">    &quot;name&quot;: &quot;train&quot;,</span>
+<span class="go">    &quot;commit_hash&quot;: &quot;375a4cdec36fa9e0efd1d7b2a02fb4287b99dbdc&quot;,</span>
+<span class="go">    &quot;operations&quot;: [</span>
 <span class="go">        {</span>
-<span class="go">            &quot;prev_example&quot;:1923088532738022750,</span>
-<span class="go">            &quot;example&quot;:1401028415299739275,</span>
-<span class="go">            &quot;type&quot;:&quot;EXAMPLE_CHANGED&quot;</span>
-<span class="go">        },</span>
-<span class="go">        {</span>
-<span class="go">            &quot;prev_example&quot;:459906967662468309,</span>
-<span class="go">            &quot;example&quot;:1525998324968157929,</span>
-<span class="go">            &quot;type&quot;:&quot;EXAMPLE_CHANGED&quot;</span>
-<span class="go">        },</span>
-<span class="go">        {</span>
-<span class="go">            &quot;prev_example&quot;:200276835658424828,</span>
-<span class="go">            &quot;example&quot;:407710308633891847,</span>
-<span class="go">            &quot;type&quot;:&quot;EXAMPLE_CHANGED&quot;</span>
+<span class="go">            &quot;name&quot;:&quot;recon.v1.upcase_labels&quot;,</span>
+<span class="go">            &quot;args&quot;:[],</span>
+<span class="go">            &quot;kwargs&quot;:{},</span>
+<span class="go">            &quot;status&quot;:&quot;COMPLETED&quot;,</span>
+<span class="go">            &quot;ts&quot;:1586687281,</span>
+<span class="go">            &quot;examples_added&quot;:0,</span>
+<span class="go">            &quot;examples_removed&quot;:0,</span>
+<span class="go">            &quot;examples_changed&quot;:3,</span>
+<span class="go">            &quot;transformations&quot;:[</span>
+<span class="go">                {</span>
+<span class="go">                    &quot;prev_example&quot;:1923088532738022750,</span>
+<span class="go">                    &quot;example&quot;:1401028415299739275,</span>
+<span class="go">                    &quot;type&quot;:&quot;EXAMPLE_CHANGED&quot;</span>
+<span class="go">                },</span>
+<span class="go">                {</span>
+<span class="go">                    &quot;prev_example&quot;:459906967662468309,</span>
+<span class="go">                    &quot;example&quot;:1525998324968157929,</span>
+<span class="go">                    &quot;type&quot;:&quot;EXAMPLE_CHANGED&quot;</span>
+<span class="go">                },</span>
+<span class="go">                {</span>
+<span class="go">                    &quot;prev_example&quot;:200276835658424828,</span>
+<span class="go">                    &quot;example&quot;:407710308633891847,</span>
+<span class="go">                    &quot;type&quot;:&quot;EXAMPLE_CHANGED&quot;</span>
+<span class="go">                }</span>
+<span class="go">            ]</span>
 <span class="go">        }</span>
 <span class="go">    ]</span>
 <span class="go">}</span>
@@ -960,7 +965,7 @@ If you're familiar with how <a href="https://git-scm.com/">git</a> works the ide
 This can happen if you add new examples and want to rerun or run new operations later based on insights from that new data.</p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;commit_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;1923088532738022750&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;commit_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;375a4cdec36fa9e0efd1d7b2a02fb4287b99dbdc&quot;</span><span class="p">,</span>
 <span class="hll">    <span class="nt">&quot;operations&quot;</span><span class="p">:</span> <span class="p">[</span>
 </span>        <span class="p">{</span>
 <span class="hll">            <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;recon.v1.upcase_labels&quot;</span><span class="p">,</span>
@@ -1002,7 +1007,7 @@ This can happen if you add new examples and want to rerun or run new operations 
 The <code>examples_added</code>, <code>examples_removed</code>, <code>examples_changed</code> give you a summary of the overall changes by the operation.</p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;commit_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;1923088532738022750&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;commit_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;375a4cdec36fa9e0efd1d7b2a02fb4287b99dbdc&quot;</span><span class="p">,</span>
     <span class="nt">&quot;operations&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;recon.v1.upcase_labels&quot;</span><span class="p">,</span>
@@ -1056,7 +1061,7 @@ Each transformation has a <code>prev_example</code>, <code>example</code> and tr
 </ul>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;commit_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;1923088532738022750&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;commit_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;375a4cdec36fa9e0efd1d7b2a02fb4287b99dbdc&quot;</span><span class="p">,</span>
     <span class="nt">&quot;operations&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;recon.v1.upcase_labels&quot;</span><span class="p">,</span>
