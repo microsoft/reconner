@@ -351,6 +351,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dataset-state" class="md-nav__link">
+    Dataset state
+  </a>
+  
+</li>
+      
       
       
       
@@ -692,6 +699,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dataset-state" class="md-nav__link">
+    Dataset state
+  </a>
+  
+</li>
+      
       
       
       
@@ -785,7 +799,7 @@
 <p>Nice! We've easily applied the built-in "upcase_labels" function from Recon to fix our obvious mistakes.</p>
 <p>But that's not all...</p>
 <h2 id="tracking-operations">Tracking operations<a class="headerlink" href="#tracking-operations" title="Permanent link">&para;</a></h2>
-<p>It would be really easy to lose track of the operations run on our data if we ran a bunch of operations. Even with our single operation, we'd have to drill into both versions of the dataset to identify which examples we actually changed through recon. Recon takes care of this tracking for us.</p>
+<p>It would be really easy to lose track of the operations run on our data if we ran a bunch of operations. Even with our single operation, we'd have to save a copy of the data before running the <code>upcase_labels</code> operation and drill into both versions of the dataset to identify which examples we actually changed. Recon takes care of this tracking for us.</p>
 <p>Let's extend our previous example by saving our new Dataset to disk using (conveniently) <code>Dataset.to_disk</code>. </p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
@@ -816,7 +830,7 @@
 
 <div class="termy">
 
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> python main.py examples/data/skills/train.jsonl
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> python main.py examples/data/skills/train.jsonl examples/fixed_data/skills/train.jsonl
 
 <span class="go">STATS BEFORE</span>
 <span class="go">============</span>
@@ -848,6 +862,232 @@
 <span class="go">}</span>
 </code></pre></div>
 </div>
+
+<p>This should have the same console output as before.</p>
+<p>Let's investigate what Recon saved.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">typer</span>
+<span class="kn">from</span> <span class="nn">recon.dataset</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">recon.stats</span> <span class="kn">import</span> <span class="n">get_ner_stats</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">data_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">output_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;train&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">from_disk</span><span class="p">(</span><span class="n">data_file</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;STATS BEFORE&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;============&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_ner_stats</span><span class="p">,</span> <span class="n">serialize</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+<span class="hll">    <span class="n">ds</span><span class="o">.</span><span class="n">apply_</span><span class="p">(</span><span class="s2">&quot;recon.v1.upcase_labels&quot;</span><span class="p">)</span>
+</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;STATS AFTER&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===========&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_ner_stats</span><span class="p">,</span> <span class="n">serialize</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">typer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span>
+</code></pre></div>
+
+<div class="termy">
+
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> ll -a examples/fixed_data/skills
+
+<span class="go">├── .recon</span>
+<span class="go">├── train.jsonl</span>
+
+<span class="go">// train.jsonl is just our serialized data from our train Dataset</span>
+<span class="go">// What&#39;s in .recon?</span>
+
+<span class="gp">$</span> tree -a examples/fixed_data/skills/
+
+<span class="go">examples/fixed_data/skills/</span>
+<span class="go">├── .recon</span>
+<span class="go">│   ├── example_store.jsonl</span>
+<span class="go">│   └── train</span>
+<span class="go">│       └── state.json</span>
+<span class="go">└── train.jsonl</span>
+
+<span class="go">// Let&#39;s investigate the state.json for our train dataset.</span>
+
+<span class="gp">$</span> cat examples/fixed_data/skills/.recon/train/state.json
+
+<span class="go">{</span>
+<span class="go">    &quot;name&quot;:&quot;recon.v1.upcase_labels&quot;,</span>
+<span class="go">    &quot;batch&quot;:false,</span>
+<span class="go">    &quot;args&quot;:[],</span>
+<span class="go">    &quot;kwargs&quot;:{},</span>
+<span class="go">    &quot;status&quot;:&quot;COMPLETED&quot;,</span>
+<span class="go">    &quot;ts&quot;:1586687281,</span>
+<span class="go">    &quot;examples_added&quot;:0,</span>
+<span class="go">    &quot;examples_removed&quot;:0,</span>
+<span class="go">    &quot;examples_changed&quot;:3,</span>
+<span class="go">    &quot;transformations&quot;:[</span>
+<span class="go">        {</span>
+<span class="go">            &quot;prev_example&quot;:1923088532738022750,</span>
+<span class="go">            &quot;example&quot;:1401028415299739275,</span>
+<span class="go">            &quot;type&quot;:&quot;EXAMPLE_CHANGED&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;prev_example&quot;:459906967662468309,</span>
+<span class="go">            &quot;example&quot;:1525998324968157929,</span>
+<span class="go">            &quot;type&quot;:&quot;EXAMPLE_CHANGED&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;prev_example&quot;:200276835658424828,</span>
+<span class="go">            &quot;example&quot;:407710308633891847,</span>
+<span class="go">            &quot;type&quot;:&quot;EXAMPLE_CHANGED&quot;</span>
+<span class="go">        }</span>
+<span class="go">    ]</span>
+<span class="go">}</span>
+</code></pre></div>
+</div>
+
+<p>In the last command above you can see the output of what Recon saves when you call <code>Dataset.to_disk</code>.</p>
+<p>Let's dig into the saved state a bit more.</p>
+<h2 id="dataset-state">Dataset state<a class="headerlink" href="#dataset-state" title="Permanent link">&para;</a></h2>
+<p>The first property stored is the dataset name. Pretty self-explanatory.
+The second, <code>commit</code>, is a bit more complex. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A core principal of Recon is that all the data types can be hashed deterministically. This means you'll get the same hash if across Python environments and sessions for each core data type including: Corpus, Dataset, Example, Span and Token. </p>
+</div>
+<p>The <code>commit</code> property is a SHA-1 hash of the dataset
+name combined with that hash of each example in the dataset.
+If you're familiar with how <a href="https://git-scm.com/">git</a> works the idea is pretty similar.</p>
+<p>The <code>commit</code> property of a dataset allows us to understand if a Dataset changes between operations. 
+This can happen if you add new examples and want to rerun or run new operations later based on insights from that new data.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;commit_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;1923088532738022750&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="nt">&quot;operations&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span>        <span class="p">{</span>
+<span class="hll">            <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;recon.v1.upcase_labels&quot;</span><span class="p">,</span>
+</span><span class="hll">            <span class="nt">&quot;args&quot;</span><span class="p">:[],</span>
+</span><span class="hll">            <span class="nt">&quot;kwargs&quot;</span><span class="p">:{},</span>
+</span><span class="hll">            <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;COMPLETED&quot;</span><span class="p">,</span>
+</span><span class="hll">            <span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="mi">1586687281</span><span class="p">,</span>
+</span>            <span class="nt">&quot;examples_added&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;examples_removed&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;examples_changed&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+            <span class="nt">&quot;transformations&quot;</span><span class="p">:[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;prev_example&quot;</span><span class="p">:</span><span class="mi">1923088532738022750</span><span class="p">,</span>
+                    <span class="nt">&quot;example&quot;</span><span class="p">:</span><span class="mi">1401028415299739275</span><span class="p">,</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;EXAMPLE_CHANGED&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;prev_example&quot;</span><span class="p">:</span><span class="mi">459906967662468309</span><span class="p">,</span>
+                    <span class="nt">&quot;example&quot;</span><span class="p">:</span><span class="mi">1525998324968157929</span><span class="p">,</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;EXAMPLE_CHANGED&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;prev_example&quot;</span><span class="p">:</span><span class="mi">200276835658424828</span><span class="p">,</span>
+                    <span class="nt">&quot;example&quot;</span><span class="p">:</span><span class="mi">407710308633891847</span><span class="p">,</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;EXAMPLE_CHANGED&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The core of the stored state is the <code>operations</code> property. This operations property has all the information needed to both track and re-run an operation on a dataset.</p>
+<p>In the above state we have 1 operation since that's all we've run on our dataset so far.</p>
+<p>Each operation has a <code>name</code> (in this case <code>"recon.v1.upcase_labels"</code>) as well as any python <code>args</code> or <code>kwargs</code> run with the function. The <code>upcase_labels</code> operation has no required parameters so these are empty (we'll see some examples where these are not empty later in the tutorial).</p>
+<p>We also have a <code>status</code> (one of: NOT_STARTED, IN_PROGRESS, COMPLETED) and a <code>ts</code> (timestamp of when the operation was run).</p>
+<p>These attributes provide the base information to re-create the exact function call and provide the base information of the operation.</p>
+<p>The rest of the properties deal with transformation tracking.
+The <code>examples_added</code>, <code>examples_removed</code>, <code>examples_changed</code> give you a summary of the overall changes by the operation.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;commit_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;1923088532738022750&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;operations&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;recon.v1.upcase_labels&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;args&quot;</span><span class="p">:[],</span>
+            <span class="nt">&quot;kwargs&quot;</span><span class="p">:{},</span>
+            <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;COMPLETED&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="mi">1586687281</span><span class="p">,</span>
+<span class="hll">            <span class="nt">&quot;examples_added&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+</span><span class="hll">            <span class="nt">&quot;examples_removed&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+</span><span class="hll">            <span class="nt">&quot;examples_changed&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+</span>            <span class="nt">&quot;transformations&quot;</span><span class="p">:[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;prev_example&quot;</span><span class="p">:</span><span class="mi">1923088532738022750</span><span class="p">,</span>
+                    <span class="nt">&quot;example&quot;</span><span class="p">:</span><span class="mi">1401028415299739275</span><span class="p">,</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;EXAMPLE_CHANGED&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;prev_example&quot;</span><span class="p">:</span><span class="mi">459906967662468309</span><span class="p">,</span>
+                    <span class="nt">&quot;example&quot;</span><span class="p">:</span><span class="mi">1525998324968157929</span><span class="p">,</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;EXAMPLE_CHANGED&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;prev_example&quot;</span><span class="p">:</span><span class="mi">200276835658424828</span><span class="p">,</span>
+                    <span class="nt">&quot;example&quot;</span><span class="p">:</span><span class="mi">407710308633891847</span><span class="p">,</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;EXAMPLE_CHANGED&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Finally, the <code>transformations</code> property is the most useful for actually auditing and tracking your data changes.
+Each transformation has a <code>prev_example</code>, <code>example</code> and transformation <code>type</code>. </p>
+<p>The example properties contain the Example hash or the example before and after the transformation occured. This is really not useful by itself, but these hashes coincide to the hash -&gt; Example mappings in the example_store.jsonl file that Recon saves for you. The ExampleStore is a central store that keeps track of all examples you've ever had in your dataset. This way, we can always revert back or see a concrete comparison of what each operation added/removed/changed by resolving the transformations to their corresponding examples.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Having an ExampleStore is obviously more than doubling the storage required for your data but NER datasets are ususually not that big since they're hard to annotate. For reference, Recon has been tested on a Dataset of 200K examples with no issue.</p>
+</div>
+<p>The transformation <code>type</code> will always be one of (EXAMPLE_ADDED, EXAMPLE_REMOVED, or EXAMPLE_CHANGED).</p>
+<ul>
+<li>EXAMPLE_ADDED - In this case, the <code>prev_example</code> property will be <code>null</code> since we're just adding an example to our dataset.
+    This can happen if an operation returns more than one example for every example it sees. A good reference example is the <a href="link/to/split_sentences"><code>recon.v1.split_sentences</code></a> operation. This operation will find all the sentences in an example and split them out into separate examples. </li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>So if an example has 2 sentences, Recon will track this operation as removing the original example and adding 2 examples. You'll see those reflected in the transformations</p>
+</div>
+<ul>
+<li>EXAMPLE_REMOVED - By default, Recon removes Examples that have bad final annotations that can't be properly resolved to token boundaries. Good reference examples for this behavior are the operations <a href="link/to/fix_tokenization_and_spacing"><code>recon.v1.fix_tokenization_and_spacing</code></a> and <a href="link/to/add_tokens"><code>recon.v1.add_tokens</code></a></li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;commit_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;1923088532738022750&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;operations&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;recon.v1.upcase_labels&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;args&quot;</span><span class="p">:[],</span>
+            <span class="nt">&quot;kwargs&quot;</span><span class="p">:{},</span>
+            <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;COMPLETED&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="mi">1586687281</span><span class="p">,</span>
+            <span class="nt">&quot;examples_added&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;examples_removed&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;examples_changed&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+<span class="hll">            <span class="nt">&quot;transformations&quot;</span><span class="p">:[</span>
+</span>                <span class="p">{</span>
+<span class="hll">                    <span class="nt">&quot;prev_example&quot;</span><span class="p">:</span><span class="mi">1923088532738022750</span><span class="p">,</span>
+</span><span class="hll">                    <span class="nt">&quot;example&quot;</span><span class="p">:</span><span class="mi">1401028415299739275</span><span class="p">,</span>
+</span><span class="hll">                    <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;EXAMPLE_CHANGED&quot;</span>
+</span>                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;prev_example&quot;</span><span class="p">:</span><span class="mi">459906967662468309</span><span class="p">,</span>
+                    <span class="nt">&quot;example&quot;</span><span class="p">:</span><span class="mi">1525998324968157929</span><span class="p">,</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;EXAMPLE_CHANGED&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;prev_example&quot;</span><span class="p">:</span><span class="mi">200276835658424828</span><span class="p">,</span>
+                    <span class="nt">&quot;example&quot;</span><span class="p">:</span><span class="mi">407710308633891847</span><span class="p">,</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;EXAMPLE_CHANGED&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
                 
                   
                 

@@ -812,6 +812,8 @@ using a Dataset. That's because <code>Dataset.from_disk</code> calls <code>read_
 <p>This means you don't have to import the get_ner_stats function. For a full list of operations see
 the <a href="/api/operations">operations API guide</a></p>
 <p>All of these examples should return the exact same response. See for yourself:</p>
+<div class="termy">
+
 <div class="codehilite"><pre><span></span><code><span class="gp">$</span> python main.py ./examples/data/skills/train.jsonl
 <span class="go">{</span>
 <span class="go">    &quot;n_examples&quot;:106,</span>
@@ -827,6 +829,7 @@ the <a href="/api/operations">operations API guide</a></p>
 <span class="go">    &quot;examples_with_type&quot;:null</span>
 <span class="go">}</span>
 </code></pre></div>
+</div>
 
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p>It's great that we can manage our data operations using a Dataset and named functions but our data is still messy. We still have those pesky lowercased labels for "skill" and "product" that should clearly be "SKILL" and "PRODUCT" respectively.
